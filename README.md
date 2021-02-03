@@ -1,24 +1,47 @@
-# README
+## usersテーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| name               | string | null: false               |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false               |
 
-Things you may want to cover:
+### Association
+- has_many :rooms
+- has_many :session_logs
 
-* Ruby version
+## roomsテーブル
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| room_name     | string     | null: false                    |
+| player_number | string     | null: false                    |
+| password      | integer    | null: false                    |
+| user          | references | null: false, foreign_key: true |
 
-* System dependencies
+### Association
+- belongs_to :user
+- has_many :characters
+- has_one :session_log
 
-* Configuration
+## charactersテーブル
+| Column         | Type       | Options                        |
+| -------------- | ---------- | ------------------------------ |
+| character_name | string     | null: false                    |
+| secret         | text       |                                |
+| last_resort    | text       |                                |
+| room           | references | null: false, foreign_key: true |
 
-* Database creation
+### Association
+- belongs_to :room
 
-* Database initialization
+## session_logテーブル
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| title  | string     | null: false                    |
+| log    | text       | null: false                    |
+| user   | references | null: false, foreign_key: true |
+| room   | references | null: false, foreign_key: true |
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Association
+- belongs_to :room
+- belongs_to :user
