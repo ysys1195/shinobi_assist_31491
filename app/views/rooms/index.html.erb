@@ -1,0 +1,9 @@
+<h2>トップページ</h2>
+
+<% if user_signed_in? %>
+  <%= current_user.name %><br>
+  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= link_to 'サインイン', new_user_registration_path %><br>
+  <%= link_to 'ログイン', new_user_session_path %>
+<% end %>
