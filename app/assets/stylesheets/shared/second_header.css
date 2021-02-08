@@ -1,0 +1,18 @@
+.create_playlog{
+  height: 35px;
+  padding: 5px 15px;
+  font-size: 20px;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  text-shadow: 1px -1px 5px red;
+  font-family: 'ヒラギノ明朝 ProN W6';
+  background-color: #333631;
+}
+
+.delete_room{
+  height: 43px;
+  width: 130px;
+  margin-left: 10px;
+  text-align: center;
+}
