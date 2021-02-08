@@ -1,0 +1,20 @@
+<%# CSS...assets/stylesheets/shared/second_header.css %>
+<%# ルームへの遷移画面とセッションルームのヘッダー %>
+
+<header>
+  <div class="main-left-header">
+      <%= link_to '忍びアシスト', root_path, class: "app-title" %>
+  </div>
+  <div class="main-right-header">
+    <ul class="nav">
+      <% if user_signed_in? %>
+        <div class="create_playlog">
+          <li><%= link_to 'プレイ履歴作成', "#" %></li>
+          <%# プレイ履歴を作成する　%>
+        </div>
+        <li><%= link_to image_tag("delete_room.png", class: "delete_room"), "#" %></li>
+        <%# ルームを削除する　%>
+      <% end %>
+    </ul>
+  </div>
+</header>

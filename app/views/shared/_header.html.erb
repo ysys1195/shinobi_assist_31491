@@ -1,0 +1,20 @@
+<%# CSS...assets/stylesheets/shared/header.css %>
+
+<header>
+  <div class="main-left-header">
+      <%= link_to '忍びアシスト', root_path, class: "app-title" %>
+  </div>
+  <div class="main-right-header">
+    <ul class="nav">
+      <% if user_signed_in? %>
+        <div class="user-name">
+          <li><%= link_to current_user.name, '#' %></li>
+        </div>
+        <li><%= link_to image_tag("logout_bottun.png", class: "logout"), destroy_user_session_path, method: :delete %></li>
+      <% else%>
+        <li><%= link_to image_tag("login_bottun.png", class: "login"), new_user_session_path %></li>
+        <li><%= link_to image_tag("signup_bottun.png", class: "sign-in"), new_user_registration_path %></li>
+      <% end %>
+    </ul>
+  </div>
+</header>

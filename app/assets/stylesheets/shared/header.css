@@ -1,0 +1,54 @@
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  width: 100vw;
+  background-color: black;
+  padding: 0 20px;
+  position: fixed;
+}
+
+.app-title{
+  color: white;
+  font-size: 40px;
+  font-family: 'ヒラギノ角ゴ Std W8';
+  text-shadow: 3px -3px 5px red;
+}
+
+.nav{
+  display: flex;
+  align-items: center;
+}
+
+.user-name{
+  height: 35px;
+  padding: 5px 15px;
+  font-size: 20px;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  text-shadow: 1px -1px 5px red;
+  font-family: 'ヒラギノ明朝 ProN W6';
+  background-color: #333631;
+}
+
+.login{
+  height: 43px;
+  width: 130px;
+  text-align: center;
+}
+
+.logout{
+  height: 43px;
+  width: 130px;
+  margin-left: 10px;
+  text-align: center;
+}
+
+.sign-in{
+  height: 43px;
+  width: 130px;
+  margin-left: 10px;
+  text-align: center;
+}
