@@ -1,0 +1,20 @@
+/* 全シートに共通するCSS */
+
+body{
+  background-color: #c0c0c0;
+}
+
+.outer-form-wrap{
+  background-color: #666666;
+  /* width: 90vw;
+  height: 340px; */
+  margin: 10px 10vw 20px;
+  padding: 20px 10vw 20px;
+}
+
+.form-wrap{
+  background-color: #a9a9a9;
+  width: 60vw;
+  /* height: 480px; */
+  border-radius: 5px;
+}
