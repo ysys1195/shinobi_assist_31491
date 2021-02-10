@@ -1,0 +1,22 @@
+.sentences{
+  font-size: 15px;
+  color: white;
+  margin: 20px;
+  font-family: 'ヒラギノ明朝 ProN W6';
+}
+
+.room-btn{
+  padding: 10px 20px;
+  height: 55px;
+  width: 160px;
+  font-size: 25px;
+  border-radius: 5px;
+  margin: 0 calc(50% - 80px);
+  border: solid 2px black;
+  color: white;
+  text-shadow: 1px 1px 5px red;
+  text-align: center;
+  box-shadow: 2px 2px 5px black;
+  background: linear-gradient(#696969, gray, silver);
+  font-family: 'ヒラギノ明朝 ProN W6';
+}
