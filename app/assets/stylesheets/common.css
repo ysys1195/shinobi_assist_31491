@@ -10,6 +10,7 @@ body{
   height: 340px; */
   margin: 10px 10vw 20px;
   padding: 20px 10vw 20px;
+  box-shadow: 1px 1px 5px black;
 }
 
 .form-wrap{
