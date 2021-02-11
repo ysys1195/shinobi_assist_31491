@@ -4,7 +4,7 @@ FactoryBot.define do
     player_number         { Faker::Number.within(range: 2..6) }
     password              { Faker::Internet.password(min_length: 4) }
     password_confirmation { password }
-    association :user
     token                 { Faker::Internet.uuid }
+    association :user
   end
 end

@@ -1,7 +1,7 @@
 require 'securerandom'
 
 class Room < ApplicationRecord
-before_create :create_token
+  before_create :create_token
 
   with_options presence: true do
     validates :room_name
