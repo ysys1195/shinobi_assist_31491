@@ -11,12 +11,12 @@
 - has_many :session_logs
 
 ## roomsテーブル
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| room_name     | string     | null: false                    |
-| player_number | string     | null: false                    |
-| password      | integer    | null: false                    |
-| user          | references | null: false, foreign_key: true |
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| room_name       | string     | null: false                    |
+| player_number   | string     | null: false                    |
+| password_digest | string     | null: false                    |
+| user            | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
