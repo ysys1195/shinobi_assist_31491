@@ -9,6 +9,7 @@ class Room < ApplicationRecord
   end
   validates :password, length: { minimum: 4 }
   belongs_to :user
+  has_many :characters
   has_secure_password
 
   private

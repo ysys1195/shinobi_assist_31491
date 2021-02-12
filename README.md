@@ -33,6 +33,8 @@
 
 ### Association
 - belongs_to :room
+- has_many :condition
+- has_many :feeling
 
 ## session_logテーブル
 | Column | Type       | Options                        |
@@ -45,3 +47,22 @@
 ### Association
 - belongs_to :room
 - belongs_to :user
+
+## conditionテーブル
+| Column    | Type       | Options                        |
+| --------- | ---------- | ------------------------------ |
+| state_id  | integer    | null: false                    |
+| character | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :character
+
+## feelingテーブル
+| Column     | Type       | Options                        |
+| ---------- | ---------- | ------------------------------ |
+| feel_id    | integer    | null: false                    |
+| feeling_to | string     | null: false                    |
+| character  | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :character
