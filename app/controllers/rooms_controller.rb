@@ -1,19 +1,16 @@
 class RoomsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:create]
 
   def index
-  end
-
-  def new
     @room = Room.new
   end
 
   def create
     @room = Room.new(room_params)
     if @room.save
-      redirect_to room_path(token: @room.token)
+      redirect_to new_room_character_path(room_token: @room.token)
     else
-      render :new
+      render :index
     end
   end
 
