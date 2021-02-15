@@ -1,6 +1,9 @@
 class Character < ApplicationRecord
   validates :character_name, presence: true
-  validates :secret
-  validates :last_resort
+  validate :secret
+  validate :last_resort
+  
   belongs_to :room
+  has_many :feelings
+  has_many :conditions
 end

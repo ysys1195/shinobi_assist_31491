@@ -12,9 +12,40 @@
   </div><br />
   <% if user_signed_in? %>
     <br />
+    <div class="form-wrap">
+    <div class="form-title">
+    部屋作成
+    </div>
+
     <div>
-      <%= link_to '部屋作成', new_room_path, class: "room-btn" %>
-    </div><br /><br />
+      <%= form_with model: @room, local: true do |f| %>
+
+        <%= render 'shared/errors_messages', model: f.object %>
+
+        <div class="form-contents">
+          <div class="field">
+            <label>部屋名</label><br />
+            <%= f.text_field :room_name, placeholder: "部屋名を入力", class: "text_box" %>
+          </div>
+          <div class="field">
+            <label>PC名数</label><br />
+            <%= f.text_field :player_number, placeholder: "PC数を入力", class: "text_box" %>
+          </div>
+          <div class="field">
+            <label>パスワード</label> (任意)<br />
+            <%= f.text_field :password, placeholder: "パスワードを入力", class: "text_box" %>
+          </div>
+          <div class="field">
+            <label>パスワード確認</label> (任意)<br />
+            <%= f.text_field :password_confirmation, placeholder: "パスワードを再度入力", class: "text_box" %>
+          </div><br /><br />
+          <div>
+            <%= f.submit "　次へ　", class: "room-btn" %>
+          </div><br />
+        </div>
+      <% end %>
+    </div>
+  </div><br /><br />
   <% end %>
   <div class="form-wrap">
     <div class="form-title">

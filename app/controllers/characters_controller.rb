@@ -5,10 +5,11 @@ class CharactersController < ApplicationController
 
   def create
     @character = Character.new(character_params)
+    room = Room.find(params[:room_id])
     if @character.save
-      redirect_to root_path
+      redirect_to room_path(token: @room.token)
     else
-      render: :new
+      render :new
     end
   end
 

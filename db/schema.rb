@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2021_02_12_113346) do
 
   create_table "conditions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "state_id", null: false
-    t.bigint "character_id", null: false
+    t.bigint "character_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["character_id"], name: "index_conditions_on_character_id"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2021_02_12_113346) do
   create_table "feelings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "feel_id", null: false
     t.string "feeling_to", null: false
-    t.bigint "character_id", null: false
+    t.bigint "character_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["character_id"], name: "index_feelings_on_character_id"
@@ -64,6 +64,4 @@ ActiveRecord::Schema.define(version: 2021_02_12_113346) do
   end
 
   add_foreign_key "characters", "rooms"
-  add_foreign_key "conditions", "characters"
-  add_foreign_key "feelings", "characters"
 end
