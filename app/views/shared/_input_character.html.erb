@@ -1,0 +1,42 @@
+<div class="outer-form-wrap">
+  <div class="form-wrap">
+    <div class="form-title">
+    キャラクター情報入力
+    </div>
+
+    <div>
+      <%= form_with model: @character,local: true do |f| %>
+
+        <%= render 'shared/errors_messages', model: f.object %>
+
+        <% @room.player_number.times do |i| %>
+          <div class="form-contents">
+            <div class="pc_number">
+              <%= "PC#{i + 1}" %>
+            </div>
+            <div class="char_field">
+              <label>PC名</label><br />
+              <%= f.text_field :character_name, placeholder: "PC名を入力", class: "text_box" %>
+            </div>
+            <div class="char_field">
+              <label>秘密</label><br />
+              <%= f.text_area :character_name, placeholder: "秘密を入力", class: "textarea_box" %>
+            </div>
+            <div class="char_field">
+              <label>奥義</label><br />
+              <%= f.text_area :character_name, placeholder: "奥義を入力", class: "textarea_box" %>
+            </div>
+          </div>
+        <% end %>
+        <div class="char_field">
+          <label>トークン</label><br />
+          <%= f.text_field :room_token, value: @room.token, class: "text_box" %>
+        </div>
+        
+        <div>
+          <%= f.submit "部屋作成", class: "room-btn" %>
+        </div><br />
+      <% end %>
+    </div>
+  </div>
+</div>
