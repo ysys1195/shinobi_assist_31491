@@ -8,7 +8,7 @@ class RoomsController < ApplicationController
   def create
     @room = Room.new(room_params)
     if @room.save
-      redirect_to new_room_character_path(room_token: @room.token)
+      redirect_to room_path(token: @room.token)
     else
       render :index
     end
@@ -16,6 +16,7 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find_by(token: params[:token])
+    @character = Character.find_by(room_id: params[:token])
   end
 
   private
