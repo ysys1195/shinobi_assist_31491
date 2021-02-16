@@ -1,67 +1,15 @@
-<%= form_with model: @character, local: true do |f| %>
 
-<%= render "shared/second_header", model: f %>
+
+<%= render "shared/second_header"%>
 
   <% 1.times do %>
 
     <div class="outer_status_frame">
-      <% 2.times do %>
+      <% @room.player_number.times do %>
 
         <div class="middle_status_frame">
-          <div class="character_name_frame">
-            <div class="name_click_frame">
-              <%= f.text_field :charater_name, placeholder: "PC名を入力", class: "character_name" %>
-            </div>
-          </div>
-          <div class="status_frame">
-            <div class="upper_status_frame">
-              <div class="status_click_frame">
-                <div class="status_name">
-                  秘密
-                </div>
-                <div class="secret_bubble">
-                  <%= f.text_area :secret, placeholder: "秘密を入力", class: "input_secret" %>
-                </div>
-              </div>
-              <div class="status_click_frame">
-                <div class="status_name">
-                  奥義
-                </div>
-                <div class="last_resort_bubble">
-                  <%= f.text_area :last_resort, placeholder: "奥義を入力", class: "input_last_resort" %>
-                </div>
-              </div>
-            </div>
-            <div class="lower_status_frame">
-              <div class="status_click_frame">
-                <div class="status_name">
-                  変調
-                </div>
-                <div class="condition_bubble">
-                  <%= f.collection_select(:state_id, State.all, :id, :name, {}, {class: "select_box"}) %>
-                </div>
-              </div>
-              <div class="status_click_frame">
-                <div class="status_name">
-                  感情
-                </div>
-                <div class="feeling_bubble">
-                  <div class="feeling_content">
-                    <div class="select_box">
-                      <select>
-                        <option value="">PCを選択</option>
-                        <%# <% Character.all.each do |char| %>
-                        <%# <option><%= char.character_name %></option> %>
-                        <%# <% end %> %>
-                      </select>
-                    </div>
-                    <div class="arrow-shape"></div>
-                    <%= f.collection_select(:feel_id, Feel.all, :id, :name, {}, {class: "select_box"}) %>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          キャラクター情報入力
+          <div></div>
         </div>
 
       <% end %>
@@ -69,4 +17,3 @@
 
   <% end %>
 
-<% end %>
