@@ -8,7 +8,27 @@
   background-color: #d3d3d3;
   border-radius: 5px;
   margin: 10px;
-  padding:10px
+  padding:10px;
+  box-shadow: 1px 1px 5px black;
+}
+
+.input_char_info{
+  margin: 10px 10px 20px;
+  padding: 10px;
+  font-size: 20px;
+  text-shadow: 1px 1px 3px white;
+  font-family: 'ヒラギノ明朝 ProN W6';
+  background-color: rgb(167, 167, 167);
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px black;
+}
+
+.pc_number{
+  color: rgb(32, 32, 32);
+  font-size: 17px;
+  border-bottom: 1px solid white;
+  margin-bottom: 5px;
+  font-family: 'ヒラギノ明朝 ProN W6';
 }
 
 /* .status_frame{
@@ -20,7 +40,7 @@
 } */
 
 .upper_status_frame{
-  display: flex;
+  /* display: flex; */
 }
 
 .lower_status_frame{

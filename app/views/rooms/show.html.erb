@@ -5,10 +5,21 @@
   <% 1.times do %>
 
     <div class="outer_status_frame">
-      <% @room.player_number.times do %>
+      <% @room.player_number.times do |num| %>
 
         <div class="middle_status_frame">
-          キャラクター情報入力
+          <% if @character == nil %>
+            <div class="upper_status_frame">
+              <div class="pc_number">
+                <%= "PC#{num + 1}" %>
+              </div>
+            </div>
+            <div class="lower_status_frame">
+              <div class="input_char_info">
+                クリックで<br />キャラクター情報を入力
+              </div>
+            </div>
+          <% end %>
           <div></div>
         </div>
 
