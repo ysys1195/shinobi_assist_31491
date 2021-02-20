@@ -1,7 +1,7 @@
 <div class="wrap-char-form" id="form-bg<%= num %>">
   <div class="form-background"></div>
   <div class="char-form">
-    <%= form_with url: room_characters_path(token), method: :post, local: true do |f| %>
+    <%= form_with model: [@room, @character], local: true do |f| %>
       <div class="form-title">
           キャラクター情報登録
         </div>
