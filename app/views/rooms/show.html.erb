@@ -1,30 +1,29 @@
-
-
 <%= render "shared/second_header"%>
+    <% 1.times do %>
 
-  <% 1.times do %>
+      <div class="outer_status_frame">
+        <% @room.player_number.times do |num| %>
 
-    <div class="outer_status_frame">
-      <% @room.player_number.times do |num| %>
-
-        <div class="middle_status_frame">
-          <% if @character == nil %>
-            <div class="upper_status_frame">
-              <div class="pc_number">
-                <%= "PC#{num + 1}" %>
+          <div class="middle_status_frame">
+            <% if @characters == nil %>
+              <div class="upper_status_frame">
+                <div class="pc_number">
+                  <%= "PC#{num + 1}" %>
+                </div>
               </div>
-            </div>
-            <div class="lower_status_frame">
-              <div class="input_char_info">
-                クリックで<br />キャラクター情報を入力
+              <div class="lower_status_frame">
+                <button class="input_char_info", data-target="form-bg<%= num %>">
+                  キャラクター情報を入力
+                </button>
+                <%= render "form", num: num, token: @room.token %>
               </div>
-            </div>
-          <% end %>
-          <div></div>
-        </div>
+            <% else %>
+              <div>保存完了</div>
+            <% end %>
+            <div></div>
+          </div>
 
-      <% end %>
-    </div>
+        <% end %>
+      </div>
 
-  <% end %>
-
+    <% end %>
