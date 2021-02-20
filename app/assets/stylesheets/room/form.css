@@ -1,0 +1,66 @@
+.wrap-char-form{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+}
+
+.form-background{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0%;
+  left: 0%;
+  z-index: 0;
+}
+
+.char-form{
+  width: 60%;
+  height: 520px;
+  margin: 10% 20%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0%;
+  left: 0%;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.long_text_box{
+  background-color: white;
+  color: black;
+  font-family: 'ヒラギノ明朝 ProN W6';
+  padding-left: 5px;
+  height: 100px;
+  width: 100%;
+  border-radius: 2px;
+}
+
+.character_box{
+  background-color: white;
+  color: black;
+  font-family: 'ヒラギノ明朝 ProN W6';
+  padding-left: 5px;
+  height: 40px;
+  width: 100%;
+  border-radius: 2px;
+}
+
+.add-btn{
+  height: 40px;
+  width: 140px;
+  font-size: 25px;
+  border-radius: 5px;
+  margin: 30px calc(50% - 70px) 10px;
+  border: solid 2px black;
+  color: white;
+  text-align: center;
+  box-shadow: 2px 2px 5px black;
+  background: linear-gradient(#696969, gray, silver);
+  font-family: 'ヒラギノ明朝 ProN W6';
+}
+
+.hidden-item{
+  display: none;
+}

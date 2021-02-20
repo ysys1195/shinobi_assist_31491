@@ -1,0 +1,236 @@
+.outer_status_frame{
+  display: flex;
+  justify-content: space-around;
+  margin: 10vh 10vw;
+}
+
+.middle_status_frame{
+  background-color: #d3d3d3;
+  border-radius: 5px;
+  margin: 10px;
+  padding:10px;
+  box-shadow: 1px 1px 5px black;
+}
+
+.input_char_info{
+  margin: 10px 10px 20px;
+  padding: 10px;
+  font-size: 20px;
+  text-shadow: 1px 1px 3px white;
+  font-family: 'ヒラギノ明朝 ProN W6';
+  background-color: rgb(167, 167, 167);
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px black;
+}
+
+.pc_number{
+  color: rgb(32, 32, 32);
+  font-size: 17px;
+  border-bottom: 1px solid white;
+  margin-bottom: 5px;
+  font-family: 'ヒラギノ明朝 ProN W6';
+}
+
+/* .status_frame{
+  background-color: blue;
+}
+
+.character_name_frame{
+  background-color: red;
+} */
+
+.upper_status_frame{
+  /* display: flex; */
+}
+
+.lower_status_frame{
+  display: flex;
+}
+
+/* クリックする部分 */
+.name_click_frame{
+  display: inline-block;
+  margin: 5px;
+  padding: 10px;
+  width: 210px;
+  height: 40px;
+}
+
+.status_click_frame{
+  background-color: white;
+  display: inline-block;
+  margin: 5px;
+  padding: 10px;
+  width: 100px;
+  height: 40px;
+}
+/* クリックする部分 */
+
+/* ラベル部分 */
+.character_name{
+  color: black;
+  text-shadow: 1px -1px 2px red;
+  font-size: 20px;
+}
+
+.status_name{
+  font-family: 'ヒラギノ明朝 ProN W6';
+  text-align: center;
+  color: black;
+}
+/* ラベル部分 */
+
+/* 秘密の吹き出し */
+.secret_bubble{
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  top: 20%;
+  left: 0%;
+  width: 300px;
+  height: 200px;
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.7);
+  /* display: none; */
+}
+
+.secret_bubble::after{
+  position: absolute;
+  content: '';
+  height: 0;
+  width: 0;
+  border: 10px solid transparent;
+  bottom: 100%;
+  left: 10%;
+  border-bottom: 10px solid rgba(0, 0, 0, 0.7);
+}
+
+.input_secret{
+  font-family: 'ヒラギノ明朝 ProN W6';
+  color: white;
+  width: 280px;
+  height: 180px;
+}
+
+/* 秘密の吹き出し */
+
+/* 奥義の吹き出し */
+.last_resort_bubble{
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  top: 10%;
+  right: 200%;
+  width: 300px;
+  height: 200px;
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.7);
+  /* display: none; */
+}
+
+.last_resort_bubble::after{
+  position: absolute;
+  content: '';
+  height: 0;
+  width: 0;
+  border: 10px solid transparent;
+  bottom: 100%;
+  right: 20%;
+  border-bottom: 10px solid rgba(0, 0, 0, 0.7);
+}
+
+.input_last_resort{
+  font-family: 'ヒラギノ明朝 ProN W6';
+  color: white;
+  width: 280px;
+  height: 180px;
+}
+/* 奥義の吹き出し */
+
+/* 変調の吹き出し */
+.condition_bubble{
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  bottom: 0%;
+  right: 10%;
+  min-width: 250px;
+  width: auto;
+  min-height: 100px;
+  height: auto;
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* display: none; */
+}
+
+.condition_bubble::after{
+  position: absolute;
+  content: '';
+  height: 0;
+  width: 0;
+  border: 10px solid transparent;
+  bottom: 100%;
+  right: 85%;
+  border-bottom: 10px solid rgba(0, 0, 0, 0.5);
+}
+/* 変調の吹き出し */
+
+/* 感情の吹き出し */
+.feeling_bubble{
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  top: 30%;
+  left: 0%;
+  min-width: 250px;
+  width: auto;
+  height: 100px;
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* display: none; */
+}
+
+.feeling_bubble::after{
+  position: absolute;
+  content: '';
+  height: 0;
+  width: 0;
+  border: 10px solid transparent;
+  bottom: 100%;
+  left: 10%;
+  border-bottom: 10px solid rgba(0, 0, 0, 0.5);
+}
+
+.select_box{
+  background-color: rgba(255, 255, 255, 0.8);
+  display: inline-block;
+  margin: 5px;
+  min-width: 100px;
+  width: auto;
+  font-family: 'ヒラギノ明朝 ProN W6';
+}
+
+.feeling_content{
+  display: flex;
+}
+
+.arrow-shape{
+  background-color: black;
+  margin: 12px 10px 0 0;
+  height: 5px;
+  width: 10px;
+  position: relative;
+  display: inline-block;
+}
+
+.arrow-shape::after{
+  content: '';
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: -140%;
+  left: 100%;
+  border: 10px solid transparent;
+  border-left: 10px solid black;
+}
+/* 感情の吹き出し */

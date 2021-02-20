@@ -1,0 +1,27 @@
+<div class="wrap-char-form" id="form-bg<%= num %>">
+  <div class="form-background"></div>
+  <div class="char-form">
+    <%= form_with url: room_characters_path(token), method: :post, local: true do |f| %>
+      <div class="form-title">
+          キャラクター情報登録
+        </div>
+      <div class="form-contents">
+        <div class="field">
+          <%= f.label "キャラクター名" %><br />
+          <%= f.text_field :character_name, placeholder: "キャラクター名を入力", class: "character_box" %>
+        </div>
+        <div class="field">
+          <%= f.label "秘密" %><br />
+          <%= f.text_area :secret, placeholder: "秘密を入力", class: "long_text_box" %>
+        </div>
+        <div class="field">
+          <%= f.label "奥義" %><br />
+          <%= f.text_area :last_resort, placeholder: "奥義を入力", class: "long_text_box" %>
+        </div>
+        <div class="add-btn">
+          <%= f.submit "追加" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
