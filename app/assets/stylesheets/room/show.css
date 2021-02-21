@@ -31,46 +31,60 @@
   font-family: 'ヒラギノ明朝 ProN W6';
 }
 
-/* .status_frame{
-  background-color: blue;
+.status_frame{
+  /* background-color: blue; */
 }
 
 .character_name_frame{
-  background-color: red;
-} */
+  height: 40px;
+  display: flex;
+  border-bottom: 1px solid white;
+  align-items: flex-start;
+}
 
 .upper_status_frame{
-  /* display: flex; */
+  display: flex;
+  justify-content: space-around;
 }
 
 .lower_status_frame{
   display: flex;
+  justify-content: space-around;
 }
 
-/* クリックする部分 */
-.name_click_frame{
-  display: inline-block;
-  margin: 5px;
-  padding: 10px;
-  width: 210px;
-  height: 40px;
-}
+/* マウスオーバー部分 */
 
-.status_click_frame{
+.status_over_frame{
   background-color: white;
   display: inline-block;
   margin: 5px;
   padding: 10px;
   width: 100px;
   height: 40px;
+  border-radius: 2px;
+  box-shadow: 1px 1px 4px black;
 }
-/* クリックする部分 */
+/* マウスオーバー部分 */
 
 /* ラベル部分 */
 .character_name{
   color: black;
   text-shadow: 1px -1px 2px red;
-  font-size: 20px;
+  font-size: 25px;
+  width: 220px;
+  display: inline-block;
+  overflow: scroll;
+}
+
+.char-edit-btn{
+  display: inline-block;
+  background-color: rgba(100, 100, 100);
+  color: white;
+  border-radius: 10px;
+  height: 35px;
+  box-shadow: 1px 1px 5px black;
+  padding: 0 10px;
+  font-size: 17px;
 }
 
 .status_name{
@@ -80,18 +94,34 @@
 }
 /* ラベル部分 */
 
+/* .bubble-position{
+  position: absolute;
+} */
+
+.char-upper-display{
+  color: white;
+  height: 180px;
+  overflow: scroll;
+}
+
+.char-lower-display{
+  color: white;
+  height: 130px;
+  overflow: scroll;
+}
+
 /* 秘密の吹き出し */
 .secret_bubble{
   position: relative;
   display: inline-block;
   padding: 10px;
-  top: 20%;
+  top: 45%;
   left: 0%;
   width: 300px;
   height: 200px;
   border-radius: 3px;
   background-color: rgba(0, 0, 0, 0.7);
-  /* display: none; */
+  display: none;
 }
 
 .secret_bubble::after{
@@ -119,13 +149,13 @@
   position: relative;
   display: inline-block;
   padding: 10px;
-  top: 10%;
-  right: 200%;
+  top: 45%;
+  right: 220%;
   width: 300px;
   height: 200px;
   border-radius: 3px;
   background-color: rgba(0, 0, 0, 0.7);
-  /* display: none; */
+  display: none;
 }
 
 .last_resort_bubble::after{
@@ -152,15 +182,14 @@
   position: relative;
   display: inline-block;
   padding: 10px;
-  bottom: 0%;
-  right: 10%;
+  top: 45%;
+  right: 0%;
   min-width: 250px;
   width: auto;
-  min-height: 100px;
-  height: auto;
+  height: 150px;
   border-radius: 3px;
   background-color: rgba(0, 0, 0, 0.5);
-  /* display: none; */
+  display: none;
 }
 
 .condition_bubble::after{
@@ -180,14 +209,14 @@
   position: relative;
   display: inline-block;
   padding: 10px;
-  top: 30%;
-  left: 0%;
+  top: 45%;
+  right: 200%;
   min-width: 250px;
   width: auto;
-  height: 100px;
+  height: 150px;
   border-radius: 3px;
   background-color: rgba(0, 0, 0, 0.5);
-  /* display: none; */
+  display: none;
 }
 
 .feeling_bubble::after{
@@ -197,7 +226,7 @@
   width: 0;
   border: 10px solid transparent;
   bottom: 100%;
-  left: 10%;
+  right: 10%;
   border-bottom: 10px solid rgba(0, 0, 0, 0.5);
 }
 

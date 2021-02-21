@@ -18,6 +18,9 @@
           <%= f.label "奥義" %><br />
           <%= f.text_area :last_resort, placeholder: "奥義を入力", class: "long_text_box" %>
         </div>
+        <div class="hidden-item">
+          <%= f.text_field :pc_number, value: num %>
+        </div>
         <div class="add-btn">
           <%= f.submit "追加" %>
         </div>

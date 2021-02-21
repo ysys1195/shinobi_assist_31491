@@ -1,29 +1,94 @@
 <%= render "shared/second_header"%>
-    <% 1.times do %>
+<% 1.times do %>
 
-      <div class="outer_status_frame">
-        <% @room.player_number.times do |num| %>
+  <div class="outer_status_frame">
+    <% @room.player_number.times do |num| %>
+      <% num += 1 %>
+      <% selected_char = "" %>
 
-          <div class="middle_status_frame">
-            <% if @characters == nil %>
-              <div class="upper_status_frame">
-                <div class="pc_number">
-                  <%= "PC#{num + 1}" %>
-                </div>
-              </div>
-              <div class="lower_status_frame">
-                <button class="input_char_info", data-target="form-bg<%= num %>">
-                  キャラクター情報を入力
-                </button>
-                <%= render "form", num: num, token: @room.token %>
-              </div>
-            <% else %>
-              <div>保存完了</div>
-            <% end %>
-            <div></div>
+      <% @characters.each do |char| %>
+        <% if char.pc_number == num %>
+          <% selected_char = char %>
+          <% break %>
+        <% end %>
+      <% end %>
+
+      <div class="middle_status_frame">
+        <% if selected_char == "" %>
+          <div class="upper_status_frame">
+            <div class="pc_number">
+              <%= "PC#{num}" %>
+            </div>
+          </div>
+          <div class="lower_status_frame">
+            <button class="input_char_info", data-target="form-bg<%= num %>">
+              キャラクター情報を入力
+            </button>
+            <%= render "form", num: num, token: @room.token %>
           </div>
 
+        <% else %>
+
+          <div class="character_name_frame">
+            <div class="character_name">
+              <%= selected_char.character_name %>
+            </div>
+            <button class="char-edit-btn", , data-target="form-bg<%= num %>">
+              編集
+            </button>
+            <%= render "", num: num, token: @room.token %>
+          </div>
+          <div class="status_frame">
+            <div class="upper_status_frame">
+              <div class="status_over_frame">
+                <div class="status_name">
+                  秘密
+                </div>
+                <div class="secret_bubble">
+                  <div class="char-upper-display">
+                    <%= selected_char.secret %>
+                  </div>
+                </div>
+              </div>
+              <div class="status_over_frame">
+                <div class="status_name">
+                  奥義
+                </div>
+                <div class="last_resort_bubble">
+                  <div class="char-upper-display">
+                    <%= selected_char.last_resort %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="lower_status_frame">
+              <div class="status_over_frame">
+                <div class="status_name">
+                  変調
+                </div>
+                <div class="condition_bubble">
+                  <div class="char-lower-display">
+                    <%= '変調' %>
+                  </div>
+                </div>
+              </div>
+              <div class="status_over_frame">
+                <div class="status_name">
+                  感情
+                </div>
+                <div class="feeling_bubble">
+                  <div class="char-lower-display">
+                    <%= '感情' %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         <% end %>
+        <div></div>
       </div>
 
     <% end %>
+  </div>
+
+<% end %>

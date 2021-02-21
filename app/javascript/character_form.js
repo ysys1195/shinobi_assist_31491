@@ -10,7 +10,20 @@ const charForm = $(() => {
   $('.form-background').on('click', function() {
     $('.wrap-char-form').fadeOut(300);
     return false;
-  })
-});
+  });
+
+//   $('.char-edit-btn').each(function() {
+//     $(this).on('click', function() {
+//       const target = $(this).data('target');
+//       const modal = document.getElementById(target);
+//       $(modal).fadeIn(300);
+//       return false;
+//     });
+//   });
+//   $('.form-background').on('click', function() {
+//     $('.wrap-char-form').fadeOut(300);
+//     return false;
+//   })
+// });
 
 window.addEventListener('load', charForm);
