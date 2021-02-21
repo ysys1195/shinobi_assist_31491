@@ -13,6 +13,6 @@ class CharactersController < ApplicationController
   private
 
   def character_params
-    params.require(:character).permit(:character_name, :secret, :last_resort).merge(room_id: @room.id)
+    params.require(:character).permit(:character_name, :pc_number, :secret, :last_resort).merge(room_id: @room.id)
   end
 end
