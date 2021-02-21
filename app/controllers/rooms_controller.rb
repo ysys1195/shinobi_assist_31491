@@ -16,7 +16,7 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find_by(token: params[:token])
-    @characters = Character.find_by(room_id: @room.id)
+    @characters = Character.where(room_id: @room.id)
     @character = Character.new
   end
 

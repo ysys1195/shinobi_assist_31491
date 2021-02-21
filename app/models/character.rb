@@ -1,5 +1,8 @@
 class Character < ApplicationRecord
-  validates :character_name, presence: true
+  with_options presence: true do
+    validates :character_name
+    validates :pc_number
+  end
   validate :secret
   validate :last_resort
   

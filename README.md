@@ -27,6 +27,7 @@
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
 | character_name | string     | null: false                    |
+| pc_number      | integer    | null: false                    |
 | secret         | text       |                                |
 | last_resort    | text       |                                |
 | room           | references | null: false, foreign_key: true |
