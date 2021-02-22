@@ -17,10 +17,11 @@
 
 .char-form{
   width: 60%;
-  height: 520px;
+  min-height: 540px;
+  height: auto;
   margin: 10% 20%;
   position: fixed;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   top: 0%;
   left: 0%;
   border-radius: 5px;
@@ -63,4 +64,10 @@
 
 .hidden-item{
   display: none;
+}
+
+.hidden-error{
+  display: none;
+  color: white;
+  font-size: 20px;
 }
