@@ -17,5 +17,4 @@ class Feel < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :feelings
-
 end

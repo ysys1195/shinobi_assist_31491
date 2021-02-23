@@ -28,6 +28,16 @@ const charForm = $(() => {
   $('.add-btn').on('click', function() {
     $('hidden-error').css({ display: inline-block });
   });
+
+  $('.condition_click_frame').each(function() {
+    $(this).on('click', function() {
+      const target = $(this).data('target');
+      const modal = document.getElementById(target);
+      $(modal).fadeIn(300);
+      return false;
+    });
+  });
+  
 });
 
 window.addEventListener('load', charForm);

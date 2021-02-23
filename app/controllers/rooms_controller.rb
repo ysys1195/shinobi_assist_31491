@@ -18,6 +18,8 @@ class RoomsController < ApplicationController
     @room = Room.find_by(token: params[:token])
     @characters = Character.where(room_id: @room.id)
     @character = Character.new
+    @conditions = Condition.where(character_id: @characters.ids)
+    @condition = Condition.new
   end
 
   private
