@@ -5,7 +5,7 @@ class Character < ApplicationRecord
   end
   validate :secret
   validate :last_resort
-  
+
   belongs_to :room
   has_many :feelings
   has_many :conditions
