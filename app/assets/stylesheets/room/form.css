@@ -71,3 +71,28 @@
   color: white;
   font-size: 20px;
 }
+
+/* 変調フォーム */
+.condition-form{
+  width: 500px;
+  min-height: 250px;
+  height: auto;
+  margin: 10% calc(50% - 250px);
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.7);
+  top: 0%;
+  left: 0%;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.select_box{
+  background-color: rgba(102, 102, 102, 0.8);
+  display: inline-block;
+  margin: 5px;
+  padding: 5px;
+  width: 150px;
+  height: 40px;
+  border-radius: 2px;
+  font-family: 'ヒラギノ明朝 ProN W6';
+}

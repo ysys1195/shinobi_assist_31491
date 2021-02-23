@@ -1,0 +1,25 @@
+<div class="wrap-char-form" id="form-bg1<%= num %>">
+  <div class="form-background"></div>
+  <div class="condition-form">
+    <%= form_with model: @condition, url: room_conditions_path(room_token: token), method: :post, local: true do |f| %>
+      <div class="form-title">
+          変調情報入力
+        </div>
+      <div class="form-contents">
+        <div class="hidden-error">
+          エラー：変調を選択してください。
+        </div>
+        <div class="field">
+          <%= f.label "変調" %><br />
+          <%= f.collection_select(:state_id, State.all, :id, :name, {}, {class: "select_box"}) %>
+        </div>
+        <div class="hidden-item">
+          <%= f.text_field :character_id, value: selected_char.id %>
+        </div>
+        <button class="add-btn">
+          <%= f.submit "追加" %>
+        </button>
+      </div>
+    <% end %>
+  </div>
+</div>
