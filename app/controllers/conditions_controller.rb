@@ -6,6 +6,12 @@ class ConditionsController < ApplicationController
     redirect_to room_path(token: params[:room_token])
   end
 
+  def destroy
+    condition = Condition.find(params[:id])
+    condition.destroy
+    redirect_to room_path(token: params[:room_token])
+  end
+
   private
 
   def condition_params
