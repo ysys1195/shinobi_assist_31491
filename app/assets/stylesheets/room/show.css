@@ -66,12 +66,25 @@
 }
 /* マウスオーバー部分 */
 
+/* クリック部分 */
+.condition_click_frame{
+  background-color: white;
+  display: inline-block;
+  margin: 5px;
+  padding: 10px;
+  width: 100px;
+  height: 40px;
+  border-radius: 2px;
+  box-shadow: 1px 1px 4px black;
+}
+/* クリック部分 */
+
 /* ラベル部分 */
 .character_name{
   color: black;
   text-shadow: 1px -1px 2px red;
   font-size: 25px;
-  width: 220px;
+  width: 210px;
   display: inline-block;
   overflow: scroll;
 }
@@ -82,8 +95,9 @@
   color: white;
   border-radius: 10px;
   height: 35px;
+  width: 55px;
+  text-align: center;
   box-shadow: 1px 1px 5px black;
-  padding: 0 10px;
   font-size: 17px;
 }
 
@@ -108,6 +122,10 @@
   color: white;
   height: 130px;
   overflow: scroll;
+}
+
+.bubble-list{
+  margin-bottom: 10px;
 }
 
 /* 秘密の吹き出し */
@@ -230,14 +248,7 @@
   border-bottom: 10px solid rgba(0, 0, 0, 0.5);
 }
 
-.select_box{
-  background-color: rgba(255, 255, 255, 0.8);
-  display: inline-block;
-  margin: 5px;
-  min-width: 100px;
-  width: auto;
-  font-family: 'ヒラギノ明朝 ProN W6';
-}
+
 
 .feeling_content{
   display: flex;

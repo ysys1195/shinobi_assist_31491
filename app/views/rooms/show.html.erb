@@ -33,7 +33,7 @@
             <div class="character_name">
               <%= selected_char.character_name %>
             </div>
-            <button class="char-edit-btn", , data-target="form-bg<%= num %>">
+            <button class="char-edit-btn", data-target="form-bg<%= num %>">
               編集
             </button>
             <%= render "edit_form", num: num, token: @room.token, selected_char: selected_char %>
@@ -62,16 +62,25 @@
               </div>
             </div>
             <div class="lower_status_frame">
-              <div class="status_over_frame">
+              <button class="condition_click_frame", data-target="form-bg1<%= num %>">
                 <div class="status_name">
                   変調
                 </div>
                 <div class="condition_bubble">
                   <div class="char-lower-display">
-                    <%= '変調' %>
+                    <% if @conditions != nil %>
+                      <ul>
+                        <% @conditions.each do |con| %>
+                          <% if con.character_id == selected_char.id %>
+                          <li class="bubble-list"><%= con.state.name %></li>
+                          <% end %>
+                        <% end %>
+                      </ul>
+                    <% end %>
                   </div>
                 </div>
-              </div>
+              </button>
+              <%= render "condition_form", num: num, token: @room.token, selected_char: selected_char %>
               <div class="status_over_frame">
                 <div class="status_name">
                   感情
@@ -90,5 +99,7 @@
 
     <% end %>
   </div>
+
+
 
 <% end %>
