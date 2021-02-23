@@ -10,6 +10,7 @@
   margin: 10px;
   padding:10px;
   box-shadow: 1px 1px 5px black;
+  height: 160px;
 }
 
 .input_char_info{
@@ -108,10 +109,6 @@
 }
 /* ラベル部分 */
 
-/* .bubble-position{
-  position: absolute;
-} */
-
 .char-upper-display{
   color: white;
   height: 180px;
@@ -125,7 +122,10 @@
 }
 
 .bubble-list{
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
 }
 
 /* 秘密の吹き出し */
@@ -159,7 +159,6 @@
   width: 280px;
   height: 180px;
 }
-
 /* 秘密の吹き出し */
 
 /* 奥義の吹き出し */
@@ -200,7 +199,7 @@
   position: relative;
   display: inline-block;
   padding: 10px;
-  top: 45%;
+  top: 0%;
   right: 0%;
   min-width: 250px;
   width: auto;
@@ -247,8 +246,6 @@
   right: 10%;
   border-bottom: 10px solid rgba(0, 0, 0, 0.5);
 }
-
-
 
 .feeling_content{
   display: flex;
