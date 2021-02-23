@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'rooms#index'
   resources :rooms, only: [:create, :show], param: :token do
     resources :characters, only: [:create, :update]
-    resources :conditions, only: [:create]
+    resources :conditions, only: [:create, :destroy]
     resources :feelings, only: [:new, :create]
   end
 end
