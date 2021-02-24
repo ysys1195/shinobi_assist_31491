@@ -69,16 +69,12 @@
                 </div>
               </button>
               <%= render "condition_form", num: num, token: @room.token, selected_char: selected_char %>
-              <div class="status_over_frame">
+              <button class="feeling_click_frame", data-target="form-bg2<%= num %>">
                 <div class="status_name">
                   感情
                 </div>
-                <div class="feeling_bubble">
-                  <div class="char-lower-display">
-                    <%= '感情' %>
-                  </div>
-                </div>
-              </div>
+              </button>
+              <%= render "feeling_form", num: num, token: @room.token, selected_char: selected_char %>
             </div>
           </div>
 
@@ -93,6 +89,22 @@
                       </div>
                       <div>
                         <%= link_to "× 削除", room_condition_path(room_token: @room.token, id: con.id), method: :delete %>
+                      </div>
+                    </div>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+
+          <% if @feelings != nil %>
+            <div class="feeling_bubble">
+              <div class="char-lower-display">
+                <% @feelings.each do |fe| %>
+                  <% if fe.character_id == selected_char.id %>
+                    <div class="bubble-list">
+                      <div>
+                        <%= fe.feel.name %>
                       </div>
                     </div>
                   <% end %>

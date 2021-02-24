@@ -42,9 +42,26 @@ const charForm = $(() => {
       return false;
     });
   });
+  // 変調追加ボタンクリック時
 
   // 感情追加ボタンクリック時
+  $('.feeling_click_frame').each(function() {
+    $(this).on('click', function() {
+      const target = $(this).data('target');
+      const modal = document.getElementById(target);
+      $(modal).fadeIn(300);
+      return false;
+    });
+  });
   // 感情追加ボタンクリック時
+
+  // マウスオーバー時
+  // $('.status_over_frame').each(function() {
+  //   $(this).on('mouseover', function() {
+  //     $('.secret_bubble').css('display', 'inline-block');
+  //   });
+  // });
+  // マウスオーバー時
 });
 
 window.addEventListener('load', charForm);
