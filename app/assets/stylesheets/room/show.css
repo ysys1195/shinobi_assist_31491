@@ -127,7 +127,9 @@
   margin-bottom: 15px;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid white;
+  background-color: rgba(225, 225, 225, 0.2);
+  padding: 10px 5px;
 }
 
 /* 秘密の吹き出し */
@@ -232,10 +234,11 @@
   right: 0%;
   min-width: 250px;
   width: auto;
-  height: 150px;
+  min-height: 150px;
+  height: auto;
   border-radius: 3px;
   background-color: rgba(0, 0, 0, 0.5);
-  /* display: none; */
+  display: none;
 }
 
 .feeling_bubble::after{
@@ -249,7 +252,10 @@
   border-bottom: 10px solid rgba(0, 0, 0, 0.5);
 }
 
-.feeling_content{
-  display: flex;
+.con_del, .fe_del{
+  border-radius: 1px;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 10px;
+  padding: 5px;
 }
 /* 感情の吹き出し */
