@@ -92,7 +92,17 @@
   margin: 5px;
   padding: 5px;
   width: 150px;
-  height: 40px;
+  height: 35px;
   border-radius: 2px;
   font-family: 'ヒラギノ明朝 ProN W6';
+}
+
+.arrow-shape{
+  font-size: 30px;
+  color: white;
+  text-align: center;
+}
+
+.feeling-form-contents{
+  padding: 15px 170px;
 }

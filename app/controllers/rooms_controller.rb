@@ -20,6 +20,8 @@ class RoomsController < ApplicationController
     @character = Character.new
     @conditions = Condition.where(character_id: @characters.ids)
     @condition = Condition.new
+    @feelings = Feeling.where(character_id: @characters.ids)
+    @feeling = Feeling.new
   end
 
   private
