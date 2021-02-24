@@ -4,6 +4,8 @@ class Feeling < ApplicationRecord
 
   belongs_to :character, optional: true
 
-  validates :feeling_to
-  validates :feel_id, numericality: { other_than: 1 }
+  with_options presence: true do
+    validates :feeling_to
+    validates :feel_id, numericality: { other_than: 1 }
+  end
 end
