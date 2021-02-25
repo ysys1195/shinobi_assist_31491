@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :rooms, only: [:create, :show], param: :token do
     resources :characters, only: [:create, :update]
     resources :conditions, only: [:create, :destroy]
-    resources :feelings, only: [:create]
+    resources :feelings, only: [:create, :destroy]
   end
 end

@@ -88,7 +88,7 @@
                         <%= con.state.name %>
                       </div>
                       <div>
-                        <%= link_to "× 削除", room_condition_path(room_token: @room.token, id: con.id), method: :delete %>
+                        <%= link_to "× 削除", room_condition_path(room_token: @room.token, id: con.id), method: :delete, class: "con_del" %>
                       </div>
                     </div>
                   <% end %>
@@ -103,8 +103,13 @@
                 <% @feelings.each do |fe| %>
                   <% if fe.character_id == selected_char.id %>
                     <div class="bubble-list">
+                      <div class="feeling_contents">
+                        <div><%= fe.feel.name %></div>
+                        <div>↓</div>
+                        <div><%= fe.feeling_to %></div>
+                      </div>
                       <div>
-                        <%= fe.feel.name %>
+                        <%= link_to "× 削除", room_feeling_path(room_token: @room.token, id: fe.id), method: :delete, class: "fe_del" %>
                       </div>
                     </div>
                   <% end %>

@@ -6,6 +6,12 @@ class FeelingsController < ApplicationController
     redirect_to room_path(token: params[:room_token])
   end
 
+  def destroy
+    feeling = Feeling.find(params[:id])
+    feeling.destroy
+    redirect_to room_path(token: params[:room_token])
+  end
+
   private
 
   def feeling_params
