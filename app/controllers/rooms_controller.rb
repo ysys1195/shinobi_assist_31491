@@ -24,6 +24,12 @@ class RoomsController < ApplicationController
     @feeling = Feeling.new
   end
 
+  def destroy
+    room = Room.find_by(token: params[:token])
+    room.destroy
+    redirect_to root_path
+  end
+
   private
 
   def room_params
