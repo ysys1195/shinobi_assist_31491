@@ -31,7 +31,6 @@
 .long_text_box{
   background-color: white;
   color: black;
-  font-family: 'ヒラギノ明朝 ProN W6';
   padding-left: 5px;
   height: 100px;
   width: 100%;
@@ -41,7 +40,6 @@
 .character_box{
   background-color: white;
   color: black;
-  font-family: 'ヒラギノ明朝 ProN W6';
   padding-left: 5px;
   height: 40px;
   width: 100%;
@@ -59,7 +57,6 @@
   text-align: center;
   box-shadow: 2px 2px 5px black;
   background: linear-gradient(#696969, gray, silver);
-  font-family: 'ヒラギノ明朝 ProN W6';
 }
 
 .hidden-item{
@@ -94,7 +91,6 @@
   width: 150px;
   height: 35px;
   border-radius: 2px;
-  font-family: 'ヒラギノ明朝 ProN W6';
 }
 
 .arrow-shape{
