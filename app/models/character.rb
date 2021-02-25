@@ -7,6 +7,6 @@ class Character < ApplicationRecord
   validate :last_resort
 
   belongs_to :room
-  has_many :feelings
-  has_many :conditions
+  has_many :feelings, dependent: :destroy
+  has_many :conditions, dependent: :destroy
 end
