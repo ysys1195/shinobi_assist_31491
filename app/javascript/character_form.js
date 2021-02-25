@@ -1,6 +1,6 @@
 const charForm = $(() => {
-  // PC情報入力ボタンクリック時
-  $('.input_char_info').each(function() {
+  // PC情報入力ボタン / PC情報編集ボタン/ 感情と変調の追加ボタン のクリック時
+  $('.input_char_info, .char-edit-btn, .click_frame').each(function() {
     $(this).on('click', function() {
       const target = $(this).data('target');
       const modal = document.getElementById(target);
@@ -12,55 +12,31 @@ const charForm = $(() => {
     $('.wrap-char-form').fadeOut(300);
     return false;
   });
-  // PC情報入力ボタンクリック時
+  // PC情報入力ボタン / PC情報編集ボタン/ 感情と変調の追加ボタン のクリック時
 
-  // PC情報編集ボタンクリック時
-  $('.char-edit-btn').each(function() {
+  // エラー表示
+  $('.add-btn').each(function() {
     $(this).on('click', function() {
       const target = $(this).data('target');
-      const modal = document.getElementById(target);
-      $(modal).fadeIn(300);
-      return false;
+      const hiddenError = document.getElementById(target);
+      $(hiddenError).css({ display: 'inline-block' });
     });
   });
-  $('.form-background').on('click', function() {
-    $('.wrap-char-form').fadeOut(300);
-    return false;
-  });
-  // PC情報編集ボタンクリック時
-
-  $('.add-btn').on('click', function() {
-    $('hidden-error').css({ display: inline-block });
-  });
-
-  // 変調追加ボタンクリック時
-  $('.condition_click_frame').each(function() {
-    $(this).on('click', function() {
-      const target = $(this).data('target');
-      const modal = document.getElementById(target);
-      $(modal).fadeIn(300);
-      return false;
-    });
-  });
-  // 変調追加ボタンクリック時
-
-  // 感情追加ボタンクリック時
-  $('.feeling_click_frame').each(function() {
-    $(this).on('click', function() {
-      const target = $(this).data('target');
-      const modal = document.getElementById(target);
-      $(modal).fadeIn(300);
-      return false;
-    });
-  });
-  // 感情追加ボタンクリック時
+  // エラー表示
 
   // マウスオーバー時
-  // $('.status_over_frame').each(function() {
-  //   $(this).on('mouseover', function() {
-  //     $('.secret_bubble').css('display', 'inline-block');
-  //   });
-  // });
+  $('.status_over_frame, .status_over_frame2').each(function() {
+    $(this).on('mouseover', function() {
+      const target = $(this).data('target');
+      const mouseOver = document.getElementById(target);
+      $(mouseOver).css({ display: 'inline-block' });
+    });
+    $(this).on('mouseout', function() {
+      const target = $(this).data('target');
+      const mouseOut = document.getElementById(target);
+      $(mouseOut).css({ display: '' });
+    });
+  });
   // マウスオーバー時
 });
 
