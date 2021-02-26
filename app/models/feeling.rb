@@ -2,7 +2,7 @@ class Feeling < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :feel
 
-  belongs_to :character, optional: true
+  belongs_to :character
 
   with_options presence: true do
     validates :feeling_to
