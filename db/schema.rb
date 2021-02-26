@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_12_113346) do
+ActiveRecord::Schema.define(version: 2021_02_26_015639) do
 
   create_table "characters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "character_name", null: false
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_02_12_113346) do
 
   create_table "conditions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "state_id", null: false
-    t.bigint "character_id"
+    t.bigint "character_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["character_id"], name: "index_conditions_on_character_id"
@@ -32,10 +32,37 @@ ActiveRecord::Schema.define(version: 2021_02_12_113346) do
   create_table "feelings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "feel_id", null: false
     t.string "feeling_to", null: false
-    t.bigint "character_id"
+    t.bigint "character_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["character_id"], name: "index_feelings_on_character_id"
+  end
+
+  create_table "last_resorts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "last_resort_n", null: false
+    t.text "last_resort", null: false
+    t.bigint "character_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_last_resorts_on_character_id"
+  end
+
+  create_table "open_last_resorts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "open_to", null: false
+    t.boolean "opened", null: false
+    t.bigint "last_resort_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["last_resort_id"], name: "index_open_last_resorts_on_last_resort_id"
+  end
+
+  create_table "open_secrets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "open_to", null: false
+    t.boolean "opened", null: false
+    t.bigint "secret_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["secret_id"], name: "index_open_secrets_on_secret_id"
   end
 
   create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -47,6 +74,15 @@ ActiveRecord::Schema.define(version: 2021_02_12_113346) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "token"
     t.index ["user_id"], name: "index_rooms_on_user_id"
+  end
+
+  create_table "secrets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "secret_n", null: false
+    t.text "secret", null: false
+    t.bigint "character_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_secrets_on_character_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -63,4 +99,10 @@ ActiveRecord::Schema.define(version: 2021_02_12_113346) do
   end
 
   add_foreign_key "characters", "rooms"
+  add_foreign_key "conditions", "characters"
+  add_foreign_key "feelings", "characters"
+  add_foreign_key "last_resorts", "characters"
+  add_foreign_key "open_last_resorts", "last_resorts"
+  add_foreign_key "open_secrets", "secrets"
+  add_foreign_key "secrets", "characters"
 end

@@ -1,0 +1,2 @@
+class LastResort < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class OpenLastResort < ApplicationRecord
+end
