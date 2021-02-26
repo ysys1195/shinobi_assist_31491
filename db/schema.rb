@@ -15,8 +15,6 @@ ActiveRecord::Schema.define(version: 2021_02_12_113346) do
   create_table "characters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "character_name", null: false
     t.integer "pc_number", null: false
-    t.text "secret"
-    t.text "last_resort"
     t.bigint "room_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -1,0 +1,2 @@
+class OpenSecret < ApplicationRecord
+end
