@@ -6,7 +6,7 @@
           キャラクター情報登録
         </div>
       <div class="form-contents">
-        <div class="hidden-error">
+        <div class="hidden-error", id="char-error<%= num %>">
           エラー：キャラクター名を入力してください。
         </div>
         <div class="field">
@@ -25,7 +25,7 @@
           <%= f.text_field :pc_number, value: num %>
           <%= f.text_field :room_token, value: token %>
         </div>
-        <button class="add-btn">
+        <button class="add-btn", data-target="char-error<%= num %>">
           <%= f.submit "追加" %>
         </button>
       </div>

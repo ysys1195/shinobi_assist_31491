@@ -2,7 +2,6 @@
   font-size: 15px;
   color: white;
   margin: 20px;
-  font-family: 'ヒラギノ明朝 ProN W6';
 }
 
 .room-btn{
@@ -18,5 +17,4 @@
   text-align: center;
   box-shadow: 2px 2px 5px black;
   background: linear-gradient(#696969, gray, silver);
-  font-family: 'ヒラギノ明朝 ProN W6';
 }

@@ -1,0 +1,121 @@
+<% selected_char = "" %>
+
+<% @characters.each do |char| %>
+  <% if char.pc_number == num %>
+    <% selected_char = char %>
+    <% break %>
+  <% end %>
+<% end %>
+
+<div class="middle_status_frame">
+
+  <% if selected_char == "" %>
+    <%#    キャラクター情報未入力時    %>
+    <div class="upper_status_frame">
+      <div class="pc_number">
+        <%= "PC#{num}" %>
+      </div>
+    </div>
+    
+    <div class="lower_status_frame">
+      <% if user_signed_in? %>
+        <button class="input_char_info", data-target="form-bg<%= num %>">
+          キャラクター情報を入力
+        </button>
+        <%= render "form", num: num, token: @room.token %>
+      <% else %>
+        <br />キャラクター情報未入力
+      <% end %>
+    </div>
+    <%#    キャラクター情報未入力時    %>
+
+  <% else %>
+
+    <%#    キャラクター情報入力済みのとき    %>
+    <div class="character_name_frame">
+      <div class="character_name">
+        <%= selected_char.character_name %>
+      </div>
+      <% if user_signed_in? %>
+        <button class="char-edit-btn", data-target="form-bg<%= num %>">
+          編集
+        </button>
+        <%= render "edit_form", num: num, token: @room.token, selected_char: selected_char %>
+      <% end %>
+    </div>
+
+    <div class="status_frame">
+      <div class="upper_status_frame">
+        <div class="status_over_frame", data-target="secret-info<%= num %>">
+          <div class="status_name">
+            秘密
+          </div>
+          <div class="secret_bubble", id="secret-info<%= num %>">
+            <div class="char-upper-display">
+              <%= selected_char.secret %>
+            </div>
+          </div>
+        </div>
+
+        <div class="status_over_frame", data-target="last-resort-info<%= num %>">
+          <div class="status_name">
+            奥義
+          </div>
+          <div class="last_resort_bubble", id="last-resort-info<%= num %>">
+            <div class="char-upper-display">
+              <%= selected_char.last_resort %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lower_status_frame">
+        <button class="click_frame", data-target="form-bg1<%= num %>">
+          <div class="status_over_frame2", data-target="condition-info<%= num %>">
+            <div class="status_name">
+              変調
+            </div>
+              <div class="condition_bubble", id="condition-info<%= num %>">
+                <div class="char-lower-display">
+                  <% @conditions.each do |con| %>
+                    <% if con.character_id == selected_char.id %>
+                      <div class="bubble-list">
+                        <div>
+                          <%= con.state.name %>
+                        </div>
+                      </div>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+          </div>
+        </button>
+        <%= render "condition_form", num: num, token: @room.token, selected_char: selected_char %>
+
+        <button class="click_frame", data-target="form-bg2<%= num %>">
+          <div class="status_over_frame2", data-target="feeling-info<%= num %>">
+          <div class="status_name">
+            感情
+          </div>
+            <div class="feeling_bubble", id="feeling-info<%= num %>">
+              <div class="char-lower-display">
+                <% @feelings.each do |fe| %>
+                  <% if fe.character_id == selected_char.id %>
+                    <div class="bubble-list">
+                      <div class="feeling_contents">
+                        <div><%= fe.feel.name %></div>
+                        <div>↓</div>
+                        <div><%= fe.feeling_to %></div>
+                      </div>
+                    </div>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+        </button>
+        <%= render "feeling_form", num: num, token: @room.token, selected_char: selected_char %>
+      </div>
+    </div>
+    <%#    キャラクター情報入力済みのとき    %>
+  <% end %>
+</div>

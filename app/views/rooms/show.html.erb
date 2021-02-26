@@ -1,128 +1,24 @@
 <%= render "shared/second_header"%>
-<% 1.times do %>
+<% if @room.player_number <= 4 %>
 
   <div class="outer_status_frame">
     <% @room.player_number.times do |num| %>
-      <% num += 1 %>
-      <% selected_char = "" %>
-
-      <% @characters.each do |char| %>
-        <% if char.pc_number == num %>
-          <% selected_char = char %>
-          <% break %>
-        <% end %>
-      <% end %>
-
-      <div class="middle_status_frame">
-
-        <% if selected_char == "" %>
-          <div class="upper_status_frame">
-            <div class="pc_number">
-              <%= "PC#{num}" %>
-            </div>
-          </div>
-          <div class="lower_status_frame">
-            <button class="input_char_info", data-target="form-bg<%= num %>">
-              キャラクター情報を入力
-            </button>
-            <%= render "form", num: num, token: @room.token %>
-          </div>
-
-        <% else %>
-
-          <div class="character_name_frame">
-            <div class="character_name">
-              <%= selected_char.character_name %>
-            </div>
-            <button class="char-edit-btn", data-target="form-bg<%= num %>">
-              編集
-            </button>
-            <%= render "edit_form", num: num, token: @room.token, selected_char: selected_char %>
-          </div>
-          <div class="status_frame">
-            <div class="upper_status_frame">
-              <div class="status_over_frame">
-                <div class="status_name">
-                  秘密
-                </div>
-                <div class="secret_bubble">
-                  <div class="char-upper-display">
-                    <%= selected_char.secret %>
-                  </div>
-                </div>
-              </div>
-              <div class="status_over_frame">
-                <div class="status_name">
-                  奥義
-                </div>
-                <div class="last_resort_bubble">
-                  <div class="char-upper-display">
-                    <%= selected_char.last_resort %>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="lower_status_frame">
-              <button class="condition_click_frame", data-target="form-bg1<%= num %>">
-                <div class="status_name">
-                  変調
-                </div>
-              </button>
-              <%= render "condition_form", num: num, token: @room.token, selected_char: selected_char %>
-              <button class="feeling_click_frame", data-target="form-bg2<%= num %>">
-                <div class="status_name">
-                  感情
-                </div>
-              </button>
-              <%= render "feeling_form", num: num, token: @room.token, selected_char: selected_char %>
-            </div>
-          </div>
-
-          <% if @conditions != nil %>
-            <div class="condition_bubble">
-              <div class="char-lower-display">
-                <% @conditions.each do |con| %>
-                  <% if con.character_id == selected_char.id %>
-                    <div class="bubble-list">
-                      <div>
-                        <%= con.state.name %>
-                      </div>
-                      <div>
-                        <%= link_to "× 削除", room_condition_path(room_token: @room.token, id: con.id), method: :delete, class: "con_del" %>
-                      </div>
-                    </div>
-                  <% end %>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
-
-          <% if @feelings != nil %>
-            <div class="feeling_bubble">
-              <div class="char-lower-display">
-                <% @feelings.each do |fe| %>
-                  <% if fe.character_id == selected_char.id %>
-                    <div class="bubble-list">
-                      <div class="feeling_contents">
-                        <div><%= fe.feel.name %></div>
-                        <div>↓</div>
-                        <div><%= fe.feeling_to %></div>
-                      </div>
-                      <div>
-                        <%= link_to "× 削除", room_feeling_path(room_token: @room.token, id: fe.id), method: :delete, class: "fe_del" %>
-                      </div>
-                    </div>
-                  <% end %>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-
+      <%= render "char_info", num: num + 1 %>
     <% end %>
   </div>
 
+<% else %>
 
+  <div class="outer_status_frame">
+    <% 4.times do |num| %>
+      <%= render "char_info", num: num + 1 %>
+    <% end %>
+  </div>
+
+  <div class="outer_status_frame">
+    <% (@room.player_number - 4).times do |num| %>
+      <%= render "char_info", num: num + 5 %>
+    <% end %>
+  </div>
 
 <% end %>

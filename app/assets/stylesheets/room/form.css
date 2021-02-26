@@ -31,7 +31,6 @@
 .long_text_box{
   background-color: white;
   color: black;
-  font-family: 'ヒラギノ明朝 ProN W6';
   padding-left: 5px;
   height: 100px;
   width: 100%;
@@ -41,7 +40,6 @@
 .character_box{
   background-color: white;
   color: black;
-  font-family: 'ヒラギノ明朝 ProN W6';
   padding-left: 5px;
   height: 40px;
   width: 100%;
@@ -59,7 +57,6 @@
   text-align: center;
   box-shadow: 2px 2px 5px black;
   background: linear-gradient(#696969, gray, silver);
-  font-family: 'ヒラギノ明朝 ProN W6';
 }
 
 .hidden-item{
@@ -72,18 +69,20 @@
   font-size: 20px;
 }
 
-/* 変調フォーム */
-.condition-form{
+/* 変調と感情のフォーム */
+.condition-feeling-form{
   width: 500px;
   min-height: 250px;
   height: auto;
-  margin: 10% calc(50% - 250px);
+  max-height: 80vh;
+  margin: 100px calc(50% - 250px);
   position: fixed;
   background-color: rgba(0, 0, 0, 0.7);
   top: 0%;
   left: 0%;
   border-radius: 5px;
   z-index: 1;
+  overflow: scroll;
 }
 
 .select_box{
@@ -94,15 +93,26 @@
   width: 150px;
   height: 35px;
   border-radius: 2px;
-  font-family: 'ヒラギノ明朝 ProN W6';
 }
+/* 変調と感情のフォーム */
 
+/* 感情フォーム */
 .arrow-shape{
   font-size: 30px;
   color: white;
-  text-align: center;
+  padding-left: 15%;
 }
+/* 感情フォーム */
 
-.feeling-form-contents{
-  padding: 15px 170px;
+/* 削除ボタン */
+.del-list{
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid white;
+  background-color: rgba(225, 225, 225, 0.2);
+  padding: 10px 5px;
+  font-size: 17px;
+  color: white;
 }
+/* 削除ボタン */

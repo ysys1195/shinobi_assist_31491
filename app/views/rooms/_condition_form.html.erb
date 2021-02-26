@@ -1,12 +1,12 @@
 <div class="wrap-char-form" id="form-bg1<%= num %>">
   <div class="form-background"></div>
-  <div class="condition-form">
+  <div class="condition-feeling-form">
     <%= form_with model: @condition, url: room_conditions_path(room_token: token), method: :post, local: true do |f| %>
       <div class="form-title">
-          変調情報入力
-        </div>
+        変調情報入力
+      </div>
       <div class="form-contents">
-        <div class="hidden-error">
+        <div class="hidden-error", id="condition-error<%= num %>">
           エラー：変調を選択してください。
         </div>
         <div class="field">
@@ -16,9 +16,26 @@
         <div class="hidden-item">
           <%= f.text_field :character_id, value: selected_char.id %>
         </div>
-        <button class="add-btn">
+        <button class="add-btn", data-target="condition-error<%= num %>">
           <%= f.submit "追加" %>
         </button>
+      </div>
+      <div class="form-title">
+        変調情報削除
+      </div>
+      <div class="form-contents">
+        <% @conditions.each do |con| %>
+          <% if con.character_id == selected_char.id %>
+            <div class="del-list">
+              <div>
+                <%= con.state.name %>
+              </div>
+              <div class="del_btn">
+                <%= link_to "× 削除", room_condition_path(room_token: @room.token, id: con.id), method: :delete %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
       </div>
     <% end %>
   </div>

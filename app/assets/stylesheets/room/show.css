@@ -11,6 +11,7 @@
   padding:10px;
   box-shadow: 1px 1px 5px black;
   height: 170px;
+  width: 280px;
 }
 
 .input_char_info{
@@ -18,23 +19,14 @@
   padding: 10px;
   font-size: 20px;
   text-shadow: 1px 1px 3px white;
-  font-family: 'ヒラギノ明朝 ProN W6';
   background-color: rgb(167, 167, 167);
   border-radius: 5px;
   box-shadow: 1px 1px 3px black;
 }
 
-.pc_number{
-  color: rgb(32, 32, 32);
-  font-size: 17px;
-  border-bottom: 1px solid white;
-  margin-bottom: 5px;
-  font-family: 'ヒラギノ明朝 ProN W6';
-}
-
-.status_frame{
-  /* background-color: blue; */
-}
+/* .status_frame{
+  background-color: blue;
+} */
 
 .character_name_frame{
   height: 50px;
@@ -43,18 +35,12 @@
   align-items: flex-start;
 }
 
-.upper_status_frame{
-  display: flex;
-  justify-content: space-around;
-}
-
-.lower_status_frame{
+.upper_status_frame, .lower_status_frame{
   display: flex;
   justify-content: space-around;
 }
 
 /* マウスオーバー部分 */
-
 .status_over_frame{
   background-color: white;
   display: inline-block;
@@ -65,10 +51,15 @@
   border-radius: 2px;
   box-shadow: 1px 1px 4px black;
 }
+
+.status_over_frame2{
+  width: 100%;
+  height: 100%;
+}
 /* マウスオーバー部分 */
 
 /* クリック部分 */
-.condition_click_frame, .feeling_click_frame{
+.click_frame{
   background-color: white;
   display: inline-block;
   margin: 5px;
@@ -81,6 +72,13 @@
 /* クリック部分 */
 
 /* ラベル部分 */
+.pc_number{
+  color: rgb(32, 32, 32);
+  font-size: 17px;
+  border-bottom: 1px solid white;
+  margin-bottom: 5px;
+}
+
 .character_name{
   color: black;
   text-shadow: 1px -1px 2px red;
@@ -91,6 +89,12 @@
   overflow: scroll;
   padding: 0 5px;
 }
+
+.status_name{
+  text-align: center;
+  color: black;
+}
+/* ラベル部分 */
 
 .char-edit-btn{
   display: inline-block;
@@ -104,13 +108,7 @@
   font-size: 17px;
 }
 
-.status_name{
-  font-family: 'ヒラギノ明朝 ProN W6';
-  text-align: center;
-  color: black;
-}
-/* ラベル部分 */
-
+/* 吹き出し部分 */
 .char-upper-display{
   color: white;
   height: 180px;
@@ -119,7 +117,9 @@
 
 .char-lower-display{
   color: white;
-  height: 130px;
+  min-height: 130px;
+  height: auto;
+  max-height: 300px;
   overflow: scroll;
 }
 
@@ -132,13 +132,24 @@
   padding: 10px 5px;
 }
 
+.del_btn{
+  border-radius: 1px;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 30px;
+  width: 65px;
+  text-align: center;
+  padding: 5px;
+  border-radius: 1px;
+}
+/* 吹き出し部分 */
+
 /* 秘密の吹き出し */
 .secret_bubble{
   position: relative;
   display: inline-block;
   padding: 10px;
   top: 45%;
-  left: 0%;
+  right: 40%;
   width: 300px;
   height: 200px;
   border-radius: 3px;
@@ -158,7 +169,6 @@
 }
 
 .input_secret{
-  font-family: 'ヒラギノ明朝 ProN W6';
   color: white;
   width: 280px;
   height: 180px;
@@ -191,7 +201,6 @@
 }
 
 .input_last_resort{
-  font-family: 'ヒラギノ明朝 ProN W6';
   color: white;
   width: 280px;
   height: 180px;
@@ -204,12 +213,13 @@
   display: inline-block;
   padding: 10px;
   top: 0%;
-  right: 0%;
+  right: 30%;
   min-width: 250px;
   width: auto;
-  height: 150px;
+  min-height: 150px;
+  height: auto;
   border-radius: 3px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   display: none;
 }
 
@@ -221,7 +231,7 @@
   border: 10px solid transparent;
   bottom: 100%;
   right: 85%;
-  border-bottom: 10px solid rgba(0, 0, 0, 0.5);
+  border-bottom: 10px solid rgba(0, 0, 0, 0.7);
 }
 /* 変調の吹き出し */
 
@@ -231,13 +241,13 @@
   display: inline-block;
   padding: 10px;
   top: 0%;
-  right: 0%;
+  right: 190%;
   min-width: 250px;
   width: auto;
   min-height: 150px;
   height: auto;
   border-radius: 3px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   display: none;
 }
 
@@ -249,13 +259,6 @@
   border: 10px solid transparent;
   bottom: 100%;
   right: 10%;
-  border-bottom: 10px solid rgba(0, 0, 0, 0.5);
-}
-
-.con_del, .fe_del{
-  border-radius: 1px;
-  background-color: rgba(0, 0, 0, 0.4);
-  height: 10px;
-  padding: 5px;
+  border-bottom: 10px solid rgba(0, 0, 0, 0.7);
 }
 /* 感情の吹き出し */
