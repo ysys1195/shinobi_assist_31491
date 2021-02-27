@@ -33,14 +33,11 @@
 
     <%#    キャラクター情報入力済みのとき    %>
     <div class="character_name_frame">
-      <div class="character_name">
+      <button class="character_name", data-target="edit-char-name<%= num %>">
         <%= selected_char.character_name %>
-      </div>
+      </button>
       <% if user_signed_in? %>
-        <button class="char-edit-btn", data-target="form-bg<%= num %>">
-          編集
-        </button>
-        <%= render "edit_form", num: num, token: @room.token, selected_char: selected_char %>
+        <%= render "char_name_form", num: num, token: @room.token, selected_char: selected_char %>
       <% end %>
     </div>
 
@@ -52,7 +49,19 @@
           </div>
           <div class="secret_bubble", id="secret-info<%= num %>">
             <div class="char-upper-display">
-              <%= selected_char.secret %>
+              <ul>
+                <div>
+                <button class="add-charinfo-btn", data-target="add-secret<%= num %>">秘密追加</button>
+                <%= render "secret_form", num: num, token: @room.token, selected_char: selected_char, secret_n: @secrets.length + 1 %>
+                </div>
+                <% @secrets.each do |s| %>
+                  <% if selected_char.id == s.character_id %>
+                  <li class="bubble-list">
+                    <%= "秘密#{s.secret_n}" %>
+                  </li>
+                  <% end %>
+                <% end %>
+              </ul>
             </div>
           </div>
         </div>
@@ -63,57 +72,73 @@
           </div>
           <div class="last_resort_bubble", id="last-resort-info<%= num %>">
             <div class="char-upper-display">
-              <%= selected_char.last_resort %>
+              <ul>
+                <div>
+                <button class="add-charinfo-btn", data-target="add-last-resort<%= num %>">奥義追加</button>
+                <%= render "last_resort_form", num: num, token: @room.token, selected_char: selected_char, lr_n: @last_resorts.length + 1 %>
+                </div>
+                <% @last_resorts.each do |s| %>
+                  <% if selected_char.id == s.character_id %>
+                    <li class="bubble-list">
+                    <%= "奥義#{s.last_resort_n}" %>
+                    </li>
+                  <% end %>
+                <% end %>
+              </ul>
             </div>
           </div>
         </div>
       </div>
 
       <div class="lower_status_frame">
-        <button class="click_frame", data-target="form-bg1<%= num %>">
-          <div class="status_over_frame2", data-target="condition-info<%= num %>">
-            <div class="status_name">
-              変調
-            </div>
-              <div class="condition_bubble", id="condition-info<%= num %>">
-                <div class="char-lower-display">
-                  <% @conditions.each do |con| %>
-                    <% if con.character_id == selected_char.id %>
-                      <div class="bubble-list">
-                        <div>
-                          <%= con.state.name %>
-                        </div>
-                      </div>
-                    <% end %>
-                  <% end %>
-                </div>
-              </div>
-          </div>
-        </button>
-        <%= render "condition_form", num: num, token: @room.token, selected_char: selected_char %>
-
-        <button class="click_frame", data-target="form-bg2<%= num %>">
-          <div class="status_over_frame2", data-target="feeling-info<%= num %>">
+        
+        <div class="status_over_frame", data-target="condition-info<%= num %>">
           <div class="status_name">
-            感情
+            変調
           </div>
-            <div class="feeling_bubble", id="feeling-info<%= num %>">
+            <div class="condition_bubble", id="condition-info<%= num %>">
               <div class="char-lower-display">
-                <% @feelings.each do |fe| %>
-                  <% if fe.character_id == selected_char.id %>
+                <button class="add-charinfo-btn", data-target="add-condition<%= num %>">
+                  変調追加
+                </button>
+                <%= render "condition_form", num: num, token: @room.token, selected_char: selected_char %>
+                <% @conditions.each do |con| %>
+                  <% if con.character_id == selected_char.id %>
                     <div class="bubble-list">
-                      <div class="feeling_contents">
-                        <div><%= fe.feel.name %></div>
-                        <div>↓</div>
-                        <div><%= fe.feeling_to %></div>
+                      <div>
+                        <%= con.state.name %>
                       </div>
                     </div>
                   <% end %>
                 <% end %>
               </div>
             </div>
-        </button>
-        <%= render "feeling_form", num: num, token: @room.token, selected_char: selected_char %>
+        </div>
+
+        <div class="status_over_frame", data-target="feeling-info<%= num %>">
+          <div class="status_name">
+            感情
+          </div>
+          <div class="feeling_bubble", id="feeling-info<%= num %>">
+            <div class="char-lower-display">
+              <button class="add-charinfo-btn", data-target="add-feeling<%= num %>">
+                感情追加
+              </button>
+              <%= render "feeling_form", num: num, token: @room.token, selected_char: selected_char %>
+              <% @feelings.each do |fe| %>
+                <% if fe.character_id == selected_char.id %>
+                  <div class="bubble-list">
+                    <div class="feeling_contents">
+                      <div><%= fe.feel.name %></div>
+                      <div>↓</div>
+                      <div><%= fe.feeling_to %></div>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <%#    キャラクター情報入力済みのとき    %>

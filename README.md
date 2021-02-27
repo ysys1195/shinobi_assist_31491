@@ -10,6 +10,7 @@
 - has_many :rooms
 - has_many :session_logs
 
+
 ## roomsテーブル
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
@@ -23,31 +24,62 @@
 - has_many :characters
 - has_one :session_log
 
+
 ## charactersテーブル
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
 | character_name | string     | null: false                    |
 | pc_number      | integer    | null: false                    |
-| secret         | text       |                                |
-| last_resort    | text       |                                |
 | room           | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :room
-- has_many :condition
-- has_many :feeling
+- has_many :secrets
+- has_many :last_resorts
+- has_many :conditions
+- has_many :feelings
 
-## session_logテーブル
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| title  | string     | null: false                    |
-| log    | text       | null: false                    |
-| user   | references | null: false, foreign_key: true |
-| room   | references | null: false, foreign_key: true |
+## secretテーブル
+| Column    | Type       | Options                        |
+| --------- | ---------- | ------------------------------ |
+| secret_n  | integer    | null: false                    |
+| secret    | text       | null: false                    |
+| character | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :room
-- belongs_to :user
+- belongs_to :character
+- has_many :open_secrets
+
+## open_secretテーブル
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| open_to | string     | null: false                    |
+| opened  | boolean    | null: false                    |
+| secret  | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :secret
+
+## last_resortテーブル
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| last_resort_n | integer    | null: false                    |
+| last_resort   | text       | null: false                    |
+| character     | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :character
+- has_many :open_last_resorts
+
+## open_last_resortテーブル
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| open_to     | string     | null: false                    |
+| opened      | boolean    | null: false                    |
+| last_resort | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :secret
 
 ## conditionテーブル
 | Column    | Type       | Options                        |
@@ -67,3 +99,16 @@
 
 ### Association
 - belongs_to :character
+
+
+## session_logテーブル
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| title  | string     | null: false                    |
+| log    | text       | null: false                    |
+| user   | references | null: false, foreign_key: true |
+| room   | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :room
+- belongs_to :user

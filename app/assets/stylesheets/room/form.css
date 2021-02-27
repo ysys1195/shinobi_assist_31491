@@ -116,3 +116,13 @@
   color: white;
 }
 /* 削除ボタン */
+
+.error-msg{
+  color: red;
+  margin-bottom: 10px;
+}
+
+.error-msg li{
+  list-style-type: circle;
+  padding-bottom: 5px;
+}
