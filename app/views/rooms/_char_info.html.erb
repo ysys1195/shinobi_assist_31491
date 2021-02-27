@@ -51,7 +51,7 @@
             <div class="char-upper-display">
               <ul>
                 <div>
-                <button class="add-secret-btn", data-target="add-secret<%= num %>">秘密追加</button>
+                <button class="add-charinfo-btn", data-target="add-secret<%= num %>">秘密追加</button>
                 <%= render "secret_form", num: num, token: @room.token, selected_char: selected_char, secret_n: @secrets.length + 1 %>
                 </div>
                 <% @secrets.each do |s| %>
@@ -74,7 +74,7 @@
             <div class="char-upper-display">
               <ul>
                 <div>
-                <button class="add-secret-btn", data-target="add-last-resort<%= num %>">奥義追加</button>
+                <button class="add-charinfo-btn", data-target="add-last-resort<%= num %>">奥義追加</button>
                 <%= render "last_resort_form", num: num, token: @room.token, selected_char: selected_char, lr_n: @last_resorts.length + 1 %>
                 </div>
                 <% @last_resorts.each do |s| %>
@@ -91,13 +91,17 @@
       </div>
 
       <div class="lower_status_frame">
-        <button class="click_frame", data-target="form-bg1<%= num %>">
-          <div class="status_over_frame2", data-target="condition-info<%= num %>">
+        
+          <div class="status_over_frame", data-target="condition-info<%= num %>">
             <div class="status_name">
               変調
             </div>
               <div class="condition_bubble", id="condition-info<%= num %>">
                 <div class="char-lower-display">
+                  <button class="add-charinfo-btn", data-target="add-condition<%= num %>">
+                    変調追加
+                  </button>
+                  <%= render "condition_form", num: num, token: @room.token, selected_char: selected_char %>
                   <% @conditions.each do |con| %>
                     <% if con.character_id == selected_char.id %>
                       <div class="bubble-list">
@@ -110,8 +114,6 @@
                 </div>
               </div>
           </div>
-        </button>
-        <%= render "condition_form", num: num, token: @room.token, selected_char: selected_char %>
 
         <button class="click_frame", data-target="form-bg2<%= num %>">
           <div class="status_over_frame2", data-target="feeling-info<%= num %>">
