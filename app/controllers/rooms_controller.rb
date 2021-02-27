@@ -17,7 +17,7 @@ class RoomsController < ApplicationController
   def show
     @room = Room.find_by(token: params[:token])
     @characters = Character.where(room_id: @room.id)
-    @character = Character.new
+    @character_info = CharacterInfo.new(flash[:char_info] || {})
     @conditions = Condition.where(character_id: @characters.ids)
     @condition = Condition.new
     @feelings = Feeling.where(character_id: @characters.ids)
