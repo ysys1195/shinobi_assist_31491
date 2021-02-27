@@ -5,7 +5,7 @@ class LastResortsController < ApplicationController
       redirect_to room_path(token: params[:room_token])
     else
       flash[:error] = @add_last_resort.errors.full_messages
-      flash[:num] = params[:pc_number]
+      flash[:num] = params[:last_resort][:pc_number].to_i
       flash[:error_msg] = "PC#{flash[:num]}の奥義を更新できませんでした。再度入力をお願いします。"
       redirect_to room_path(token: params[:room_token])
     end
