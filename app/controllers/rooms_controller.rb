@@ -21,7 +21,7 @@ class RoomsController < ApplicationController
     @add_secret = Secret.new
     @add_last_resort = LastResort.new
     @condition = Condition.new
-    @feeling = Feeling.new
+    @feeling = Feeling.new(flash[:feeling_info] || {})
 
     @secrets = Secret.where(character_id: @characters.ids)
     @last_resorts = LastResort.where(character_id: @characters.ids)
