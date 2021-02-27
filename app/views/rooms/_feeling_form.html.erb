@@ -1,4 +1,4 @@
-<div class="wrap-char-form" id="form-bg2<%= num %>">
+<div class="wrap-char-form" id="add-feeling<%= num %>">
   <div class="form-background"></div>
   <div class="condition-feeling-form">
     <%= form_with model: @feeling, url: room_feelings_path(room_token: token), method: :post, local: true do |f| %>
@@ -6,16 +6,27 @@
           感情情報入力
         </div>
       <div class="form-contents">
-        <div class="hidden-error", id="feeling-error<%= num %>">
-          エラー：感情を選択してください。
-        </div>
+        <% if flash[:error] && flash[:num] == num %>
+          <div class="error-msg">
+            <ul>
+              <% flash[:error].each do |message| %>
+                <% case message %>
+                <% when "Feeling to can't be blank" %>
+                  <li>感情を選択してください。</li>
+                <% when "Feel must be other than 1" %>
+                  <li>PCを選択してください。</li>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
         <div class="field">
           <%= f.label "感情" %><br />
           <%= f.collection_select(:feel_id, Feel.all, :id, :name, {}, {class: "select_box"}) %>
         </div>
         <div class="arrow-shape">↓</div>
         <div class="field">
-          <%= f.label "誰に" %><br />
+          <%= f.label "誰に（感情を向けるPCを選択）" %><br />
           <% char_names = [] %>
           <% @characters.each do |char| %>
                 <% if char != selected_char %>
@@ -26,6 +37,7 @@
         </div>
         <div class="hidden-item">
           <%= f.text_field :character_id, value: selected_char.id %>
+          <%= f.text_field :pc_number, value: num %>
         </div>
         <button class="add-btn", data-target="feeling-error<%= num %>">
           <%= f.submit "追加" %>
