@@ -11,8 +11,8 @@ class CharacterInfo
     validates :last_resort
   end
 
-  def save
-    room = Room.find_by(token: params[:room_token])
+  def save(room)
+    room = Room.find_by(token: room.token)
     character = Character.create(character_name: character_name, pc_number: pc_number, room_id: room.id)
     Secret.create(secret_n: secret_n, secret: secret, character_id: character.id)
     LastResort.create(last_resort_n: last_resort_n, last_resort: last_resort, character_id: character.id)
