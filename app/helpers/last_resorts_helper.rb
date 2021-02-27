@@ -1,0 +1,2 @@
+module LastResortsHelper
+end

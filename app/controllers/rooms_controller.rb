@@ -19,6 +19,7 @@ class RoomsController < ApplicationController
     @characters = Character.where(room_id: @room.id)
     @character_info = CharacterInfo.new(flash[:char_info] || {})
     @add_secret = Secret.new
+    @add_last_resort = LastResort.new
     @condition = Condition.new
     @feeling = Feeling.new
 
