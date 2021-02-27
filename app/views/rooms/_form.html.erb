@@ -6,7 +6,7 @@
           キャラクター情報登録
         </div>
       <div class="form-contents">
-        <% if flash[:error] && flash[:reenter] == num %>
+        <% if flash[:error] && flash[:num] == num %>
           <div class="error-msg">
             <ul>
             <% flash[:error].each do |message| %>
