@@ -1,14 +1,27 @@
 <div class="wrap-char-form" id="form-bg<%= num %>">
   <div class="form-background"></div>
   <div class="char-form">
-    <%= form_with model: [@room, @character], local: true do |f| %>
+    <%= form_with model: @character_info, url: room_characters_path(room_token: token), local: true do |f| %>
       <div class="form-title">
           キャラクター情報登録
         </div>
       <div class="form-contents">
-        <div class="hidden-error", id="char-error<%= num %>">
-          エラー：キャラクター名を入力してください。
-        </div>
+        <% if flash[:error] && flash[:reenter] == num %>
+          <div class="error-msg">
+            <ul>
+            <% flash[:error].each do |message| %>
+              <% case message %>
+              <% when "Character name can't be blank" %>
+              <li><%= "キャラクター名を入力してください。" %></li>
+              <% when "Secret can't be blank" %>
+              <li><%= "秘密を入力してください。" %></li>
+              <% when "Last resort can't be blank" %>
+              <li><%= "奥義を入力してください。" %></li>
+              <% end %>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
         <div class="field">
           <%= f.label "キャラクター名" %><br />
           <%= f.text_field :character_name, placeholder: "キャラクター名を入力", class: "character_box" %>
@@ -23,7 +36,8 @@
         </div>
         <div class="hidden-item">
           <%= f.text_field :pc_number, value: num %>
-          <%= f.text_field :room_token, value: token %>
+          <%= f.text_field :secret_n, value: 1 %>
+          <%= f.text_field :last_resort_n, value: 1 %>
         </div>
         <button class="add-btn", data-target="char-error<%= num %>">
           <%= f.submit "追加" %>
