@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!, only: [:create]
+  before_action :find_room, only: [:show, :destroy]
 
   def index
     @room = Room.new
@@ -15,17 +16,19 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @room = Room.find_by(token: params[:token])
     @characters = Character.where(room_id: @room.id)
     @character_info = CharacterInfo.new(flash[:char_info] || {})
-    @conditions = Condition.where(character_id: @characters.ids)
+    @add_secret = Secret.new
     @condition = Condition.new
-    @feelings = Feeling.where(character_id: @characters.ids)
     @feeling = Feeling.new
+
+    @secrets = Secret.where(character_id: @characters.ids)
+    @last_resorts = LastResort.where(character_id: @characters.ids)
+    @conditions = Condition.where(character_id: @characters.ids)
+    @feelings = Feeling.where(character_id: @characters.ids)
   end
 
   def destroy
-    room = Room.find_by(token: params[:token])
     room.destroy
     redirect_to root_path
   end
@@ -34,5 +37,9 @@ class RoomsController < ApplicationController
 
   def room_params
     params.require(:room).permit(:room_name, :player_number, :password, :password_confirmation).merge(user_id: current_user.id)
+  end
+
+  def find_room
+    @room = Room.find_by(token: params[:token])
   end
 end
