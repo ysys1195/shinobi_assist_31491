@@ -56,9 +56,9 @@
                 </div>
                 <% @secrets.each do |s| %>
                   <% if selected_char.id == s.character_id %>
-                  <div class="bubble-list">
+                  <li class="bubble-list">
                     <%= "秘密#{s.secret_n}" %>
-                  </div>
+                  </li>
                   <% end %>
                 <% end %>
               </ul>
@@ -74,12 +74,14 @@
             <div class="char-upper-display">
               <ul>
                 <div>
-                <button class="add-last-resort-btn", data-target="secret-edit<%= num %>">秘密追加</button>
-                <%= render "secret_form", num: num, token: @room.token, selected_char: selected_char, secret_n: @secrets.length + 1 %>
+                <button class="add-secret-btn", data-target="add-last-resort<%= num %>">奥義追加</button>
+                <%= render "last_resort_form", num: num, token: @room.token, selected_char: selected_char, lr_n: @last_resorts.length + 1 %>
                 </div>
                 <% @last_resorts.each do |s| %>
                   <% if selected_char.id == s.character_id %>
-                    <li><%= s.last_resort %></li>
+                    <li class="bubble-list">
+                    <%= "奥義#{s.last_resort_n}" %>
+                    </li>
                   <% end %>
                 <% end %>
               </ul>
