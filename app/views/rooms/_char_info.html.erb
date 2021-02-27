@@ -33,14 +33,11 @@
 
     <%#    キャラクター情報入力済みのとき    %>
     <div class="character_name_frame">
-      <div class="character_name">
+      <button class="character_name", data-target="edit-char-name<%= num %>">
         <%= selected_char.character_name %>
-      </div>
+      </button>
       <% if user_signed_in? %>
-        <button class="char-edit-btn", data-target="form-bg<%= num %>">
-          編集
-        </button>
-        <%= render "edit_form", num: num, token: @room.token, selected_char: selected_char %>
+        <%= render "char_name_form", num: num, token: @room.token, selected_char: selected_char %>
       <% end %>
     </div>
 
@@ -52,7 +49,19 @@
           </div>
           <div class="secret_bubble", id="secret-info<%= num %>">
             <div class="char-upper-display">
-              <%= selected_char.secret %>
+              <ul>
+                <div>
+                <button class="add-secret-btn", data-target="secret-edit<%= num %>">秘密追加</button>
+                <%= render "secret_form", num: num, token: @room.token, selected_char: selected_char, secret_n: @secrets.length + 1 %>
+                </div>
+                <% @secrets.each do |s| %>
+                  <% if selected_char.id == s.character_id %>
+                  <div class="bubble-list">
+                    <%= "秘密#{s.secret_n}" %>
+                  </div>
+                  <% end %>
+                <% end %>
+              </ul>
             </div>
           </div>
         </div>
@@ -63,7 +72,13 @@
           </div>
           <div class="last_resort_bubble", id="last-resort-info<%= num %>">
             <div class="char-upper-display">
-              <%= selected_char.last_resort %>
+              <ul>
+                <% @last_resorts.each do |s| %>
+                  <% if selected_char.id == s.character_id %>
+                    <li><%= s.last_resort %></li>
+                  <% end %>
+                <% end %>
+              </ul>
             </div>
           </div>
         </div>
