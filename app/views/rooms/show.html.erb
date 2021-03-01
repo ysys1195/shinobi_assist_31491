@@ -1,7 +1,10 @@
 <%= render "shared/second_header"%>
+<div class="error-display">
 <% if flash[:error_msg] %>
   <br /><%= flash[:error_msg] %>
 <% end %>
+</div>
+
 <% if @room.player_number <= 4 %>
 
   <div class="outer_status_frame">

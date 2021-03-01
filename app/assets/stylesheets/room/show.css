@@ -40,6 +40,10 @@
   justify-content: space-around;
 }
 
+.error-display{
+  height: 50px;
+}
+
 /* マウスオーバー部分 */
 .status_over_frame{
   background-color: white;

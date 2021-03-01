@@ -6,7 +6,7 @@
         変調情報入力
       </div>
       <div class="form-contents">
-        <% if flash[:error] && flash[:num] == num %>
+        <% if flash[:error] && flash[:match] == "condition#{num}" %>
           <div class="error-msg">
             <ul>
               <li><%= "変調を選択してください。" %></li>

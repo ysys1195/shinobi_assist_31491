@@ -6,7 +6,7 @@
         奥義情報追加
       </div>
       <div class="form-contents">
-        <% if flash[:error] && flash[:num] == num %>
+        <% if flash[:error] && flash[:match] == "lr#{num}" %>
           <div class="error-msg">
             <ul>
               <li><%= "奥義を入力してください。" %></li>
