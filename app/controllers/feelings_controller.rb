@@ -2,7 +2,7 @@ class FeelingsController < ApplicationController
   def create
     @feeling = Feeling.new(feeling_params)
     unless @feeling.save
-      flash[:feeling_info] = {　feel_id: @feeling.feel_id, feeling_to: @feeling.feeling_to　}
+      flash[:feeling_info] = { feel_id: @feeling.feel_id, feeling_to: @feeling.feeling_to }
       flash[:error] = @feeling.errors.full_messages
       flash[:num] = params[:feeling][:pc_number].to_i
       flash[:match] = "feeling#{flash[:num]}"
