@@ -6,6 +6,7 @@ class ConditionsController < ApplicationController
     else
       flash[:error] = @condition.errors.full_messages
       flash[:num] = params[:condition][:pc_number].to_i
+      flash[:match] = "condition#{flash[:num]}"
       flash[:error_msg] = "PC#{flash[:num]}の変調を更新できませんでした。再度選択をお願いします。"
       redirect_to room_path(token: params[:room_token])
     end
