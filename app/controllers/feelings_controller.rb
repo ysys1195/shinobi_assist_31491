@@ -1,16 +1,14 @@
 class FeelingsController < ApplicationController
   def create
     @feeling = Feeling.new(feeling_params)
-    if @feeling.save
-      redirect_to room_path(token: params[:room_token])
-    else
-      flash[:feeling_info] = {feel_id: @feeling.feel_id, feeling_to: @feeling.feeling_to}
+    unless @feeling.save
+      flash[:feeling_info] = {　feel_id: @feeling.feel_id, feeling_to: @feeling.feeling_to　}
       flash[:error] = @feeling.errors.full_messages
       flash[:num] = params[:feeling][:pc_number].to_i
       flash[:match] = "feeling#{flash[:num]}"
       flash[:error_msg] = "PC#{flash[:num]}の感情を更新できませんでした。再度選択をお願いします。"
-      redirect_to room_path(token: params[:room_token])
     end
+    redirect_to room_path(token: params[:room_token])
   end
 
   def destroy

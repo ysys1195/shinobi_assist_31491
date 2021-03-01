@@ -5,28 +5,23 @@ class CharactersController < ApplicationController
     @character_info = CharacterInfo.new(character_info_params)
     if @character_info.valid?
       @character_info.save(@room)
-      redirect_to room_path(token: @room.token)
     else
-      flash[:char_info] = {character_name: @character_info.character_name, secret: @character_info.secret, last_resort: @character_info.last_resort}
+      flash[:char_info] = { character_name: @character_info.character_name, secret: @character_info.secret, last_resort: @character_info.last_resort }
       flash[:error] = @character_info.errors.full_messages
       flash[:num] = @character_info.pc_number.to_i
-      flash[:error_msg] = "キャラクター情報を登録できませんでした。リロードせず、再度入力をお願いします。"
-
-      redirect_to room_path(token: @room.token)
+      flash[:error_msg] = 'キャラクター情報を登録できませんでした。リロードせず、再度入力をお願いします。'
     end
+    redirect_to room_path(token: @room.token)
   end
 
   def update
     @char = Character.find(params[:id])
-    if @char.update(character_params)
-      redirect_to room_path(token: @room.token)
-    else
+    unless @char.update(character_params)
       flash[:error] = @char.errors.full_messages
       flash[:num] = @char.pc_number.to_i
-      flash[:error_msg] = "キャラクター情報を更新できませんでした。再度入力をお願いします。"
-
-      redirect_to room_path(token: @room.token)
+      flash[:error_msg] = 'キャラクター名を変更できませんでした。再度入力をお願いします。'
     end
+    redirect_to room_path(token: @room.token)
   end
 
   private
