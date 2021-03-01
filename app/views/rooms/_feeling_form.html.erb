@@ -6,15 +6,15 @@
           感情情報入力
         </div>
       <div class="form-contents">
-        <% if flash[:error] && flash[:num] == num %>
+        <% if flash[:error] && flash[:match] == "feeling#{num}" %>
           <div class="error-msg">
             <ul>
               <% flash[:error].each do |message| %>
                 <% case message %>
                 <% when "Feeling to can't be blank" %>
-                  <li>感情を選択してください。</li>
-                <% when "Feel must be other than 1" %>
                   <li>PCを選択してください。</li>
+                <% when "Feel must be other than 1" %>
+                  <li>感情を選択してください。</li>
                 <% end %>
               <% end %>
             </ul>
