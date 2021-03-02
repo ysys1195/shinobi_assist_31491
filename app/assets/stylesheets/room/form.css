@@ -16,10 +16,10 @@
 }
 
 .char-form{
-  width: 60%;
+  width: 70%;
   min-height: 540px;
   height: auto;
-  margin: 10% 20%;
+  margin: 10% 15%;
   position: fixed;
   background-color: rgba(0, 0, 0, 0.7);
   top: 0%;
@@ -32,9 +32,9 @@
   background-color: white;
   color: black;
   padding-left: 5px;
-  height: 100px;
+  height: 200px;
   width: 100%;
-  border-radius: 2px;
+  border-radius: 1px;
 }
 
 .character_box{
@@ -72,7 +72,7 @@
 /* 変調と感情のフォーム */
 .condition-feeling-form{
   width: 500px;
-  min-height: 250px;
+  min-height: 300px;
   height: auto;
   max-height: 80vh;
   margin: 100px calc(50% - 250px);
@@ -117,6 +117,7 @@
 }
 /* 削除ボタン */
 
+/* セッションルームのエラー表示 */
 .error-msg{
   color: red;
   margin-bottom: 10px;
