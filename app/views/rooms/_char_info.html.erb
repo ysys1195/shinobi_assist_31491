@@ -52,7 +52,13 @@
               <ul>
                 <div>
                 <button class="add-charinfo-btn", data-target="add-secret<%= num %>">秘密追加</button>
-                <%= render "secret_form", num: num, token: @room.token, selected_char: selected_char, secret_n: @secrets.length + 1 %>
+                <% secret_num = 0 %>
+                <% @secrets.each do |s| %>
+                  <% if selected_char.id == s.character_id %>
+                    <% secret_num += 1 %>
+                  <% end %>
+                <% end %>
+                <%= render "secret_form", num: num, token: @room.token, selected_char: selected_char, secret_n: secret_num %>
                 </div>
                 <% @secrets.each do |s| %>
                   <% if selected_char.id == s.character_id %>
@@ -75,7 +81,13 @@
               <ul>
                 <div>
                 <button class="add-charinfo-btn", data-target="add-last-resort<%= num %>">奥義追加</button>
-                <%= render "last_resort_form", num: num, token: @room.token, selected_char: selected_char, lr_n: @last_resorts.length + 1 %>
+                <% last_resort_num = 0 %>
+                <% @last_resorts.each do |s| %>
+                  <% if selected_char.id == s.character_id %>
+                    <% last_resort_num += 1 %>
+                  <% end %>
+                <% end %>
+                <%= render "last_resort_form", num: num, token: @room.token, selected_char: selected_char, lr_n: last_resort_num %>
                 </div>
                 <% @last_resorts.each do |s| %>
                   <% if selected_char.id == s.character_id %>
