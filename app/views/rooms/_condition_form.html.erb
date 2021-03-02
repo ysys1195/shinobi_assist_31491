@@ -14,7 +14,7 @@
           </div>
         <% end %>
         <div class="field">
-          <%= f.label "変調" %><br />
+          <%= f.label "変調" %><span class="required-items"> 必須</span><br />
           <%= f.collection_select(:state_id, State.all, :id, :name, {}, {class: "select_box"}) %>
         </div>
         <div class="hidden-item">

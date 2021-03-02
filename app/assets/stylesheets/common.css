@@ -19,4 +19,10 @@ body{
 
 *{
   font-family: 'ヒラギノ明朝 ProN W6';
+  /* overflow: hidden; */
+}
+
+.required-items{
+  color: red;
+  text-shadow: 1px 1px 3px black;
 }

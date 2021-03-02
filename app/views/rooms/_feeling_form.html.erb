@@ -21,12 +21,12 @@
           </div>
         <% end %>
         <div class="field">
-          <%= f.label "感情" %><br />
+          <%= f.label "感情" %><span class="required-items"> 必須</span><br />
           <%= f.collection_select(:feel_id, Feel.all, :id, :name, {}, {class: "select_box"}) %>
         </div>
         <div class="arrow-shape">↓</div>
         <div class="field">
-          <%= f.label "誰に（感情を向けるPCを選択）" %><br />
+          <%= f.label "誰に（感情を向けるPCを選択）" %><span class="required-items"> 必須</span><br />
           <% char_names = [] %>
           <% @characters.each do |char| %>
                 <% if char != selected_char %>
