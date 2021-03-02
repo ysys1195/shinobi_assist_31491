@@ -9,10 +9,7 @@ header{
 }
 
 .app-title{
-  color: white;
-  font-size: 40px;
-  font-family: 'ヒラギノ角ゴ Std W8';
-  text-shadow: 3px -3px 5px red;
+  height: 60px;
 }
 
 .nav{

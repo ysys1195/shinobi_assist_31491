@@ -24,19 +24,19 @@
 
         <div class="form-contents">
           <div class="field">
-            <label>部屋名</label><br />
+            <label>部屋名</label><span class="required-items"> 必須</span><br />
             <%= f.text_field :room_name, placeholder: "部屋名を入力", class: "text_box" %>
           </div>
           <div class="field">
-            <label>PC名数</label><br />
+            <label>PC数</label><span class="required-items"> 必須</span><br />
             <%= f.text_field :player_number, placeholder: "PC数を入力", class: "text_box" %>
           </div>
           <div class="field">
-            <label>パスワード</label> (任意)<br />
+            <label>パスワード</label> (４文字以上)<span class="required-items"> 必須</span><br />
             <%= f.text_field :password, placeholder: "パスワードを入力", class: "text_box" %>
           </div>
           <div class="field">
-            <label>パスワード確認</label> (任意)<br />
+            <label>パスワード確認</label> (４文字以上)<span class="required-items"> 必須</span><br />
             <%= f.text_field :password_confirmation, placeholder: "パスワードを再度入力", class: "text_box" %>
           </div><br /><br />
           <div>
