@@ -1,7 +1,7 @@
 class OpenSecret < ApplicationRecord
   with_options presence: true do
-    validates :open_to
-    validates :opened
+    validates :secret_unveil_to
+    validates :secret_unveiled
   end
 
   belongs_to :secret
