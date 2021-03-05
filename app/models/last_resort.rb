@@ -5,5 +5,5 @@ class LastResort < ApplicationRecord
   end
 
   belongs_to :character
-  has_many :open_last_resorts
+  has_many :open_last_resorts, dependent: :destroy
 end

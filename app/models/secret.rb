@@ -5,5 +5,5 @@ class Secret < ApplicationRecord
   end
 
   belongs_to :character
-  has_many :open_secrets
+  has_many :open_secrets, dependent: :destroy
 end
