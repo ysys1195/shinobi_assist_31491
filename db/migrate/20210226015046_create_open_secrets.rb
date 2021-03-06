@@ -2,7 +2,7 @@ class CreateOpenSecrets < ActiveRecord::Migration[6.0]
   def change
     create_table :open_secrets do |t|
       t.integer :secret_unveil_to, null: false
-      t.boolean :secret_unveiled, null: false
+      t.boolean :secret_unveiled, default: false, null: false
       t.references :secret, null: false, foreign_key: true
       t.timestamps
     end
