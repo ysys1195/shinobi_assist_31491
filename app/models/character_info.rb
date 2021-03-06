@@ -17,8 +17,10 @@ class CharacterInfo
     open_sec = Secret.create(secret_n: secret_n, secret: secret, character_id: character.id)
     open_lr = LastResort.create(last_resort_n: last_resort_n, last_resort: last_resort, character_id: character.id)
     room.player_number.times do |n|
+      if character.pc_number != n + 1
       OpenSecret.create(secret_unveil_to: n + 1, secret_unveiled: 1, secret_id: open_sec.id)
       OpenLastResort.create(lr_unveil_to: n + 1, lr_unveiled: 1, last_resort_id: open_lr.id)
+      end
     end
   end
 end
