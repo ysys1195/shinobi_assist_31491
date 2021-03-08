@@ -127,8 +127,9 @@
   list-style-type: circle;
   padding-bottom: 5px;
 }
+/* セッションルームのエラー表示 */
 
-.open_close_box{
+.open_close_box, .secret_unveil_box{
   background-color: rgba(0, 0, 0, 0.8);
   display: inline-block;
   margin-right: 5px;
@@ -136,4 +137,8 @@
   width: 65px;
   height: 35px;
   border-radius: 2px;
+}
+
+span[data-unveil="true"]::after {
+  content: '公開';
 }
