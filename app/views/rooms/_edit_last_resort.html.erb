@@ -27,5 +27,27 @@
       </button>
     <% end %>
 
+      <div class="form-title">
+        公開・非公開の設定
+      </div>
+      <div class="form-contents">
+        <div class="field">
+          <% @characters.each do |char| %>
+            <% if char.character_name != selected_char.character_name %>
+              <div class="del-list">
+                <% @open_last_resorts.each do |o_lr| %>
+                  <% if o_lr.last_resort_id == lr.id && char.pc_number == o_lr.lr_unveil_to %>
+                    <%= char.character_name %>
+                    <div class="lr_unveil_box" data-id=<%= o_lr.id %> data-token=<%= token %>>
+                      <span data-unveil=<%= o_lr.unveiled_id %>><%=o_lr.unveiled.name%></span>
+                    </div>
+                  <% end %>
+                <% end %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+
   </div>
 </div>
