@@ -1,26 +1,26 @@
-<div class="wrap-char-form" id="edit-secret<%= num %>-<%= s.secret_n %>">
+<div class="wrap-char-form" id="edit-last-resort<%= num %>-<%= lr.last_resort_n %>">
   <div class="form-background"></div>
   <div class="condition-feeling-form">
-    <% @edit_secret = s %>
-    <%= form_with model: @edit_secret, url: room_secret_path(id: s.id, room_token: token), method: :patch, local: true do |f| %>
+    <% @edit_last_resort = lr %>
+    <%= form_with model: @edit_last_resort, url: room_last_resort_path(id: lr.id, room_token: token), method: :patch, local: true do |f| %>
       <div class="form-title">
-        秘密<%=s.secret_n%>の編集
+        秘密<%=lr.last_resort_n%>の編集
       </div>
       <div class="form-contents">
         <% if flash[:error] && flash[:match] == "secret#{num}" %>
           <div class="error-msg">
             <ul>
-              <li><%= "秘密を入力してください。" %></li>
+              <li><%= "奥義を入力してください。" %></li>
             </ul>
           </div>
         <% end %>
         <div class="field">
-          <%= f.label "秘密" %><span class="required-items"> 必須</span><br />
-          <%= f.text_area :secret, placeholder: "秘密を入力", value: s.secret, class: "long_text_box" %>
+          <%= f.label "奥義" %><span class="required-items"> 必須</span><br />
+          <%= f.text_area :last_resort, placeholder: "奥義を入力", value: lr.last_resort, class: "long_text_box" %>
         </div>
         <%= f.hidden_field :character_id, value: selected_char.id %>
         <%= f.hidden_field :pc_number, value: num %>
-        <%= f.hidden_field :secret_n, value: s.secret_n %>
+        <%= f.hidden_field :last_resort_n, value: lr.last_resort_n %>
       </div>
       <button class="add-btn">
         <%= f.submit "編集" %>
@@ -35,11 +35,11 @@
           <% @characters.each do |char| %>
             <% if char.character_name != selected_char.character_name %>
               <div class="del-list">
-                <% @open_secrets.each do |o_s| %>
-                  <% if o_s.secret_id == s.id && char.pc_number == o_s.secret_unveil_to %>
+                <% @open_last_resorts.each do |o_lr| %>
+                  <% if o_lr.last_resort_id == lr.id && char.pc_number == o_lr.lr_unveil_to %>
                     <%= char.character_name %>
-                    <div class="secret_unveil_box" data-id=<%= o_s.id %> data-token=<%= token %>>
-                      <span data-unveil=<%= o_s.unveiled_id %>><%=o_s.unveiled.name%></span>
+                    <div class="lr_unveil_box" data-id=<%= o_lr.id %> data-token=<%= token %>>
+                      <span data-unveil=<%= o_lr.unveiled_id %>><%=o_lr.unveiled.name%></span>
                     </div>
                   <% end %>
                 <% end %>
@@ -48,5 +48,6 @@
           <% end %>
         </div>
       </div>
+
   </div>
 </div>

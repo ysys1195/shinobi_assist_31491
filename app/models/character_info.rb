@@ -1,7 +1,6 @@
 class CharacterInfo
   include ActiveModel::Model
   attr_accessor :character_name, :pc_number, :secret_n, :secret, :last_resort_n, :last_resort
-  #  :secret_unveil_to, :lr_unveil_to, :secret_unveiled, :lr_unveiled
 
   with_options presence: true do
     validates :character_name

@@ -1,0 +1,2 @@
+module OpenLastResortsHelper
+end
