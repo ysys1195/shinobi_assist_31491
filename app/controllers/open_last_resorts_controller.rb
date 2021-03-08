@@ -1,5 +1,4 @@
 class OpenLastResortsController < ApplicationController
-
   def unveiled
     open_last_resort = OpenLastResort.find(params[:id])
     if open_last_resort.unveiled_id == 1
@@ -11,5 +10,4 @@ class OpenLastResortsController < ApplicationController
     item = OpenLastResort.find(params[:id])
     render json: { open_last_resort: item, unveil: item.unveiled.name }
   end
-
 end
