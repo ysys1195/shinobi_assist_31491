@@ -89,10 +89,12 @@
                 <% end %>
                 <%= render "last_resort_form", num: num, token: @room.token, selected_char: selected_char, lr_n: last_resort_num %>
                 </div>
-                <% @last_resorts.each do |s| %>
-                  <% if selected_char.id == s.character_id %>
+                <% @last_resorts.each do |lr| %>
+                  <% if selected_char.id == lr.character_id %>
                     <li class="bubble-list">
-                    <%= "奥義#{s.last_resort_n}" %>
+                    <%= "奥義#{lr.last_resort_n}" %>
+                    <button class="edit-charinfo-btn", data-target="edit-last-resort<%=num%>-<%=lr.last_resort_n%>">編集</button>
+                    <%= render 'edit_last_resort', num: num, token: @room.token, selected_char: selected_char, lr: lr %>
                     </li>
                   <% end %>
                 <% end %>
