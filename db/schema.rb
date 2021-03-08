@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2021_02_26_015639) do
 
   create_table "open_last_resorts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "lr_unveil_to", null: false
-    t.boolean "lr_unveiled", default: false, null: false
+    t.integer "unveiled_id", null: false
     t.bigint "last_resort_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2021_02_26_015639) do
 
   create_table "open_secrets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "secret_unveil_to", null: false
-    t.boolean "secret_unveiled", default: false, null: false
+    t.integer "unveiled_id", null: false
     t.bigint "secret_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
