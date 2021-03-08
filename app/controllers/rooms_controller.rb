@@ -27,6 +27,7 @@ class RoomsController < ApplicationController
     @last_resorts = LastResort.where(character_id: @characters.ids)
     @conditions = Condition.where(character_id: @characters.ids)
     @feelings = Feeling.where(character_id: @characters.ids)
+    @open_secrets = OpenSecret.where(secret_id: @secrets.ids)
   end
 
   def destroy
