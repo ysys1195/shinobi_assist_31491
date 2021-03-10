@@ -4,6 +4,7 @@ class RoomsController < ApplicationController
 
   def index
     @room = Room.new
+    @enter_room = EnterRoom.new
   end
 
   def create

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'rooms#index'
+  resources :roles, only: [:create]
   resources :rooms, only: [:create, :show, :destroy], param: :token do
     resources :characters, only: [:create, :update]
     resources :secrets, only: [:create, :update]

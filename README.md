@@ -9,7 +9,7 @@
 ### Association
 - has_many :rooms
 - has_many :session_logs
-
+- has_many :roles
 
 ## roomsテーブル
 | Column          | Type       | Options                        |
@@ -22,8 +22,19 @@
 ### Association
 - belongs_to :user
 - has_many :characters
+- has_many :roles
 - has_one :session_log
 
+## rolesテーブル
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| role   | integer    | null: false                    |
+| user   | references | null: false, foreign_key: true |
+| room   | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :user
+- belongs_room :room
 
 ## charactersテーブル
 | Column         | Type       | Options                        |
@@ -51,11 +62,11 @@
 - has_many :open_secrets
 
 ## open_secretテーブル
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| open_to | string     | null: false                    |
-| opened  | boolean    | null: false                    |
-| secret  | references | null: false, foreign_key: true |
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| secret_unveil_to | string     | null: false                    |
+| unveiled_id      | integer    | null: false                    |
+| secret           | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :secret
@@ -72,11 +83,11 @@
 - has_many :open_last_resorts
 
 ## open_last_resortテーブル
-| Column      | Type       | Options                        |
-| ----------- | ---------- | ------------------------------ |
-| open_to     | string     | null: false                    |
-| opened      | boolean    | null: false                    |
-| last_resort | references | null: false, foreign_key: true |
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| lr_unveil_to | string     | null: false                    |
+| unveiled_id  | integer    | null: false                    |
+| last_resort  | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :secret

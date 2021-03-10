@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_26_015639) do
+ActiveRecord::Schema.define(version: 2021_03_09_082047) do
 
   create_table "characters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "character_name", null: false
@@ -65,6 +65,16 @@ ActiveRecord::Schema.define(version: 2021_02_26_015639) do
     t.index ["secret_id"], name: "index_open_secrets_on_secret_id"
   end
 
+  create_table "roles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "role", null: false
+    t.bigint "user_id", null: false
+    t.bigint "room_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_roles_on_room_id"
+    t.index ["user_id"], name: "index_roles_on_user_id"
+  end
+
   create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "room_name", null: false
     t.integer "player_number", null: false
@@ -104,5 +114,7 @@ ActiveRecord::Schema.define(version: 2021_02_26_015639) do
   add_foreign_key "last_resorts", "characters"
   add_foreign_key "open_last_resorts", "last_resorts"
   add_foreign_key "open_secrets", "secrets"
+  add_foreign_key "roles", "rooms"
+  add_foreign_key "roles", "users"
   add_foreign_key "secrets", "characters"
 end
