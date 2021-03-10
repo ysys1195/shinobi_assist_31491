@@ -41,7 +41,8 @@
 }
 
 .error-display{
-  height: 50px;
+  min-height: 50px;
+  height: auto;
 }
 
 /* マウスオーバー部分 */

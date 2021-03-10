@@ -10,10 +10,11 @@
         <div class="user-name">
           <li><%= link_to current_user.name, '#' %></li>
         </div>
-        <li><%= link_to image_tag("logout_bottun.png", class: "logout"), destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to image_tag("logout_button.png", class: "logout"), destroy_user_session_path, method: :delete %></li>
       <% else%>
-        <li><%= link_to image_tag("login_bottun.png", class: "login"), new_user_session_path %></li>
-        <li><%= link_to image_tag("signup_bottun.png", class: "sign-in"), new_user_registration_path %></li>
+        <li><%= link_to image_tag("guest_login_button.png", class: "guest_login"), "#" %></li>
+        <li><%= link_to image_tag("login_button.png", class: "login"), new_user_session_path %></li>
+        <li><%= link_to image_tag("signup_button.png", class: "sign-in"), new_user_registration_path %></li>
       <% end %>
     </ul>
   </div>
