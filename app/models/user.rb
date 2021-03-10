@@ -6,4 +6,7 @@ class User < ApplicationRecord
   validates :name, presence: true
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
   validates :password, format: { with: PASSWORD_REGEX }
+
+  has_many :rooms
+  has_many :roles
 end
