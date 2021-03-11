@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+10.times do |n|
+  password = SecureRandom.alphanumeric(10) + '2b'
+  User.create!(name: "guest#{n + 1}", email: "guest#{n + 1}@shinobininja.com", password: password)
+end
