@@ -10,6 +10,7 @@ class RoomsController < ApplicationController
   def create
     @room = Room.new(room_params)
     if @room.save
+      Room.gm_role(@room)
       redirect_to room_path(token: @room.token)
     else
       render :index
@@ -42,6 +43,10 @@ class RoomsController < ApplicationController
   def room_params
     params.require(:room).permit(:room_name, :player_number, :password, :password_confirmation).merge(user_id: current_user.id)
   end
+
+  # def gm_role(room)
+  #   Role.create(role: 200, user_id: current_user.id, room_id: room.id)
+  # end
 
   def find_room
     @room = Room.find_by(token: params[:token])
