@@ -11,12 +11,14 @@ class User < ApplicationRecord
   has_many :roles
 
   def self.guest
-    # 10.times do |num|
-    #   user = User.find_by(name: "guest#{num + 1}", email: "guest#{num + 1}@shinobininja.com")
-    #   if user == nil
-    #     return User.create(name: "guest#{num + 1}", email: "guest#{num + 1}@shinobininja.com", password: SecureRandom.alphanumeric(10) + '2b')
-    #   end
-    # end
-    User.where('email LIKE(?)', '%@shinobininja.com').order(:current_sign_in_at).first
+    user = User.where('email LIKE(?)', '%@shinobininja.com').order(:current_sign_in_at).first
+    if user == nil
+      10.times do |num|
+        User.create(name: "guest#{num + 1}", email: "guest#{num + 1}@shinobininja.com", password: "#{SecureRandom.alphanumeric(10)}2b")
+      end
+      return User.find_by(name: 'guest1')
+    else
+      user
+    end
   end
 end
