@@ -58,6 +58,15 @@ function unveil() {
     });
   });
   // 奥義の公開非公開切り替え
+
+  $('.unveiled').each(function() {
+    $(this).on('click', function() {
+      const target = $(this).data('target');
+      const modal = document.getElementById(target);
+      $(modal).fadeIn(300);
+      return false;
+    });
+  });
 };
 
 setInterval(unveil, 1000);
