@@ -140,7 +140,7 @@
             <div class="condition_bubble", id="condition-info<%= num %>">
               <div class="char-lower-display">
                 <button class="add-charinfo-btn", data-target="add-condition<%= num %>">
-                  変調追加
+                  追加/削除
                 </button>
                 <%= render "conditions/condition_form", num: num, token: @room.token, selected_char: selected_char %>
                 <% @conditions.each do |con| %>
@@ -165,7 +165,7 @@
           <div class="feeling_bubble", id="feeling-info<%= num %>">
             <div class="char-lower-display">
               <button class="add-charinfo-btn", data-target="add-feeling<%= num %>">
-                感情追加
+                追加/削除
               </button>
               <%= render "feelings/feeling_form", num: num, token: @room.token, selected_char: selected_char %>
               <% @feelings.each do |fe| %>
