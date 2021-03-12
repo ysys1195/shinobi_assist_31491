@@ -13,6 +13,10 @@ class Room < ApplicationRecord
   has_many :roles
   has_secure_password
 
+  def self.gm_role(room)
+    Role.create(role: 200, user_id: room.user_id, room_id: room.id)
+  end
+
   private
 
   def create_token
