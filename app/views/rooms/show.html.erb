@@ -1,8 +1,16 @@
 <%= render "shared/second_header"%>
-<div class="error-display">
-<% if flash[:error_msg] %>
-  <br /><%= flash[:error_msg] %>
-<% end %>
+<div class="under_header">
+  <div class="error-display">
+  <% if flash[:error_msg] %>
+    <br /><%= flash[:error_msg] %>
+  <% end %>
+  </div>
+  <div class="copy_invitation_code">
+    <div>招待コード</div>
+    <div class="copy-box">
+      <%= @room.token %>
+    </div>
+  </div>
 </div>
 
 <% if @room.player_number <= 4 %>
