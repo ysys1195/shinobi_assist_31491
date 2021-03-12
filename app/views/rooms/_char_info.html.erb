@@ -54,13 +54,8 @@
               <% if @role == 200 %>
                 <div>
                   <button class="add-charinfo-btn", data-target="add-secret<%= num %>">秘密追加</button>
-                  <% secret_num = 0 %>
-                  <% @secrets.each do |s| %>
-                    <% if selected_char.id == s.character_id %>
-                      <% secret_num += 1 %>
-                    <% end %>
-                  <% end %>
-                  <%= render "secrets/secret_form", num: num, token: @room.token, selected_char: selected_char, secret_n: secret_num %>
+                  <% secret_n = @secrets.where(character_id: selected_char.id).length + 1 %>
+                  <%= render "secrets/secret_form", num: num, token: @room.token, selected_char: selected_char, secret_n: secret_n %>
                 </div>
               <% end %>
               <%# 秘密追加モーダル表示 %>
@@ -102,13 +97,8 @@
               <% if @role == 200 %>
               <div>
                 <button class="add-charinfo-btn", data-target="add-last-resort<%= num %>">奥義追加</button>
-                <% last_resort_num = 0 %>
-                <% @last_resorts.each do |s| %>
-                  <% if selected_char.id == s.character_id %>
-                    <% last_resort_num += 1 %>
-                  <% end %>
-                <% end %>
-                <%= render "last_resorts/last_resort_form", num: num, token: @room.token, selected_char: selected_char, lr_n: last_resort_num %>
+                <% lr_n = @last_resorts.where(character_id: selected_char.id).length + 1 %>
+                <%= render "last_resorts/last_resort_form", num: num, token: @room.token, selected_char: selected_char, lr_n: lr_n %>
               </div>
               <% end %>
               <%# 奥義追加モーダル表示 %>
