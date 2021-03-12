@@ -24,10 +24,6 @@
   box-shadow: 1px 1px 3px black;
 }
 
-/* .status_frame{
-  background-color: blue;
-} */
-
 .character_name_frame{
   height: 50px;
   display: flex;
@@ -127,7 +123,8 @@
 .char-upper-display{
   color: white;
   height: 180px;
-  overflow: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .char-lower-display{
@@ -135,7 +132,8 @@
   min-height: 130px;
   height: auto;
   max-height: 300px;
-  overflow: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .bubble-list{
