@@ -12,11 +12,11 @@ class User < ApplicationRecord
 
   def self.guest
     user = User.where('email LIKE(?)', '%@shinobininja.com').order(:current_sign_in_at).first
-    if user == nil
+    if user.nil?
       10.times do |num|
         User.create(name: "guest#{num + 1}", email: "guest#{num + 1}@shinobininja.com", password: "#{SecureRandom.alphanumeric(10)}2b")
       end
-      return User.find_by(name: 'guest1')
+      User.find_by(name: 'guest1')
     else
       user
     end
