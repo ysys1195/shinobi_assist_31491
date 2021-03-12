@@ -129,7 +129,7 @@
 }
 /* セッションルームのエラー表示 */
 
-.lr_unveil_box, .secret_unveil_box{
+.open_close_box, .secret_unveil_box{
   background-color: rgba(0, 0, 0, 0.8);
   display: inline-block;
   margin-right: 5px;

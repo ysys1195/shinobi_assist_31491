@@ -277,3 +277,21 @@
   border-bottom: 10px solid rgba(0, 0, 0, 0.7);
 }
 /* 感情の吹き出し */
+
+.unveiled{
+  display: inline-block;
+  width: 150px;
+}
+
+.unveil-content{
+  margin-bottom: 15px;
+  display: flex;
+  min-height: 200px;
+  height: auto;
+  justify-content: space-between;
+  border-bottom: 1px solid white;
+  background-color: rgba(140, 140, 140, 0.5);
+  padding: 10px 5px;
+  font-size: 17px;
+  color: white;
+}
