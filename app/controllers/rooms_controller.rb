@@ -18,6 +18,7 @@ class RoomsController < ApplicationController
   end
 
   def show
+    @role = Role.find_by(user_id: current_user.id, room_id: @room.id).role
     @characters = Character.where(room_id: @room.id)
     @character_info = CharacterInfo.new(flash[:char_info] || {})
     @add_secret = Secret.new
