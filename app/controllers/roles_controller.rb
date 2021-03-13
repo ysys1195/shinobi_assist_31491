@@ -3,7 +3,10 @@ class RolesController < ApplicationController
     @room = Room.find_by(token: params[:enter_room][:token])
     @enter_room = EnterRoom.new(enter_room_params)
     if @enter_room.valid?
-      if @room.player_number < @enter_room.role.to_i
+      if @room.nil?
+        flash[:error] = ['入力された招待コードが存在しません。']
+        redirect_to root_path and return
+      elsif @room.player_number < @enter_room.role.to_i
         flash[:error] = ['指定した部屋に該当のPC番号が存在しません。']
         redirect_to root_path and return
       end
