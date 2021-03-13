@@ -1,0 +1,22 @@
+<div class="status_over_frame", data-target="condition-info<%= num %>">
+  <div class="status_name">
+    変調
+  </div>
+  <div class="condition_bubble", id="condition-info<%= num %>">
+    <div class="char-lower-display">
+      <button class="add-charinfo-btn", data-target="add-condition<%= num %>">
+        追加/削除
+      </button>
+      <%= render "conditions/condition_form", num: num, token: @room.token, selected_char: selected_char %>
+      <% @conditions.each do |con| %>
+        <% if con.character_id == selected_char.id %>
+          <div class="bubble-list">
+            <div>
+              <%= con.state.name %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

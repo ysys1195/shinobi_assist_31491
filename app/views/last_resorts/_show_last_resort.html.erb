@@ -1,0 +1,40 @@
+<div class="status_over_frame", data-target="last-resort-info<%= num %>">
+  <div class="status_name">
+    奥義
+  </div>
+  <div class="last_resort_bubble", id="last-resort-info<%= num %>">
+    <div class="char-upper-display">
+      <%# 奥義追加モーダル表示 %>
+      <% if @role == 200 %>
+      <div>
+        <button class="add-charinfo-btn", data-target="add-last-resort<%= num %>">奥義追加</button>
+        <% lr_n = @last_resorts.where(character_id: selected_char.id).length + 1 %>
+        <%= render "last_resorts/last_resort_form", num: num, token: @room.token, selected_char: selected_char, lr_n: lr_n %>
+      </div>
+      <% end %>
+      <%# 奥義追加モーダル表示 %>
+
+      <%# 奥義公開モーダル表示 %>
+      <% @last_resorts.each do |lr| %>
+        <% if selected_char.id == lr.character_id %>
+          <% if @open_last_resorts.find_by(lr_unveil_to: @role, unveiled_id: 2, last_resort_id: lr.id) != nil ||
+                @role == 200 ||
+                @role == selected_char.pc_number %>
+            <div class="bubble-list">
+              <button class="unveiled", data-target="unveil-lr<%=num%>-<%=lr.last_resort_n%>"><%= "奥義#{lr.last_resort_n}" %></button>
+              <%= render "open_last_resorts/open_last_resort", num: num, lr: lr %>
+      <%# 奥義公開モーダル表示 %>
+
+      <%# 奥義編集モーダル表示 %>
+              <% if @role == 200 %>
+              <button class="edit-charinfo-btn", data-target="edit-last-resort<%=num%>-<%=lr.last_resort_n%>">編集</button>
+              <%= render 'last_resorts/edit_last_resort', num: num, token: @room.token, selected_char: selected_char, lr: lr %>
+              <% end %>
+            </div>
+      <%# 奥義編集モーダル表示 %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

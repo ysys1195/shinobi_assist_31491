@@ -1,0 +1,24 @@
+<div class="status_over_frame", data-target="feeling-info<%= num %>">
+  <div class="status_name">
+    感情
+  </div>
+  <div class="feeling_bubble", id="feeling-info<%= num %>">
+    <div class="char-lower-display">
+      <button class="add-charinfo-btn", data-target="add-feeling<%= num %>">
+        追加/削除
+      </button>
+      <%= render "feelings/feeling_form", num: num, token: @room.token, selected_char: selected_char %>
+      <% @feelings.each do |fe| %>
+        <% if fe.character_id == selected_char.id %>
+          <div class="bubble-list">
+            <div class="feeling_contents">
+              <div><%= fe.feel.name %></div>
+              <div>↓</div>
+              <div><%= fe.feeling_to %></div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
