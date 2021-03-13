@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  before_action :authenticate_user!, only: [:create]
+  before_action :authenticate_user!, only: [:create, :show, :destroy]
   before_action :find_room, only: [:show, :destroy]
 
   def index
@@ -44,10 +44,6 @@ class RoomsController < ApplicationController
   def room_params
     params.require(:room).permit(:room_name, :player_number, :password, :password_confirmation).merge(user_id: current_user.id)
   end
-
-  # def gm_role(room)
-  #   Role.create(role: 200, user_id: current_user.id, room_id: room.id)
-  # end
 
   def find_room
     @room = Room.find_by(token: params[:token])
