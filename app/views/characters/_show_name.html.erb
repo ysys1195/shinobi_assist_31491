@@ -1,0 +1,6 @@
+<button class="character_name", data-target="edit-char-name<%= num %>">
+  <%= selected_char.character_name %>
+</button>
+<% if @role == 200 %>
+  <%= render "characters/char_name_form", num: num, token: @room.token, selected_char: selected_char %>
+<% end %>

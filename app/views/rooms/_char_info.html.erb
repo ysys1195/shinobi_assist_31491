@@ -25,14 +25,12 @@
   <% else %>
 
     <%#    キャラクター情報入力済みのとき    %>
+
+    <%# キャラクター名 %>
     <div class="character_name_frame">
-      <button class="character_name", data-target="edit-char-name<%= num %>">
-        <%= selected_char.character_name %>
-      </button>
-      <% if @role == 200 %>
-        <%= render "characters/char_name_form", num: num, token: @room.token, selected_char: selected_char %>
-      <% end %>
+      <%= render "characters/show_name", num: num, selected_char: selected_char %>
     </div>
+    <%# キャラクター名 %>
 
     <div class="status_frame">
       <div class="upper_status_frame">
