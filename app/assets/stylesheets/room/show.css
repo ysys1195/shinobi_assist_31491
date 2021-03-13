@@ -313,6 +313,8 @@
 .copy-box{
   background-color: white;
   overflow-x: scroll;
+  overflow-y: hidden;
+  height: 20px;
   color: black;
   margin-top: 3px;
 }
