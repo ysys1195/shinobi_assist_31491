@@ -16,11 +16,11 @@
         <% end %>
         <div class="field">
           <%= f.label "奥義" %><span class="required-items"> 必須</span><br />
-          <%= f.text_area :last_resort, placeholder: "奥義を入力", value: lr.last_resort, class: "long_text_box" %>
+          <%= f.text_area :last_resort, placeholder: "奥義を入力", value: lr.last_resort, class: "long_text_box", id: "elrltb-#{num}-#{lr.last_resort_n}" %>
         </div>
-        <%= f.hidden_field :character_id, value: selected_char.id %>
-        <%= f.hidden_field :pc_number, value: num %>
-        <%= f.hidden_field :last_resort_n, value: lr.last_resort_n %>
+        <%= f.hidden_field :character_id, value: selected_char.id, id: "elrci-#{num}-#{lr.last_resort_n}" %>
+        <%= f.hidden_field :pc_number, value: num, id: "elrpn-#{num}-#{lr.last_resort_n}" %>
+        <%= f.hidden_field :last_resort_n, value: lr.last_resort_n, id: "elrlrn-#{num}-#{lr.last_resort_n}" %>
       </div>
       <button class="add-btn">
         <%= f.submit "編集" %>

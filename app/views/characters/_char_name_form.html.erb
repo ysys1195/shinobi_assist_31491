@@ -16,11 +16,9 @@
         <% end %>
         <div class="field">
           <%= f.label "キャラクター名" %><br />
-          <%= f.text_field :character_name, value: selected_char.character_name, class: "character_box", id: "edit-character-name#{num}" %>
+          <%= f.text_field :character_name, value: selected_char.character_name, class: "character_box", id: "ecn-#{num}" %>
         </div>
-        <div class="hidden-item">
-          <%= f.text_field :pc_number, value: num %>
-        </div>
+        <%= f.hidden_field :pc_number, value: num, id: "ecnpn-#{num}" %>
         <button class="add-btn change-name", data-token=<%=token%>, data-num=<%=num%> ,data-nameid=<%=selected_char.id%>>
           <%= f.submit "変更" %>
         </button>
