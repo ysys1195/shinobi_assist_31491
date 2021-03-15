@@ -1,6 +1,6 @@
 <% selected_char = @characters.find_by(pc_number: num) %>
 
-<div class="middle_status_frame">
+<div class="middle_status_frame", id="char-info-<%=num%>">
 
   <% if selected_char.nil? %>
     <%#    キャラクター情報未入力時    %>
