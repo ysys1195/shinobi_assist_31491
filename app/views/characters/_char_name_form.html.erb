@@ -2,7 +2,7 @@
   <div class="form-background"></div>
   <div class="condition-feeling-form">
   <% @char = selected_char %>
-    <%= form_with model: @char, url: room_character_path(id: selected_char.id, room_token: token), method: :patch, local: true do |f| %>
+    <%= form_with model: @char, url: room_character_path(id: selected_char.id, room_token: token), method: :patch, id: "change-name#{num}" do |f| %>
       <div class="form-title">
         キャラクター名変更
       </div>
@@ -16,12 +16,12 @@
         <% end %>
         <div class="field">
           <%= f.label "キャラクター名" %><br />
-          <%= f.text_field :character_name, value: selected_char.character_name, class: "character_box" %>
+          <%= f.text_field :character_name, value: selected_char.character_name, class: "character_box", id: "edit-character-name#{num}" %>
         </div>
         <div class="hidden-item">
           <%= f.text_field :pc_number, value: num %>
         </div>
-        <button class="add-btn">
+        <button class="add-btn change-name", data-token=<%=token%>, data-num=<%=num%> ,data-nameid=<%=selected_char.id%>>
           <%= f.submit "変更" %>
         </button>
       </div>
