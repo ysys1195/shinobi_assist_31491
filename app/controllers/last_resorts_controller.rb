@@ -27,13 +27,19 @@ class LastResortsController < ApplicationController
 
   def update
     @edit_last_resort = LastResort.find(params[:id])
-    unless @edit_last_resort.update(last_resort_params)
-      flash[:error] = @edit_last_resort.errors.full_messages
-      flash[:num] = params[:last_resort][:pc_number].to_i
-      flash[:match] = "lr#{flash[:num]}"
-      flash[:error_msg] = "PC#{flash[:num]}の奥義を更新できませんでした。再度入力をお願いします。"
+    respond_to do |format|
+      if @edit_last_resort.update(last_resort_params)
+        @pc_num = Character.find(@edit_last_resort.character_id).pc_number
+        format.js { render 'last_resorts/edit_last_resort' }
+      else
+        flash[:error] = @edit_last_resort.errors.full_messages
+        flash[:num] = params[:last_resort][:pc_number].to_i
+        flash[:match] = "lr#{flash[:num]}"
+        flash[:error_msg] = "PC#{flash[:num]}の奥義を更新できませんでした。再度入力をお願いします。"
+        format.js { render 'shared/errors' }
+      end
+      format.html { redirect_to room_path(token: @room.token) }
     end
-    redirect_to room_path(token: @room.token)
   end
 
   private
