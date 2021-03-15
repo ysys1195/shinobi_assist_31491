@@ -10,7 +10,7 @@ class SecretsController < ApplicationController
         end
         @open_secrets = OpenSecret.where(secret_id: @add_secret.id)
         @role = Role.find_by(user_id: current_user.id, room_id: @room.id).role
-        @secret = { num: character.to_i, selected_char: Character.find(@add_secret.character_id) }
+        @secret = { num: character, selected_char: Character.find(@add_secret.character_id) }
         @characters = Character.where(room_id: @room.id)
         format.js { render 'secrets/add_secret' }
       else
@@ -26,13 +26,19 @@ class SecretsController < ApplicationController
 
   def update
     @edit_secret = Secret.find(params[:id])
-    unless @edit_secret.update(secret_params)
-      flash[:error] = @edit_secret.errors.full_messages
-      flash[:num] = params[:secret][:pc_number].to_i
-      flash[:match] = "secret#{flash[:num]}"
-      flash[:error_msg] = "PC#{flash[:num]}の秘密を更新できませんでした。再度入力をお願いします。"
+    respond_to do |format|
+      if @edit_secret.update(secret_params)
+        @pc_num = Character.find(@edit_secret.character_id).pc_number
+        format.js { render 'secrets/edit_secret' }
+      else
+        flash[:error] = @edit_secret.errors.full_messages
+        flash[:num] = params[:secret][:pc_number].to_i
+        flash[:match] = "secret#{flash[:num]}"
+        flash[:error_msg] = "PC#{flash[:num]}の秘密を更新できませんでした。再度入力をお願いします。"
+        format.js { render 'shared/errors' }
+      end
+      format.html { redirect_to room_path(token: params[:room_token]) }
     end
-    redirect_to room_path(token: params[:room_token])
   end
 
   private
