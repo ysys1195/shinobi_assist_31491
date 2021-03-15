@@ -1,7 +1,7 @@
 <div class="wrap-char-form" id="add-condition<%= num %>">
   <div class="form-background"></div>
   <div class="condition-feeling-form">
-    <%= form_with model: @condition, url: room_conditions_path(room_token: token), method: :post, local: true do |f| %>
+    <%= form_with model: @condition, url: room_conditions_path(room_token: token), method: :post do |f| %>
       <div class="form-title">
         変調情報入力
       </div>
@@ -15,12 +15,10 @@
         <% end %>
         <div class="field">
           <%= f.label "変調" %><span class="required-items"> 必須</span><br />
-          <%= f.collection_select(:state_id, State.all, :id, :name, {}, {class: "select_box"}) %>
+          <%= f.collection_select(:state_id, State.all, :id, :name, {}, {class: "select_box", id: "acs-#{num}"}) %>
         </div>
-        <div class="hidden-item">
-          <%= f.text_field :character_id, value: selected_char.id %>
-          <%= f.text_field :pc_number, value: num %>
-        </div>
+        <%= f.hidden_field :character_id, value: selected_char.id, id: "acci-#{num}" %>
+        <%= f.hidden_field :pc_number, value: num, id: "acpn-#{num}" %>
         <button class="add-btn">
           <%= f.submit "追加" %>
         </button>
@@ -31,16 +29,10 @@
       <div class="form-contents">
         <% @conditions.each do |con| %>
           <% if con.character_id == selected_char.id %>
-            <div class="del-list">
-              <div>
-                <%= con.state.name %>
-              </div>
-              <div class="del_btn">
-                <%= link_to "× 削除", room_condition_path(room_token: @room.token, id: con.id), method: :delete %>
-              </div>
-            </div>
+            <%= render 'conditions/delete_condition', con: con %>
           <% end %>
         <% end %>
+        <div id="del-condition-<%=num%>"></div>
       </div>
     <% end %>
   </div>

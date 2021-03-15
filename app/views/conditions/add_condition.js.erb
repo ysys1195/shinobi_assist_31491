@@ -1,0 +1,5 @@
+$('.wrap-char-form').fadeOut(200);
+$("#conditions-<%=@pc_num%>").append("<div class='bubble-list'><div><%= @condition.state.name %></div></div>");
+$("#acs-<%=@pc_num%>").val(['1']);
+$("#del-condition-<%=@pc_num%>").append("<%= j(render 'conditions/delete_condition', con: @condition) %>");
+$('.js-message-errors').empty();
