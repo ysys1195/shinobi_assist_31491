@@ -1,0 +1,15 @@
+<% if @open_last_resorts.find_by(lr_unveil_to: @role, unveiled_id: 2, last_resort_id: lr.id) != nil ||
+      @role == 200 ||
+      @role == selected_char.pc_number %>
+  <div class="bubble-list">
+    <button class="unveiled", data-target="unveil-lr<%=num%>-<%=lr.last_resort_n%>"><%= "奥義#{lr.last_resort_n}" %></button>
+    <%= render "open_last_resorts/open_last_resort", num: num, lr: lr %>
+
+    <%# 奥義編集モーダル表示 %>
+    <% if @role == 200 %>
+      <button class="edit-charinfo-btn", data-target="edit-last-resort<%=num%>-<%=lr.last_resort_n%>">編集</button>
+      <%= render 'last_resorts/edit_last_resort', num: num, token: @room.token, selected_char: selected_char, lr: lr %>
+    <% end %>
+  </div>
+  <%# 奥義編集モーダル表示 %>
+<% end %>

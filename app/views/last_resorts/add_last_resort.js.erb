@@ -1,0 +1,8 @@
+$('.wrap-char-form').fadeOut(200);
+$("#last-resorts-<%=@lr[:num]%>").append(
+  "<%= j(render 'open_last_resorts/open_close',
+  num: @lr[:num],
+  selected_char: @lr[:selected_char],
+  lr: @add_last_resort) %>"
+);
+$('.js-message-errors').empty();
