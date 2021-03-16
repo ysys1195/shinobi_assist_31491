@@ -24,22 +24,20 @@
         <% end %>
         <div class="field">
           <%= f.label "キャラクター名" %><span class="required-items"> 必須</span><br />
-          <%= f.text_field :character_name, placeholder: "キャラクター名を入力", class: "character_box" %>
+          <%= f.text_field :character_name, placeholder: "キャラクター名を入力", class: "character_box", id: "accn-#{num}" %>
         </div>
         <div class="field">
           <%= f.label "秘密" %><span class="required-items"> 必須</span><br />
-          <%= f.text_area :secret, placeholder: "秘密を入力", class: "long_text_box" %>
+          <%= f.text_area :secret, placeholder: "秘密を入力", class: "long_text_box", id: "acs-#{num}" %>
         </div>
         <div class="field">
           <%= f.label "奥義" %><span class="required-items"> 必須</span><br />
-          <%= f.text_area :last_resort, placeholder: "奥義を入力", class: "long_text_box" %>
+          <%= f.text_area :last_resort, placeholder: "奥義を入力", class: "long_text_box", id: "aclr-#{num}" %>
         </div>
-        <div class="hidden-item">
-          <%= f.text_field :pc_number, value: num %>
-          <%= f.text_field :secret_n, value: 1 %>
-          <%= f.text_field :last_resort_n, value: 1 %>
-        </div>
-        <button class="add-btn">
+        <%= f.hidden_field :pc_number, value: num, id: "acpn-#{num}" %>
+        <%= f.hidden_field :secret_n, value: 1, id: "acsn-#{num}" %>
+        <%= f.hidden_field :last_resort_n, value: 1, id: "aclrn-#{num}" %>
+        <button class="add-btn add-character">
           <%= f.submit "追加" %>
         </button>
       </div>
