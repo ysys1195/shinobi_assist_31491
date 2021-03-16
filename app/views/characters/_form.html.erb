@@ -32,7 +32,7 @@
         </div>
         <div class="field">
           <%= f.label "奥義" %><span class="required-items"> 必須</span><br />
-          <%= f.text_area :last_resort, placeholder: "奥義を入力", class: "long_text_box", id: "aclr-#{num}" %>
+          <%= f.text_area :last_resort, placeholder: "奥義を入力", class: "long_text_box2", id: "aclr-#{num}" %>
         </div>
         <%= f.hidden_field :pc_number, value: num, id: "acpn-#{num}" %>
         <%= f.hidden_field :secret_n, value: 1, id: "acsn-#{num}" %>

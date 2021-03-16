@@ -4,7 +4,9 @@
 <header>
   <div class="main-left-2header">
     <%= link_to image_tag("title.png", class: "app-title"), root_path %>
-    <div class="room-name">部屋名： <span><%= @room.room_name %></span></div>
+    <% if @room%>
+      <div class="room-name">部屋名： <span><%= @room.room_name %></span></div>
+    <% end %>
   </div>
 
   <div class="main-right-header">
