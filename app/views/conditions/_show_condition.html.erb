@@ -10,7 +10,7 @@
       <%= render "conditions/condition_form", num: num, token: @room.token, selected_char: selected_char %>
       <% @conditions.each do |con| %>
         <% if con.character_id == selected_char.id %>
-          <div class="bubble-list">
+          <div class="bubble-list", id="con-<%=con.id%>">
             <div>
               <%= con.state.name %>
             </div>

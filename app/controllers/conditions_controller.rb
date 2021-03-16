@@ -18,9 +18,12 @@ class ConditionsController < ApplicationController
   end
 
   def destroy
-    condition = Condition.find(params[:id])
-    condition.destroy
-    redirect_to room_path(token: params[:room_token])
+    @condition = Condition.find(params[:id])
+    @condition.destroy
+    respond_to do |format|
+      format.html { redirect_to room_path(token: params[:room_token]) }
+      format.js { render 'destroy' }
+    end
   end
 
   private
