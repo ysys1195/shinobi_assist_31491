@@ -1,5 +1,10 @@
 /* header/app-title/navの記載はheader.cssと統一 */
 
+.main-left-2header{
+  display: flex;
+  align-items: center;
+}
+
 .create_playlog{
   height: 35px;
   padding: 5px 15px;
@@ -16,4 +21,16 @@
   width: 130px;
   margin-left: 10px;
   text-align: center;
+}
+
+.room-name{
+  margin: 10px 20px 5px;
+  color: white;
+  font-size: 20px;
+  border-bottom: solid 1px white;
+}
+
+.room-name span{
+  text-shadow: 1px 1px 5px red;
+  font-size: 35px;
 }
