@@ -1,0 +1,6 @@
+$("#feelings-<%=@num%>").append(
+  "<div class='bubble-list'><div class='feeling_contents'><div><%= @feeling.feel.name %></div><div> → <%= @feeling.feeling_to %></div></div></div>"
+  );
+  $("#afefe-<%=@pc_num%>").val(['1']);
+  $("#del-feeling<%=@num%>").append("<%= j(render 'feelings/delete_feeling', fe: @feeling) %>");
+  $('.js-message-errors').empty();

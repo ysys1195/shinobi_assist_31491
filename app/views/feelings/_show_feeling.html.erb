@@ -10,11 +10,10 @@
       <%= render "feelings/feeling_form", num: num, token: @room.token, selected_char: selected_char %>
       <% @feelings.each do |fe| %>
         <% if fe.character_id == selected_char.id %>
-          <div class="bubble-list">
+          <div class="bubble-list", id="fe-<%=fe.id%>">
             <div class="feeling_contents">
               <div><%= fe.feel.name %></div>
-              <div>↓</div>
-              <div><%= fe.feeling_to %></div>
+              <div> → <%= fe.feeling_to %></div>
             </div>
           </div>
         <% end %>
