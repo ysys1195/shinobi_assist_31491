@@ -1,15 +1,8 @@
-<% selected_char = "" %>
+<% selected_char = @characters.find_by(pc_number: num) %>
 
-<% @characters.each do |char| %>
-  <% if char.pc_number == num %>
-    <% selected_char = char %>
-    <% break %>
-  <% end %>
-<% end %>
+<div class="middle_status_frame", id="char-info-<%=num%>">
 
-<div class="middle_status_frame">
-
-  <% if selected_char == "" %>
+  <% if selected_char.nil? %>
     <%#    キャラクター情報未入力時    %>
     <div class="upper_status_frame">
       <div class="pc_number">
@@ -18,7 +11,7 @@
     </div>
     
     <div class="lower_status_frame">
-      <% if user_signed_in? %>
+      <% if @role == 200 %>
         <button class="input_char_info", data-target="form-bg<%= num %>">
           キャラクター情報を入力
         </button>
@@ -32,156 +25,33 @@
   <% else %>
 
     <%#    キャラクター情報入力済みのとき    %>
-    <div class="character_name_frame">
-      <button class="character_name", data-target="edit-char-name<%= num %>">
-        <%= selected_char.character_name %>
-      </button>
-      <% if user_signed_in? %>
-        <%= render "characters/char_name_form", num: num, token: @room.token, selected_char: selected_char %>
-      <% end %>
-    </div>
 
-    <%# 秘密情報 %>
+    <%# キャラクター名 %>
+    <div class="character_name_frame">
+      <%= render "characters/show_name", num: num, selected_char: selected_char %>
+    </div>
+    <%# キャラクター名 %>
+
     <div class="status_frame">
       <div class="upper_status_frame">
-        <div class="status_over_frame", data-target="secret-info<%= num %>">
-          <div class="status_name">
-            秘密
-          </div>
-          <div class="secret_bubble", id="secret-info<%= num %>">
-            <div class="char-upper-display">
-              <%# 秘密追加モーダル表示 %>
-              <% if @role == 200 %>
-                <div>
-                  <button class="add-charinfo-btn", data-target="add-secret<%= num %>">秘密追加</button>
-                  <% secret_n = @secrets.where(character_id: selected_char.id).length + 1 %>
-                  <%= render "secrets/secret_form", num: num, token: @room.token, selected_char: selected_char, secret_n: secret_n %>
-                </div>
-              <% end %>
-              <%# 秘密追加モーダル表示 %>
-
-              <%# 秘密公開モーダル表示 %>
-              <% @secrets.each do |s| %>
-                <% if selected_char.id == s.character_id %>
-                  <% if @open_secrets.find_by(secret_unveil_to: @role, unveiled_id: 2, secret_id: s.id) != nil ||
-                        @role == 200 ||
-                        @role == selected_char.pc_number %>
-                    <div class="bubble-list">
-                      <button class="unveiled", data-target="unveil-secret<%=num%>-<%=s.secret_n%>"><%= "秘密#{s.secret_n}" %></button>
-                      <%= render "open_secrets/open_secret", num: num, s: s %>
-              <%# 秘密公開モーダル表示 %>
-
-              <%# 秘密編集モーダル表示 %>
-                      <% if @role == 200 %>
-                        <button class="edit-charinfo-btn", data-target="edit-secret<%= num %>-<%= s.secret_n %>">編集</button>
-                        <%= render "secrets/edit_secret", num: num, token: @room.token, selected_char: selected_char, s: s %>
-                      <% end %>
-              <%# 秘密編集モーダル表示 %>
-                    </div>
-                  <% end %>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
-        </div>
+        
+        <%# 秘密情報 %>
+        <%= render "secrets/show_secret", num: num, selected_char: selected_char %>
         <%# 秘密情報 %>
 
         <%# 奥義情報 %>
-        <div class="status_over_frame", data-target="last-resort-info<%= num %>">
-          <div class="status_name">
-            奥義
-          </div>
-          <div class="last_resort_bubble", id="last-resort-info<%= num %>">
-            <div class="char-upper-display">
-              <%# 奥義追加モーダル表示 %>
-              <% if @role == 200 %>
-              <div>
-                <button class="add-charinfo-btn", data-target="add-last-resort<%= num %>">奥義追加</button>
-                <% lr_n = @last_resorts.where(character_id: selected_char.id).length + 1 %>
-                <%= render "last_resorts/last_resort_form", num: num, token: @room.token, selected_char: selected_char, lr_n: lr_n %>
-              </div>
-              <% end %>
-              <%# 奥義追加モーダル表示 %>
+        <%= render "last_resorts/show_last_resort", num: num, selected_char: selected_char %>
+        <%# 奥義情報 %>
 
-              <%# 奥義公開モーダル表示 %>
-              <% @last_resorts.each do |lr| %>
-                <% if selected_char.id == lr.character_id %>
-                  <% if @open_last_resorts.find_by(lr_unveil_to: @role, unveiled_id: 2, last_resort_id: lr.id) != nil ||
-                        @role == 200 ||
-                        @role == selected_char.pc_number %>
-                    <div class="bubble-list">
-                      <button class="unveiled", data-target="unveil-lr<%=num%>-<%=lr.last_resort_n%>"><%= "奥義#{lr.last_resort_n}" %></button>
-                      <%= render "open_last_resorts/open_last_resort", num: num, lr: lr %>
-              <%# 奥義公開モーダル表示 %>
-
-              <%# 奥義編集モーダル表示 %>
-                      <% if @role == 200 %>
-                      <button class="edit-charinfo-btn", data-target="edit-last-resort<%=num%>-<%=lr.last_resort_n%>">編集</button>
-                      <%= render 'last_resorts/edit_last_resort', num: num, token: @room.token, selected_char: selected_char, lr: lr %>
-                      <% end %>
-                    </div>
-              <%# 奥義編集モーダル表示 %>
-                  <% end %>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
-        </div>
       </div>
-      <%# 奥義情報 %>
-
       <div class="lower_status_frame">
 
         <%# 変調情報 %>
-        <div class="status_over_frame", data-target="condition-info<%= num %>">
-          <div class="status_name">
-            変調
-          </div>
-            <div class="condition_bubble", id="condition-info<%= num %>">
-              <div class="char-lower-display">
-                <button class="add-charinfo-btn", data-target="add-condition<%= num %>">
-                  追加/削除
-                </button>
-                <%= render "conditions/condition_form", num: num, token: @room.token, selected_char: selected_char %>
-                <% @conditions.each do |con| %>
-                  <% if con.character_id == selected_char.id %>
-                    <div class="bubble-list">
-                      <div>
-                        <%= con.state.name %>
-                      </div>
-                    </div>
-                  <% end %>
-                <% end %>
-              </div>
-            </div>
-        </div>
+        <%=render "conditions/show_condition", num: num, selected_char: selected_char %>
         <%# 変調情報 %>
 
         <%# 感情情報 %>
-        <div class="status_over_frame", data-target="feeling-info<%= num %>">
-          <div class="status_name">
-            感情
-          </div>
-          <div class="feeling_bubble", id="feeling-info<%= num %>">
-            <div class="char-lower-display">
-              <button class="add-charinfo-btn", data-target="add-feeling<%= num %>">
-                追加/削除
-              </button>
-              <%= render "feelings/feeling_form", num: num, token: @room.token, selected_char: selected_char %>
-              <% @feelings.each do |fe| %>
-                <% if fe.character_id == selected_char.id %>
-                  <div class="bubble-list">
-                    <div class="feeling_contents">
-                      <div><%= fe.feel.name %></div>
-                      <div>↓</div>
-                      <div><%= fe.feeling_to %></div>
-                    </div>
-                  </div>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
-        </div>
+        <%=render "feelings/show_feeling", num: num, selected_char: selected_char %>
         <%# 感情情報 %>
 
       </div>

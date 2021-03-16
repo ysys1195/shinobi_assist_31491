@@ -1,0 +1,9 @@
+<div class="del-list", id ="del-fe-<%=fe.id%>">
+  <div class="feeling_contents">
+    <div><%= fe.feel.name %></div>
+    <div> → <%= fe.feeling_to %></div>
+  </div>
+  <div class="del_btn">
+    <%= link_to "× 削除", room_feeling_path(room_token: @room.token, id: fe.id), method: :delete, remote: true %>
+  </div>
+</div>

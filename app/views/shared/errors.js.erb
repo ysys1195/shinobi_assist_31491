@@ -1,0 +1,20 @@
+<% if @char %>
+  <% error = @char %>
+<% elsif @add_secret %>
+  <% error = @add_secret %>
+<% elsif @edit_secret %>
+  <% error = @edit_secret %>
+<% elsif @add_last_resort %>
+  <% error = @add_last_resort %>
+<% elsif @edit_last_resort %>
+  <% error = @edit_last_resort %>
+<% elsif @condition %>
+  <% error = @condition %>
+<% elsif @feeling %>
+  <% error = @feeling %>
+<% end %>
+
+$('.js-message-errors').replaceWith(
+  "<%= j(render 'layouts/validation_errors',instance: error) %>"
+);
+$('.wrap-char-form').fadeOut(200);

@@ -132,7 +132,8 @@
 }
 /* セッションルームのエラー表示 */
 
-.open_close_box, .secret_unveil_box{
+/* 公開・非公開の切り替え */
+.lr_unveil_box, .secret_unveil_box{
   background-color: rgba(0, 0, 0, 0.8);
   display: inline-block;
   margin-right: 5px;
@@ -141,3 +142,4 @@
   height: 35px;
   border-radius: 2px;
 }
+/* 公開・非公開の切り替え */
