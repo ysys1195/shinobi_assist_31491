@@ -6,11 +6,7 @@ class LastResortsController < ApplicationController
     respond_to do |format|
       if @add_last_resort.save
         character = Character.find(@add_last_resort.character_id)
-        @room.player_number.times do |n|
-          if character.pc_number != n + 1
-            OpenLastResort.create(lr_unveil_to: n + 1, unveiled_id: 1, last_resort_id: @add_last_resort.id)
-          end
-        end
+        LastResort.create_open_lrs(@room.player_number, @add_last_resort.id, character)
         definition_create(character)
         format.js { render 'last_resorts/add_last_resort' }
       else
