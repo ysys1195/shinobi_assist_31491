@@ -5,9 +5,7 @@ class SecretsController < ApplicationController
       if @add_secret.save
         character = Character.find(@add_secret.character_id)
         @room = Room.find_by(token: params[:room_token])
-        @room.player_number.times do |n|
-          OpenSecret.create(secret_unveil_to: n + 1, unveiled_id: 1, secret_id: @add_secret.id) if character.pc_number != n + 1
-        end
+        Secret.create_open_secrets(@room.player_number, @add_secret.id, character)
         definition_create(character)
         format.js { render 'secrets/add_secret' }
       else
