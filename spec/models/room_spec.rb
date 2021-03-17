@@ -26,10 +26,16 @@ RSpec.describe Room, type: :model do
         @room.valid?
         expect(@room.errors.full_messages).to include('Player number must be greater than or equal to 2')
       end
-      it 'player_numberが7以上だと部屋が作成されない' do
-        @room.player_number = 7
+      it 'player_numberが9以上だと部屋が作成されない' do
+        @room.player_number = 9
         @room.valid?
-        expect(@room.errors.full_messages).to include('Player number must be less than or equal to 6')
+        expect(@room.errors.full_messages).to include('Player number must be less than or equal to 8')
+      end
+      it 'passwordが存在しなければ部屋が作成されない' do
+        @room.password = nil
+        @room.password_confirmation = nil
+        @room.valid?
+        expect(@room.errors.full_messages).to include("Password can't be blank")
       end
       it 'passwordが4文字未満だと部屋が作成されない' do
         @room.password = 'a1b'
