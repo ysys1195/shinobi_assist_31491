@@ -24,10 +24,20 @@ RSpec.describe CharacterInfo, type: :model do
       @character_info.valid?
       expect(@character_info.errors.full_messages).to include("Secret can't be blank")
     end
+    it 'secret_nが空だと保存できない' do
+      @character_info.secret_n = ''
+      @character_info.valid?
+      expect(@character_info.errors.full_messages).to include("Secret n can't be blank")
+    end
     it 'last_resortが空だと保存できない' do
       @character_info.last_resort = ''
       @character_info.valid?
       expect(@character_info.errors.full_messages).to include("Last resort can't be blank")
+    end
+    it 'last_resort_nが空だと保存できない' do
+      @character_info.last_resort_n = ''
+      @character_info.valid?
+      expect(@character_info.errors.full_messages).to include("Last resort n can't be blank")
     end
   end
 end
