@@ -6,6 +6,9 @@ RSpec.describe OpenSecret, type: :model do
       @open_secret = FactoryBot.build(:open_secret)
     end
 
+    it '全て正しく入力されていると保存される' do
+      expect(@open_secret).to be_valid
+    end
     it 'secret_unveil_toが空だと保存できない' do
       @open_secret.secret_unveil_to = ''
       @open_secret.valid?
@@ -19,7 +22,7 @@ RSpec.describe OpenSecret, type: :model do
     it 'unveiled_idが1か2以外だと保存できない' do
       @open_secret.unveiled_id = 3
       @open_secret.valid?
-      expect(@open_secret.errors.full_messages).to include("Unveiled is not included in the list")
+      expect(@open_secret.errors.full_messages).to include('Unveiled is not included in the list')
     end
     it 'secretと紐づいていないと保存できない' do
       @open_secret.secret = nil
