@@ -22,7 +22,7 @@ RSpec.describe LastResort, type: :model do
     it 'characterと紐づいていないと保存できない' do
       @last_resort.character = nil
       @last_resort.valid?
-      expect(@last_resort.errors.full_messages).to include("Character must exist")
+      expect(@last_resort.errors.full_messages).to include('Character must exist')
     end
   end
 end

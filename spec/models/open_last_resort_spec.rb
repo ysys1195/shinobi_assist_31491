@@ -27,7 +27,7 @@ RSpec.describe OpenLastResort, type: :model do
     it 'last_resortが紐づいていないと保存できない' do
       @open_last_resort.last_resort = nil
       @open_last_resort.valid?
-      expect(@open_last_resort.errors.full_messages).to include("Last resort must exist")
+      expect(@open_last_resort.errors.full_messages).to include('Last resort must exist')
     end
   end
 end
