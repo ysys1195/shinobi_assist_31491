@@ -1,0 +1,47 @@
+<%= render 'shared/header' %>
+
+<%# セッションログ内容の自動入力 %>
+<% text = '' %>
+<% @characters.each do |c| %>
+  <% text += "キャラクター名：#{c.character_name}\n" %>
+  <% secrets = Secret.where(character_id: c.id) %>
+  <% secrets.each do |s| %>
+    <% text += "秘密#{s.secret_n}：#{s.secret}\n" %>
+  <% end %>
+  <% last_resorts = LastResort.where(character_id: c.id) %>
+  <% last_resorts.each do |lr| %>
+    <% text += "奥義#{lr.last_resort_n}：#{lr.last_resort}\n" %>
+  <% end %>
+  <% feelings = Feeling.where(character_id: c.id) %>
+   <% text += "感情：\n" %>
+  <% feelings.each do |f| %>
+    <% text += "・#{f.feeling_to}に#{f.feel.name}の感情を結んだ。" %>
+  <% end %>
+  <% text += "\n--------------------------\n" %>
+<% end %>
+<%# セッションログ内容の自動入力 %>
+
+<div class="outer-form-wrap">
+  <div class="form-wrap">
+    <div class="form-title">
+      履歴の作成
+    </div>
+    <div class="form-contents">
+      <%= form_with model: @session_log, url: room_session_logs_path(room_token: @room.token), local: true do |f| %>
+        <div class="field">
+          <label>表題</label><span class="required-items"> 必須</span><br />
+          <%= f.text_field :title, placeholder: "表題を入力", value: @room.room_name, class: "text_box" %>
+        </div>
+        <div class="field">
+          <label>セッション内容</label><span class="required-items"> 必須</span><br />
+          <%= f.text_area :log, class: "long_text_box3", placeholder: "セッション内容を入力",
+          value: text %>
+          
+        </div><br />
+        <div>
+          <%= f.submit "履歴作成", class: "room-btn" %>
+        </div><br />
+      <% end %>
+    </div>
+  </div>
+</div>
