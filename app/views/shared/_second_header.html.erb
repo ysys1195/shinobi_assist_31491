@@ -1,5 +1,5 @@
 <%# CSS...assets/stylesheets/shared/second_header.css %>
-<%# ルームへの遷移画面とセッションルームのヘッダー %>
+<%# セッションルームのヘッダー %>
 
 <header>
   <div class="main-left-2header">
@@ -13,7 +13,7 @@
     <ul class="nav">
       <% if user_signed_in? %>
         <div class="create_playlog">
-          <li><%= link_to 'プレイ履歴作成', "#" %></li>
+          <li><%= link_to 'プレイ履歴作成', new_session_log_path %></li>
           <%# プレイ履歴を作成する %>
         </div>
         <li><%= link_to image_tag("delete_room.png", class: "delete_room"), room_path, method: :delete %></li>
