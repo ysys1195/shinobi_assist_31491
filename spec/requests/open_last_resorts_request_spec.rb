@@ -1,5 +1,4 @@
 require 'rails_helper'
 
-RSpec.describe "OpenLastResorts", type: :request do
-
+RSpec.describe 'OpenLastResorts', type: :request do
 end
