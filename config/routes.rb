@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
-  resources :session_logs, only: [:new, :create]
   root to: 'rooms#index'
   resources :roles, only: [:create]
   resources :rooms, only: [:create, :show, :destroy], param: :token do
@@ -16,5 +15,6 @@ Rails.application.routes.draw do
     get 'open_last_resorts/:id', to: 'open_last_resorts#unveiled'
     resources :conditions, only: [:create, :destroy]
     resources :feelings, only: [:create, :destroy]
+    resources :session_logs, only: [:new, :create]
   end
 end
