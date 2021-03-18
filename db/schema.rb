@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_09_082047) do
+ActiveRecord::Schema.define(version: 2021_03_18_110256) do
 
   create_table "characters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "character_name", null: false
@@ -95,6 +95,17 @@ ActiveRecord::Schema.define(version: 2021_03_09_082047) do
     t.index ["character_id"], name: "index_secrets_on_character_id"
   end
 
+  create_table "session_logs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "log", null: false
+    t.bigint "user_id", null: false
+    t.bigint "room_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_session_logs_on_room_id"
+    t.index ["user_id"], name: "index_session_logs_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false
@@ -122,4 +133,5 @@ ActiveRecord::Schema.define(version: 2021_03_09_082047) do
   add_foreign_key "roles", "rooms"
   add_foreign_key "roles", "users"
   add_foreign_key "secrets", "characters"
+  add_foreign_key "session_logs", "users"
 end
