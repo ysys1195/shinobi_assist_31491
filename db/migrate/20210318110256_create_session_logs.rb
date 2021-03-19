@@ -4,7 +4,7 @@ class CreateSessionLogs < ActiveRecord::Migration[6.0]
       t.string :title, null: false
       t.text :log, null: false
       t.references :user, null: false, foreign_key: true
-      t.references :room
+      t.references :room, null: false, foreign_key: true
       t.timestamps
     end
   end
