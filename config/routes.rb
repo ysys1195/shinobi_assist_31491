@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
   root to: 'rooms#index'
+  resources :users, only: :show
   resources :roles, only: [:create]
   resources :rooms, only: [:create, :show, :destroy], param: :token do
     resources :characters, only: [:create, :update]
