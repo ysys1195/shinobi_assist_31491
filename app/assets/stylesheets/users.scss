@@ -1,0 +1,85 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user-info-wrap{
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 500px;
+  min-height: 200px;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px white;
+  margin: 10px calc(50% - 250px);
+  padding: 10px;
+  color: white;
+}
+
+.user-info-title{
+  border-bottom: solid 1px white;
+  margin: 10px 0;
+}
+
+.user_info{
+  font-size: 25px;
+  text-shadow: 1px 1px 3px red;
+}
+
+.change-user-btn{
+  height: 40px;
+  width: 200px;
+  background: linear-gradient(#696969, gray, silver);
+  font-size: 20px;
+  margin: 30px calc(50% - 100px);
+  padding: 5px 15px;
+  border-radius: 20px;
+}
+
+.session-logs{
+  margin: 10px;
+}
+
+.session-log-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.log-link {
+  position: relative;
+  font-size: 20px;
+  min-width: 320px;
+  height: 180px;
+  margin: 30px;
+  padding: 10px;
+  border: 12px solid transparent;
+  border-left-width: 48px;
+  background: linear-gradient(#ffffe0, #f8e58c), linear-gradient(#47885e,#316745);
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
+  box-shadow: 1px 1px 3px black;
+}
+.log-link:before,
+.log-link:after {
+  display: inline-block;
+  position: absolute;
+  content: "";
+}
+.log-link:before {
+  left: -36px;
+  top: -32px;
+  width: 24px;
+  height: calc(100% + 64px);
+  background: linear-gradient(to left, #4d4d4d, #9ea1a3 60%, #4d4d4d);
+}
+.log-link:after {
+  left: -48px;
+  top: -20px;
+  width: 48px;
+  height: calc(100% + 40px);
+  background: linear-gradient(to left, #00552e, #69b076 55%, #00552e);
+}
+
+.session-log-info{
+  border-bottom: 1px solid gray;
+  font-size: 15px;
+}
