@@ -9,7 +9,7 @@ class SessionLogsController < ApplicationController
     @room = Room.find_by(token: params[:room_token])
     @session_log = SessionLog.new(session_log_params)
     if @session_log.save
-      redirect_to root_path
+      redirect_to user_path(current_user.id)
     else
       render :new
     end
