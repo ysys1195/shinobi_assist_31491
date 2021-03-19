@@ -1,5 +1,5 @@
-<%# CSS...assets/stylesheets/shared/second_header.css %>
-<%# ルームへの遷移画面とセッションルームのヘッダー %>
+<%# CSS...assets/stylesheets/shared/header.css %>
+<%# セッションルームのヘッダー %>
 
 <header>
   <div class="main-left-2header">
@@ -11,12 +11,12 @@
 
   <div class="main-right-header">
     <ul class="nav">
-      <% if user_signed_in? %>
+      <% if user_signed_in? && @role == 200 %>
         <div class="create_playlog">
-          <li><%= link_to 'プレイ履歴作成', "#" %></li>
-          <%# プレイ履歴を作成する %>
+          <li><%= link_to 'プレイ履歴作成', new_room_session_log_path(room_token: params[:token])%></li>
         </div>
-        <li><%= link_to image_tag("delete_room.png", class: "delete_room"), room_path, method: :delete %></li>
+        <li><%= link_to image_tag("delete_room.png", class: "delete_room"), room_path, method: :delete,
+        data: { confirm: "本当に部屋を削除してもよろしいですか？" } %></li>
         <%# ルームを削除する前に確認画面欲しい %>
       <% end %>
     </ul>
