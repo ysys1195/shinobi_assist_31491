@@ -4,5 +4,5 @@ class SessionLog < ApplicationRecord
     validates :log
   end
   belongs_to :user
-  belongs_to :room, optional: true
+  belongs_to :room
 end
