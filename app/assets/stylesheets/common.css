@@ -1,4 +1,5 @@
 /* 全シートに共通するCSS */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600&display=swap');
 
 body{
   background-color: #a9a9a9;
@@ -19,7 +20,7 @@ body{
 }
 
 *{
-  font-family: 'ヒラギノ明朝 ProN W6';
+  font-family: 'Noto Serif JP', serif;
 }
 
 .required-items{
