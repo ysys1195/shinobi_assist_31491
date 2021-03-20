@@ -7,6 +7,9 @@
     </div>
     <div class="form-contents">
       <%= form_with model: current_user, local: true do |f| %>
+
+        <%= render 'shared/errors_messages', model: f.object %>
+        
         <div class="field">
           <label>ユーザー名</label><span class="required-items"> 必須</span><br />
           <%= f.text_field :name, placeholder: "ユーザー名を入力", value: current_user.name, class: "text_box" %>

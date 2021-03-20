@@ -8,7 +8,11 @@
     <ul class="nav">
       <% if user_signed_in? %>
         <div class="user-name">
-          <li><%= link_to current_user.name, user_path(current_user.id) %></li>
+          <% if current_user.name == '' %>
+            <li><%= link_to 'マイページへ戻る', user_path(current_user.id) %></li>
+          <% else %>
+            <li><%= link_to current_user.name, user_path(current_user.id) %></li>
+          <% end %>
         </div>
         <li><%= link_to image_tag("logout_button.png", class: "logout"), destroy_user_session_path, method: :delete %></li>
       <% else%>
