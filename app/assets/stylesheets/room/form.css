@@ -63,6 +63,7 @@
   font-size: 25px;
   border-radius: 5px;
   margin: 30px calc(50% - 70px) 10px;
+  padding-bottom: 40px;
   border: solid 2px black;
   color: white;
   text-align: center;
