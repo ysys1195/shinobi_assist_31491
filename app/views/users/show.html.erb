@@ -22,11 +22,16 @@
     <div class="session-log-list">
       <% unless @session_logs[0].nil? %>
         <% @session_logs.each do |s| %>
-          <div class="log-link">
+          <div class="session-log">
             <div class="session-log-info">表題</div>
             <%= s.title %><br /><br />
             <div class="session-log-info">履歴作成日</div>
             <%= s.created_at.strftime("%Y年%m月%d日") %>
+            <div class="session-log-link">
+              <% token = Room.find(s.room_id).token %>
+              <div><%= link_to '編集', edit_room_session_log_path(s.id, room_token: token), class: "log-link" %></div>
+              <div><%= link_to '削除', "#", class: "log-link" %></div>
+            </div>
           </div>
         <% end %>
       <% else %>
