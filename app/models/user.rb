@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :trackable
   validates :name, presence: true
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
-  validates :password, format: { with: PASSWORD_REGEX }
+  validates :password, format: { with: PASSWORD_REGEX }, on: :create
 
   has_many :rooms
   has_many :roles
