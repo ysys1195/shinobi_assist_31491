@@ -1,6 +1,6 @@
 class SessionLogsController < ApplicationController
   before_action :find_room, only: [:new, :create, :edit, :update]
-  
+
   def new
     @characters = Character.where(room_id: @room.id)
     @session_log = SessionLog.new
