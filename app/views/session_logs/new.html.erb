@@ -28,6 +28,9 @@
     </div>
     <div class="form-contents">
       <%= form_with model: @session_log, url: room_session_logs_path(room_token: @room.token), local: true do |f| %>
+
+        <%= render 'shared/errors_messages', model: f.object %>
+
         <div class="field">
           <label>表題</label><span class="required-items"> 必須</span><br />
           <%= f.text_field :title, placeholder: "表題を入力", value: @room.room_name, class: "text_box" %>
