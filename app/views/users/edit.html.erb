@@ -1,0 +1,24 @@
+<%= render 'shared/header' %>
+
+<div class="outer-form-wrap">
+  <div class="form-wrap">
+    <div class="form-title">
+      ユーザー情報変更
+    </div>
+    <div class="form-contents">
+      <%= form_with model: current_user, local: true do |f| %>
+        <div class="field">
+          <label>ユーザー名</label><span class="required-items"> 必須</span><br />
+          <%= f.text_field :name, placeholder: "ユーザー名を入力", value: current_user.name, class: "text_box" %>
+        </div>
+        <div class="field">
+          <label>メールアドレス</label><span class="required-items"> 必須</span><br />
+          <%= f.email_field :email, placeholder: "メールアドレスを入力", value: current_user.email, class: "text_box" %>
+        </div><br />
+        <div>
+          <%= f.submit "情報変更", class: "room-btn" %>
+        </div><br />
+      <% end %>
+    </div>
+  </div>
+</div>

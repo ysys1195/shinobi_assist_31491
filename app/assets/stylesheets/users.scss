@@ -3,12 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .user-info-wrap{
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #000000;
   width: 500px;
   min-height: 200px;
   height: auto;
   border-radius: 5px;
-  box-shadow: 1px 1px 5px white;
+  box-shadow: 0 0 5px white;
   margin: 10px calc(50% - 250px);
   padding: 10px;
   color: white;
@@ -16,22 +16,25 @@
 
 .user-info-title{
   border-bottom: solid 1px white;
-  margin: 10px 0;
+  margin: 10px 5%;
 }
 
 .user_info{
   font-size: 25px;
+  margin-left: 5%;
   text-shadow: 1px 1px 3px red;
 }
 
 .change-user-btn{
-  height: 40px;
+  height: 45px;
   width: 200px;
-  background: linear-gradient(#696969, gray, silver);
+  background: linear-gradient(#696969, gray, silver, #696969);
   font-size: 20px;
   margin: 30px calc(50% - 100px);
   padding: 5px 15px;
   border-radius: 20px;
+  border: solid 2px black;
+  box-shadow: 0 0 3px white;
 }
 
 .session-logs{
@@ -44,6 +47,7 @@
   justify-content: space-between;
 }
 
+// 巻物CSS（他サイト様参考）
 .log-link {
   position: relative;
   font-size: 20px;
@@ -78,8 +82,15 @@
   height: calc(100% + 40px);
   background: linear-gradient(to left, #00552e, #69b076 55%, #00552e);
 }
+// 巻物CSS（他サイト様参考）
 
 .session-log-info{
   border-bottom: 1px solid gray;
   font-size: 15px;
+}
+
+.no-session-log{
+  height: 100px;
+  padding: 20px;
+  font-size: 20px;
 }

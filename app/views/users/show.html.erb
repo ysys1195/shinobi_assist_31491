@@ -2,6 +2,9 @@
 
 <div class="outer-form-wrap">
   <div class="user-info-wrap">
+    <div class="form-title">
+      ユーザー情報
+    </div><br />
     <div class="user-info-title">ユーザー名</div>
     <div class="user_info">
       <%= current_user.name %>
@@ -10,20 +13,24 @@
     <div class="user_info">
       <%= current_user.email %>
     </div>
-    <div class="change-user-btn"><%= link_to 'ユーザー情報変更', "#" %></div>
+    <div class="change-user-btn"><%= link_to 'ユーザー情報変更', edit_user_path(current_user.id) %></div>
   </div><br />
   <div class="form-wrap">
     <div class="form-title">
       セッション履歴
     </div>
     <div class="session-log-list">
-      <% @session_logs.each do |s| %>
-        <div class="log-link">
-          <div class="session-log-info">表題</div>
-          <%= s.title %><br /><br />
-          <div class="session-log-info">履歴作成日</div>
-          <%= s.created_at.strftime("%Y年%m月%d日") %>
-        </div>
+      <% unless @session_logs[0].nil? %>
+        <% @session_logs.each do |s| %>
+          <div class="log-link">
+            <div class="session-log-info">表題</div>
+            <%= s.title %><br /><br />
+            <div class="session-log-info">履歴作成日</div>
+            <%= s.created_at.strftime("%Y年%m月%d日") %>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="no-session-log">セッション履歴がまだありません。</div>
       <% end %>
     </div>
   </div>
