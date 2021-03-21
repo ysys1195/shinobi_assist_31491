@@ -7,6 +7,7 @@ class SessionLogsController < ApplicationController
   end
 
   def create
+    @characters = Character.where(room_id: @room.id)
     @session_log = SessionLog.new(session_log_params)
     if @session_log.save
       redirect_to user_path(current_user.id)
