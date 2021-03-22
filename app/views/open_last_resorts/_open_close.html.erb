@@ -3,7 +3,7 @@
       @role == selected_char.pc_number %>
   <div class="bubble-list">
     <button class="unveiled", data-target="unveil-lr<%=num%>-<%=lr.last_resort_n%>"><%= "奥義#{lr.last_resort_n}" %></button>
-    <%= render "open_last_resorts/open_last_resort", num: num, lr: lr %>
+    <%= render "open_last_resorts/open_last_resort", num: num, name: selected_char.character_name, lr: lr %>
 
     <%# 奥義編集モーダル表示 %>
     <% if @role == 200 %>
