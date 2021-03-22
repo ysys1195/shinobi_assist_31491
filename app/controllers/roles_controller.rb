@@ -13,7 +13,7 @@ class RolesController < ApplicationController
       @enter_room.save(@room)
       redirect_to room_path(token: @room.token)
     else
-      flash[:error] = @enter_room.errors.full_messages
+      flash[:error] = @enter_room.errors
       redirect_to root_path
     end
   end

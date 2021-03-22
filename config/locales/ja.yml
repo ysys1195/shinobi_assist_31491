@@ -1,0 +1,44 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: ユーザー名
+      room:
+        room_name: 部屋名
+        player_number: PC人数
+        password: パスワード
+        password_confirmation: パスワード確認
+      enter_room:
+        role: PC番号
+      character:
+        character_name: キャラクター名
+        pc_number: PC番号
+      role:
+        role: PC番号
+      session_log:
+        title: 表題
+        log: セッション内容
+      secret:
+        secret: 秘密
+        secret_n: 秘密番号
+      open_secret:
+        secret_unveil_to: 秘密公開相手
+        unveiled_id: 公開非公開
+      last_resort:
+        last_resort: 奥義
+        last_resort_n: 奥義番号
+      open_last_resort:
+        lr_unveil_to: 奥義公開相手
+        unveiled_id: 公開非公開
+      condition:
+        state_id: 変調
+      feeling:
+        feeling_to: 感情を結ぶ相手
+        feel_id: 感情
+
+  rooms:
+    index:
+      roleを入力してください: PC番号を入力してください
+      token: 招待コード
+      password: パスワード
+    show:

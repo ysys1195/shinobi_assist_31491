@@ -12,17 +12,17 @@ RSpec.describe Condition, type: :model do
     it 'state_idが空だと保存されない' do
       @condition.state_id = ''
       @condition.valid?
-      expect(@condition.errors.full_messages).to include('State is not a number')
+      expect(@condition.errors.full_messages).to include('変調は数値で入力してください')
     end
     it 'state_idが1だと保存されない' do
       @condition.state_id = 1
       @condition.valid?
-      expect(@condition.errors.full_messages).to include('State must be other than 1')
+      expect(@condition.errors.full_messages).to include('変調は1以外の値にしてください')
     end
     it 'characterに紐づいていないと保存されない' do
       @condition.character = nil
       @condition.valid?
-      expect(@condition.errors.full_messages).to include('Character must exist')
+      expect(@condition.errors.full_messages).to include('Characterを入力してください')
     end
   end
 end

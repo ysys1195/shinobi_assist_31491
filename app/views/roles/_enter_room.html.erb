@@ -1,0 +1,48 @@
+<%= form_with model: @enter_room, url: roles_path, method: :post, local: true do |f| %>
+  <div class="form-contents">
+
+    <div class="error-display">
+      <% if flash[:error] %>
+        <% flash[:error].each do |e| %>
+          <% if e.is_a?(Array) %>
+
+            <% e[1].each do |message| %>
+              <% case e[0] %>
+              <% when 'role' %>
+                <%= "PC番号#{message}" %>
+              <% when 'token' %>
+                <%= "招待コード#{message}" %>
+              <% when 'password' %>
+                <%= "パスワード#{message}" %>
+              <% else %>
+                <%= e[0] + message %>
+              <% end %>
+              <br />
+            <% end %>
+
+          <%else%>
+
+            <%= e %><br />
+
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <label>PC番号</label>(半角入力)<span class="required-items"> 必須</span><br />
+      <%= f.text_field :role, placeholder: "PC番号を入力", class: "text_box" %>
+    </div>
+    <div class="field">
+      <label>招待コード</label><span class="required-items"> 必須</span><br />
+      <%= f.text_field :token, placeholder: "招待コードを入力", class: "text_box" %>
+    </div>
+    <div class="field">
+      <label>パスワード</label><span class="required-items"> 必須</span><br />
+      <%= f.text_field :password, placeholder: "部屋のパスワードを入力", class: "text_box" %>
+    </div><br /><br />
+    <div>
+      <%= f.submit "部屋入室", class: "room-btn" %>
+    </div><br />
+  </div>
+<% end %>

@@ -11,11 +11,11 @@
             <ul>
             <% flash[:error].each do |message| %>
               <% case message %>
-              <% when "Character name can't be blank" %>
+              <% when "Character nameを入力してください" %>
               <li><%= "キャラクター名を入力してください。" %></li>
-              <% when "Secret can't be blank" %>
+              <% when "Secretを入力してください" %>
               <li><%= "秘密を入力してください。" %></li>
-              <% when "Last resort can't be blank" %>
+              <% when "Last resortを入力してください" %>
               <li><%= "奥義を入力してください。" %></li>
               <% end %>
             <% end %>

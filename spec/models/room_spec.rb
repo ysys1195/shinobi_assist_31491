@@ -14,45 +14,45 @@ RSpec.describe Room, type: :model do
       it 'room_nameが存在しなければ部屋が作成されない' do
         @room.room_name = ''
         @room.valid?
-        expect(@room.errors.full_messages).to include("Room name can't be blank")
+        expect(@room.errors.full_messages).to include('部屋名を入力してください')
       end
       it 'player_numberが存在しなければ部屋が作成されない' do
         @room.player_number = ''
         @room.valid?
-        expect(@room.errors.full_messages).to include("Player number can't be blank")
+        expect(@room.errors.full_messages).to include('PC人数を入力してください', 'PC人数は数値で入力してください')
       end
       it 'player_numberが2未満だと部屋が作成されない' do
         @room.player_number = 1
         @room.valid?
-        expect(@room.errors.full_messages).to include('Player number must be greater than or equal to 2')
+        expect(@room.errors.full_messages).to include('PC人数は2以上の値にしてください')
       end
       it 'player_numberが9以上だと部屋が作成されない' do
         @room.player_number = 9
         @room.valid?
-        expect(@room.errors.full_messages).to include('Player number must be less than or equal to 8')
+        expect(@room.errors.full_messages).to include('PC人数は8以下の値にしてください')
       end
       it 'passwordが存在しなければ部屋が作成されない' do
         @room.password = nil
         @room.password_confirmation = nil
         @room.valid?
-        expect(@room.errors.full_messages).to include("Password can't be blank")
+        expect(@room.errors.full_messages).to include('パスワードを入力してください')
       end
       it 'passwordが4文字未満だと部屋が作成されない' do
         @room.password = 'a1b'
         @room.password_confirmation = 'a1b'
         @room.valid?
-        expect(@room.errors.full_messages).to include('Password is too short (minimum is 4 characters)')
+        expect(@room.errors.full_messages).to include('パスワードは4文字以上で入力してください')
       end
       it 'password_confirmationとpasswordが一致しないと部屋が作成されない' do
         @room.password = 'aaaa'
         @room.password_confirmation = '1111'
         @room.valid?
-        expect(@room.errors.full_messages).to include("Password confirmation doesn't match Password")
+        expect(@room.errors.full_messages).to include('パスワード確認とパスワードの入力が一致しません')
       end
       it 'userが紐づいてないと部屋が作成されない' do
         @room.user = nil
         @room.valid?
-        expect(@room.errors.full_messages).to include('User must exist')
+        expect(@room.errors.full_messages).to include('Userを入力してください')
       end
     end
   end

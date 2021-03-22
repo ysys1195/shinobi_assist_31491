@@ -12,17 +12,17 @@ RSpec.describe Secret, type: :model do
     it 'secret_nが空だと保存されない' do
       @secret.secret_n = ''
       @secret.valid?
-      expect(@secret.errors.full_messages).to include("Secret n can't be blank")
+      expect(@secret.errors.full_messages).to include('秘密番号を入力してください')
     end
     it 'secretが空だと保存されない' do
       @secret.secret = ''
       @secret.valid?
-      expect(@secret.errors.full_messages).to include("Secret can't be blank")
+      expect(@secret.errors.full_messages).to include('秘密を入力してください')
     end
     it 'characterと紐づいていないと保存されない' do
       @secret.character = nil
       @secret.valid?
-      expect(@secret.errors.full_messages).to include('Character must exist')
+      expect(@secret.errors.full_messages).to include('Characterを入力してください')
     end
   end
 end
