@@ -12,22 +12,22 @@ RSpec.describe OpenLastResort, type: :model do
     it 'lr_unveil_toが空だと保存されない' do
       @open_last_resort.lr_unveil_to = ''
       @open_last_resort.valid?
-      expect(@open_last_resort.errors.full_messages).to include("Lr unveil to can't be blank")
+      expect(@open_last_resort.errors.full_messages).to include('奥義公開相手を入力してください')
     end
     it 'unveiled_idが空だと保存されない' do
       @open_last_resort.unveiled_id = ''
       @open_last_resort.valid?
-      expect(@open_last_resort.errors.full_messages).to include("Unveiled can't be blank")
+      expect(@open_last_resort.errors.full_messages).to include('公開非公開を入力してください', '公開非公開は一覧にありません')
     end
     it 'unveiled_idが1か2以外だと保存されない' do
       @open_last_resort.unveiled_id = 3
       @open_last_resort.valid?
-      expect(@open_last_resort.errors.full_messages).to include('Unveiled is not included in the list')
+      expect(@open_last_resort.errors.full_messages).to include('公開非公開は一覧にありません')
     end
     it 'last_resortが紐づいていないと保存できない' do
       @open_last_resort.last_resort = nil
       @open_last_resort.valid?
-      expect(@open_last_resort.errors.full_messages).to include('Last resort must exist')
+      expect(@open_last_resort.errors.full_messages).to include('Last resortを入力してください')
     end
   end
 end

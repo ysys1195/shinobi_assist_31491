@@ -12,17 +12,17 @@ RSpec.describe Character, type: :model do
     it 'character_nameが空だと保存できない' do
       @character.character_name = ''
       @character.valid?
-      expect(@character.errors.full_messages).to include("Character name can't be blank")
+      expect(@character.errors.full_messages).to include('キャラクター名を入力してください')
     end
     it 'pc_numberが空だと保存できない' do
       @character.pc_number = ''
       @character.valid?
-      expect(@character.errors.full_messages).to include("Pc number can't be blank")
+      expect(@character.errors.full_messages).to include('PC番号を入力してください')
     end
     it 'roomと紐づいていないと保存できない' do
       @character.room = nil
       @character.valid?
-      expect(@character.errors.full_messages).to include('Room must exist')
+      expect(@character.errors.full_messages).to include('Roomを入力してください')
     end
   end
 end

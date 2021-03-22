@@ -12,22 +12,22 @@ RSpec.describe SessionLog, type: :model do
     it 'titleが空だと保存されない' do
       @session_log.title = ''
       @session_log.valid?
-      expect(@session_log.errors.full_messages).to include("Title can't be blank")
+      expect(@session_log.errors.full_messages).to include('表題を入力してください')
     end
     it 'logが空だと保存されない' do
       @session_log.log = ''
       @session_log.valid?
-      expect(@session_log.errors.full_messages).to include("Log can't be blank")
+      expect(@session_log.errors.full_messages).to include('セッション内容を入力してください')
     end
     it 'userと紐づいていないと保存されない' do
       @session_log.user = nil
       @session_log.valid?
-      expect(@session_log.errors.full_messages).to include('User must exist')
+      expect(@session_log.errors.full_messages).to include('Userを入力してください')
     end
     it 'roomと紐づいていないと保存されない' do
       @session_log.room = nil
       @session_log.valid?
-      expect(@session_log.errors.full_messages).to include('Room must exist')
+      expect(@session_log.errors.full_messages).to include('Roomを入力してください')
     end
   end
 end

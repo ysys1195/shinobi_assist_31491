@@ -12,12 +12,12 @@ RSpec.describe Role, type: :model do
     it 'userと紐づいていないと保存されない' do
       @role.user = nil
       @role.valid?
-      expect(@role.errors.full_messages).to include('User must exist')
+      expect(@role.errors.full_messages).to include('Userを入力してください')
     end
     it 'roomと紐づいていないと保存されない' do
       @role.room = nil
       @role.valid?
-      expect(@role.errors.full_messages).to include('Room must exist')
+      expect(@role.errors.full_messages).to include('Roomを入力してください')
     end
   end
 end

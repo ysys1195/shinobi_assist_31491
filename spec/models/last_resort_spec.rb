@@ -12,17 +12,17 @@ RSpec.describe LastResort, type: :model do
     it 'last_resort_nが空だと保存できない' do
       @last_resort.last_resort_n = ''
       @last_resort.valid?
-      expect(@last_resort.errors.full_messages).to include("Last resort n can't be blank")
+      expect(@last_resort.errors.full_messages).to include('奥義番号を入力してください')
     end
     it 'last_resortが空だと保存できない' do
       @last_resort.last_resort = ''
       @last_resort.valid?
-      expect(@last_resort.errors.full_messages).to include("Last resort can't be blank")
+      expect(@last_resort.errors.full_messages).to include('奥義を入力してください')
     end
     it 'characterと紐づいていないと保存できない' do
       @last_resort.character = nil
       @last_resort.valid?
-      expect(@last_resort.errors.full_messages).to include('Character must exist')
+      expect(@last_resort.errors.full_messages).to include('Characterを入力してください')
     end
   end
 end
