@@ -302,7 +302,7 @@
 
 .copy_invitation_code{
   height: 50px;
-  width: 200px;
+  width: 260px;
   padding: 5px;
   color: white;
   background-color: rgba(0, 0, 0, 0.7);
@@ -310,11 +310,11 @@
   margin: 10px 20px 0 0;
 }
 
-.copy-box{
+.copy-box input{
   background-color: white;
-  overflow-x: scroll;
-  overflow-y: hidden;
+  /* overflow-x: scroll;
+  overflow-y: hidden; */
   height: 20px;
   color: black;
-  margin-top: 3px;
+  width: 250px;
 }
