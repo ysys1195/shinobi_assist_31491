@@ -1,7 +1,8 @@
 .outer_status_frame{
   display: flex;
-  justify-content: space-around;
-  margin: 10vh 10vw;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 5vh 5vw;
 }
 
 .middle_status_frame{

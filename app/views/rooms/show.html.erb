@@ -1,5 +1,7 @@
 <%= render "shared/second_header"%>
+
 <div class="under_header">
+  <%# エラーメッセージ表示部分 %>
   <div class="error-display">
     <div class="js-message-errors">
       <% if flash[:error_msg] %>
@@ -7,6 +9,9 @@
       <% end %>
     </div>
   </div>
+  <%# エラーメッセージ表示部分 %>
+
+  <%# 招待コード表示 %>
   <div class="copy_invitation_code">
     <div>招待コード</div>
     <div class="copy-box">
@@ -14,27 +19,12 @@
     </div>
   </div>
 </div>
+  <%# 招待コード表示 %>
 
-<% if @room.player_number <= 4 %>
-
-  <div class="outer_status_frame">
-    <% @room.player_number.times do |num| %>
-      <%= render "char_info", num: num + 1 %>
-    <% end %>
-  </div>
-
-<% else %>
-
-  <div class="outer_status_frame">
-    <% 4.times do |num| %>
-      <%= render "char_info", num: num + 1 %>
-    <% end %>
-  </div>
-
-  <div class="outer_status_frame">
-    <% (@room.player_number - 4).times do |num| %>
-      <%= render "char_info", num: num + 5 %>
-    <% end %>
-  </div>
-
-<% end %>
+<%# キャラクター情報表示 %>
+<div class="outer_status_frame">
+  <% @room.player_number.times do |num| %>
+    <%= render "char_info", num: num + 1 %>
+  <% end %>
+</div>
+<%# キャラクター情報表示 %>
