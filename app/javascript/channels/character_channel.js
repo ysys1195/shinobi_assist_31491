@@ -14,7 +14,7 @@ consumer.subscriptions.create("CharacterChannel", {
     $(`#character-name${data.content.pc_number}`).html(
       `${data.content.character_name} (PC${data.content.pc_number})`
     );
-    console.log(`${data.content.character_name}`);
+    $(`#ecn-${data.content.pc_number}`).val(`${data.content.character_name}`);
     $('.js-message-errors').empty();
   }
 });
