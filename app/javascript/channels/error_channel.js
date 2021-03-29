@@ -10,18 +10,9 @@ consumer.subscriptions.create("ErrorChannel", {
   },
 
   received(data) {
-    const HTML = `
-    <% if data.content.errors %>
-      <div class="validates js-message-errors", style="margin-top: 20px;">
-          <ul>
-            <% data.content.errors.full_messages.each do |msg| %>
-              <li style="color: black;"><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
-    <% end %>
-    `
-    $('.js-message-errors').html(HTML);
+    data.content.forEach( function(msg) {
+      $('.js-message-errors').append(`<div style='color: black';>${msg}</div>`);
+    });
     $('.wrap-char-form').fadeOut(200);
   }
 });

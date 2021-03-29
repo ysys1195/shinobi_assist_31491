@@ -25,7 +25,7 @@ class CharactersController < ApplicationController
         flash[:error] = @char.errors.full_messages
         flash[:num] = @char.pc_number.to_i
         flash[:error_msg] = 'キャラクター名を変更できませんでした。再度入力をお願いします。'
-        ActionCable.server.broadcast 'error_channel', content: @char
+        ActionCable.server.broadcast 'error_channel', content: @char.errors.full_messages
         # format.js { render 'shared/errors' }
         # format.html { redirect_to room_path(token: @room.token) }
       end
@@ -46,3 +46,5 @@ class CharactersController < ApplicationController
     @room = Room.find_by(token: params[:room_token])
   end
 end
+
+
