@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     get 'open_last_resorts/:id', to: 'open_last_resorts#unveiled'
     resources :conditions, only: [:create, :destroy]
     resources :feelings, only: [:create, :destroy]
-    resources :session_logs, only: [:new, :create, :edit, :update]
   end
+  get 'rooms/session_logs/:room_token/new', to: 'session_logs#new'
+  resources :session_logs, only: [:create, :edit, :update]
 end
