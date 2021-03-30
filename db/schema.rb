@@ -99,10 +99,8 @@ ActiveRecord::Schema.define(version: 2021_03_18_110256) do
     t.string "title", null: false
     t.text "log", null: false
     t.bigint "user_id", null: false
-    t.bigint "room_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["room_id"], name: "index_session_logs_on_room_id"
     t.index ["user_id"], name: "index_session_logs_on_user_id"
   end
 
@@ -133,6 +131,5 @@ ActiveRecord::Schema.define(version: 2021_03_18_110256) do
   add_foreign_key "roles", "rooms"
   add_foreign_key "roles", "users"
   add_foreign_key "secrets", "characters"
-  add_foreign_key "session_logs", "rooms"
   add_foreign_key "session_logs", "users"
 end
