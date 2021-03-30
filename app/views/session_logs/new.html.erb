@@ -27,7 +27,7 @@
       履歴の作成
     </div>
     <div class="form-contents">
-      <%= form_with model: @session_log, url: room_session_logs_path(room_token: @room.token), local: true do |f| %>
+      <%= form_with model: @session_log, url: session_logs_path, local: true do |f| %>
 
         <%= render 'shared/errors_messages', model: f.object %>
 
@@ -39,6 +39,7 @@
           <label>セッション内容</label><span class="required-items"> 必須</span><br />
           <%= f.text_area :log, placeholder: "セッション内容を入力", value: text, class: "long_text_box3" %>
         </div><br />
+        <%= f.hidden_field :room_id, value: @room.id %>
         <div>
           <%= f.submit "履歴作成", class: "room-btn" %>
         </div><br />

@@ -13,7 +13,7 @@
     <ul class="nav">
       <% if user_signed_in? && @role == 200 %>
         <div class="create_playlog">
-          <li><%= link_to 'プレイ履歴作成', new_room_session_log_path(room_token: params[:token])%></li>
+          <li><%= link_to 'プレイ履歴作成', "/rooms/session_logs/#{params[:token]}/new" %></li>
         </div>
         <li><%= link_to image_tag("delete_room.png", class: "delete_room"), room_path, method: :delete,
         data: { confirm: "本当に部屋を削除してもよろしいですか？" } %></li>

@@ -6,7 +6,7 @@
       履歴の編集
     </div>
     <div class="form-contents">
-      <%= form_with model: @session_log, url: room_session_log_path(@session_log.id, room_token: @room.token), local: true do |f| %>
+      <%= form_with model: @session_log, url: session_log_path(@session_log.id), local: true do |f| %>
 
         <%= render 'shared/errors_messages', model: f.object %>
 
