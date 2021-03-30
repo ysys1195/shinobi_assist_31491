@@ -13,10 +13,15 @@
 
   <%# 招待コード表示 %>
   <div class="copy_invitation_code">
-    <div>招待コード</div>
-    <div class="copy-box">
-      <input name="code" type="text" value=<%= @room.token %> />
-    </div>
+    <% if @role == 200 %>
+      <div>招待コード</div>
+      <div class="copy-box">
+        <input name="code" type="text" value=<%= @room.token %> />
+      </div>
+    <%else %>
+      <div style="font-size: 14px; border-bottom: 1px solid white;">部屋主</div>
+      <div style="text-shadow: 1px 1px 3px red; font-size: 20px;"><%= @room.user.name%></div>
+    <% end %>
   </div>
 </div>
   <%# 招待コード表示 %>
