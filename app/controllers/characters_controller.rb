@@ -29,7 +29,13 @@ class CharactersController < ApplicationController
         # format.js { render 'shared/errors' }
         # format.html { redirect_to room_path(token: @room.token) }
       end
+<<<<<<< HEAD
     # end
+=======
+      format.html { redirect_to room_path(token: @room.token) }
+      format.js { render 'characters/char_name.js.erb' }
+    end
+>>>>>>> parent of 38546a8 (キャラクターチャネル)
   end
 
   private
