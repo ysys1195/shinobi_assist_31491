@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   has_many :rooms
   has_many :roles
+  has_many :session_logs, dependent: :destroy
 
   def self.guest
     user = User.where('email LIKE(?)', '%@shinobininja.com').order(:current_sign_in_at).first

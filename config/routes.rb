@@ -18,5 +18,5 @@ Rails.application.routes.draw do
     resources :feelings, only: [:create, :destroy]
   end
   get 'rooms/session_logs/:room_token/new', to: 'session_logs#new'
-  resources :session_logs, only: [:create, :edit, :update]
+  resources :session_logs, only: [:create, :edit, :update, :destroy]
 end

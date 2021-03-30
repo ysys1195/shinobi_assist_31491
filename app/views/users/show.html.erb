@@ -29,7 +29,7 @@
             <%= s.created_at.strftime("%Y年%m月%d日") %>
             <div class="session-log-link">
               <div><%= link_to '編集', edit_session_log_path(s.id), class: "log-link" %></div>
-              <div><%= link_to '削除', "#", class: "log-link" %></div>
+              <div><%= link_to '削除', session_log_path(s.id), method: :delete, class: "log-link" %></div>
             </div>
           </div>
         <% end %>

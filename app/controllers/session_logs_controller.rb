@@ -30,6 +30,12 @@ class SessionLogsController < ApplicationController
     end
   end
 
+  def destroy
+    @session_log = SessionLog.find(params[:id])
+    @session_log.destroy
+    redirect_to user_path(current_user.id)
+  end
+
   private
 
   def session_log_params
