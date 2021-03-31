@@ -7,6 +7,7 @@
 
 .create_playlog{
   height: 35px;
+  width: 110px;
   padding: 5px 15px;
   font-size: 20px;
   border-radius: 5px;
@@ -26,11 +27,11 @@
 .room-name{
   margin: 10px 20px 5px;
   color: white;
-  font-size: 20px;
+  font-size: 15px;
   border-bottom: solid 1px white;
 }
 
 .room-name span{
   text-shadow: 1px 1px 5px red;
-  font-size: 35px;
+  font-size: 30px;
 }
