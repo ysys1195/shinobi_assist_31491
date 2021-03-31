@@ -83,10 +83,10 @@
         以下より、セッションルームでの「GMの操作方法」「PLの操作方法」の順に説明していきます。
       </div><br />
 
-      <div class="how-to_title">セッションルームの準備</div>
+      <div class="how-to_title">GMの操作：セッションルームの準備</div>
       <div>
         「部屋作成」の欄にて、部屋名・PC人数・パスワード・パスワード確認の項目を入力し、「部屋作成」ボタンをクリックしてください。
-        <div><%= image_tag("how_to_enter.png", class: "how-to_image") %></div>
+        <div><%= image_tag("how_to_enter.png", class: "how-to_small_image") %></div>
         パスワードはPLが部屋へ入室する際に必要になります。<br /><br />
         画面が遷移したら、キャラクターの情報を入力してください。<br />
         <div><%= image_tag("prepare_session1.png", class: "how-to_image") %></div><br />
@@ -103,7 +103,7 @@
         全てのキャラクター情報を入力し終えたら、右上に記載されている「招待コード」をコピーし、パスワード・PL番号と一緒にPLへ伝えましょう。<br /><br />
       </div>
 
-      <div class="how-to_title">セッション中の操作</div>
+      <div class="how-to_title">GMの操作：セッション中の操作</div>
       <div>
         セッション中に関わる操作は以下の通りです。<br /><br /><br />
         <span class="how-to_status">秘密・奥義・変調・感情 に共通する操作</span><br /><br />
@@ -131,6 +131,36 @@
         上部のフォームにある「誰に」で、感情を向けるPCを選択することができます。<br />
         デフォルトで自分以外のPC番号の若いPCが選択されています。<br /><br />
       </div>
+
+      <div class="how-to_title">GMの操作：セッション後の操作</div>
+      <div>
+        セッション後の操作を説明します。<br /><br />
+        <span class="how-to_status">プレイ履歴作成</span><br /><br />
+        このボタンをクリックするとプレイ履歴を作成するフォームへ遷移します。<br />
+        プレイ履歴には、部屋名と各キャラクター情報(秘密・奥義・感情)がデフォルトで記載されます。<br />
+        表題とセッション内容の修正完了後、「履歴作成」ボタンをクリックすることで、セッション履歴が作成されます。<br /><br />
+        <span class="how-to_status">部屋削除</span><br /><br />
+        このボタンをクリックすると部屋が削除されます。<br />
+        部屋が削除されると、その回のセッション履歴を作れなくなります。<br />
+      </div><br />
+
+      <div class="how-to_title">PLの操作：セッション前</div>
+      <div>
+        セッション前の操作を説明します。<br />
+        GMからPC番号・招待コード・パスワードの情報をもらってください。<br />
+        「部屋入室」の欄にて、PC番号・招待コード・パスワードの項目を入力し、「部屋入室」ボタンをクリックします。
+        <div><%= image_tag("pl_prepare_session.png", class: "how-to_small_image") %></div><br /><br />
+      </div>
+      <div class="how-to_title">PLの操作：セッション中</div>
+      <div>
+        セッション中の操作を説明します。<br /><br />
+        <span class="how-to_status">秘密・奥義・変調・感情 に共通する操作</span><br /><br />
+        各カードにマウスを重ねると、それぞれの情報を管理するための吹き出しが現れます。<br />
+        秘密と奥義に関しては、自分のPCの情報またはGMが公開した情報しか見ることができません。<br /><br />
+        以下の動画の例では、PLはPC番号1として入室し、GMはPC2の秘密をPC1に公開しています。<br />
+        <div><%= video_tag("pl_session.mp4", controls: true, muted: true, class: "how-to_image") %></div><br /><br />
+        <span class="how-to_status">変調・感情に共通する操作</span><br /><br />
+        変調と感情はGMの仕様と同じなので、「GMの操作：セッション中の操作」の「変調・感情に共通する操作」をご参照ください。<br /><br />
       <%# アプリの使い方を記載する %>
     </div><br />
   </div>

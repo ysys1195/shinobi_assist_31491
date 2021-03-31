@@ -38,6 +38,14 @@
   border: 2px solid black;
 }
 
+.how-to_small_image{
+  max-width: 500px;
+  width: 90%;
+  margin: 10px 5%;
+  box-shadow: 0 0 3px white;
+  border: 2px solid black;
+}
+
 .how-to_status{
   background-color: gray;
   border-radius: 2px;
