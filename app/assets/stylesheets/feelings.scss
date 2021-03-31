@@ -1,3 +1,31 @@
 // Place all the styles related to the feelings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* 感情の吹き出し */
+.feeling_bubble{
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  top: 0%;
+  right: 190%;
+  min-width: 250px;
+  width: auto;
+  min-height: 150px;
+  height: auto;
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+}
+
+.feeling_bubble::before{
+  position: absolute;
+  content: '';
+  height: 0;
+  width: 0;
+  border: 10px solid transparent;
+  bottom: 100%;
+  right: 10%;
+  border-bottom: 10px solid rgba(0, 0, 0, 0.7);
+}
+/* 感情の吹き出し */

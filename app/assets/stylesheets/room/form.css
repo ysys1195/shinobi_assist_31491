@@ -1,10 +1,3 @@
-.wrap-char-form{
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  display: none;
-}
-
 .form-background{
   width: 100%;
   height: 100%;
@@ -13,21 +6,6 @@
   top: 0%;
   left: 0%;
   z-index: 0;
-}
-
-.char-form{
-  width: 70%;
-  min-height: 200px;
-  height: calc(100vh - 200px);
-  margin: 100px 15%;
-  position: fixed;
-  background-color: rgba(0, 0, 0, 0.7);
-  top: 0%;
-  left: 0%;
-  border-radius: 5px;
-  z-index: 1;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 
 .long_text_box{
@@ -48,15 +26,6 @@
   border-radius: 1px;
 }
 
-.character_box{
-  background-color: white;
-  color: black;
-  padding-left: 5px;
-  height: 40px;
-  width: 100%;
-  border-radius: 2px;
-}
-
 .add-btn{
   height: 40px;
   width: 140px;
@@ -69,16 +38,6 @@
   text-align: center;
   box-shadow: 2px 2px 5px black;
   background: linear-gradient(#696969, gray, silver);
-}
-
-.hidden-item{
-  display: none;
-}
-
-.hidden-error{
-  display: none;
-  color: white;
-  font-size: 20px;
 }
 
 /* 変調と感情のフォーム */

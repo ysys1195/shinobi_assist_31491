@@ -2,6 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.actions{
+  height: 45px;
+  width: 140px;
+  font-size: 25px;
+  border-radius: 5px;
+  margin: 30px calc(50% - 70px) 10px;
+  padding-bottom: 5px;
+  border: solid 2px black;
+  color: white;
+  text-align: center;
+  box-shadow: 2px 2px 5px black;
+  background: linear-gradient(#696969, gray, silver);
+}
+
+// ユーザー情報部分
 .user-info-wrap{
   background-color: #000000;
   width: 500px;
@@ -26,26 +41,18 @@
 }
 
 .change-user-btn{
-  height: 45px;
+  height: 40px;
   width: 200px;
   background: linear-gradient(#696969, gray, silver, #696969);
   font-size: 20px;
   margin: 30px calc(50% - 100px);
-  padding: 5px 15px;
+  padding: 5px 0;
+  text-align: center;
   border-radius: 20px;
-  border: solid 2px black;
-  box-shadow: 0 0 3px white;
+  box-shadow: 0 0 2px white;
+  text-shadow: 0 0 3px black;
 }
-
-.session-logs{
-  margin: 10px;
-}
-
-.session-log-list{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
+// ユーザー情報部分
 
 // 巻物CSS（他サイト様参考）
 .session-log {
@@ -85,6 +92,17 @@
 }
 // 巻物CSS（他サイト様参考）
 
+// セッション履歴部分
+.session-logs{
+  margin: 10px;
+}
+
+.session-log-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .session-log-info{
   border-bottom: 1px solid gray;
   font-size: 15px;
@@ -111,3 +129,4 @@
   border-bottom: 2px solid black;
   box-shadow: 1px 1px 2px black;
 }
+// セッション履歴部分

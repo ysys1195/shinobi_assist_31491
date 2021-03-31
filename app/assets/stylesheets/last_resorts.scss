@@ -1,3 +1,35 @@
 // Place all the styles related to the last_resorts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* 奥義の吹き出し */
+.last_resort_bubble{
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  top: 45%;
+  right: 220%;
+  width: 300px;
+  height: 200px;
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+}
+
+.last_resort_bubble::before{
+  position: absolute;
+  content: '';
+  height: 0;
+  width: 0;
+  border: 10px solid transparent;
+  bottom: 100%;
+  right: 20%;
+  border-bottom: 10px solid rgba(0, 0, 0, 0.7);
+}
+
+.input_last_resort{
+  color: white;
+  width: 280px;
+  height: 180px;
+}
+/* 奥義の吹き出し */
