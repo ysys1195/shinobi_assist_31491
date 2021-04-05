@@ -134,7 +134,7 @@ GMの負担が大きすぎるとセッションの進行が滞ったりPLの行�
 「非公開」という文字をクリックすると「公開」という文字に切り替わり、秘密が公開される。  
 ![Animated GIF-downsized (1)](https://media.giphy.com/media/wy8Hs3u4mIxj9FQLK8/giphy.gif)
 秘密・奥義・変調・感情のカードにマウスオーバーすると、それぞれの情報一覧を見ることができる。
-![Animated GIF-downsized (1)]()
+![Animated GIF-downsized (1)](https://media.giphy.com/media/Irdvc5iG4gG1P8CDyz/giphy.gif)
 
 - 変調・感情管理機能  
 変調を選択して「追加」をクリック。  
@@ -289,4 +289,5 @@ PC番号・招待コード・パスワードの項目を入力してクリック
 - バックエンド：Ruby on Rails(6.0.0) / Ruby(2.6.5) /JavaScript
 - テスト：Rspec
 - データベース：MySQL(5.6.50) / Sequel Pro
+- インフラ：AWS
 - タスク管理：GitHub / Trello
