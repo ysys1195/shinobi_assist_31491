@@ -123,18 +123,36 @@ GMの負担が大きすぎるとセッションの進行が滞ったりPLの行�
 <img width="674" alt="how_to_enter" src="https://user-images.githubusercontent.com/73346157/113493691-bf894780-951c-11eb-8976-9ca7d8b78d9d.png">
 
 - キャラクター情報作成機能  
-https://user-images.githubusercontent.com/73346157/113493755-45a58e00-951d-11eb-9c4c-76a60b93f1c5.mp4
+「キャラクター情報を入力」をクリックし、キャラクター名・秘密・奥義を入力し、フォーム下部にある「追加」をクリック。  
+![Animated GIF-downsized (1)](https://media.giphy.com/media/psaIa4Ntd1k3okWxst/giphy.gif)
 
-- 秘密・奥義管理機能
+- 秘密・奥義管理機能  
+「秘密追加」をクリックしてフォームを開き、秘密の内容を入力して「追加」をクリック。  
+![Animated GIF-downsized (1)](https://media.giphy.com/media/u6tqmv39XBk7GVFoZM/giphy.gif)  
+内容を変更してから「編集」をクリック。  
+![Animated GIF-downsized (1)](https://media.giphy.com/media/z0FtZUNALPyC7vN89S/giphy.gif)  
+「非公開」という文字をクリックすると「公開」という文字に切り替わり、秘密が公開される。  
+![Animated GIF-downsized (1)](https://media.giphy.com/media/wy8Hs3u4mIxj9FQLK8/giphy.gif)
+秘密・奥義・変調・感情のカードにマウスオーバーすると、それぞれの情報一覧を見ることができる。
+![Animated GIF-downsized (1)]()
+
+- 変調・感情管理機能  
+変調を選択して「追加」をクリック。  
+削除するときは、該当の変調の「削除」をクリック。  
+![Animated GIF-downsized (1)](https://media.giphy.com/media/WhRyocutjnKYi3pTmW/giphy.gif)
+
+- ルーム入室機能  
+PC番号・招待コード・パスワードの項目を入力してクリック。  
+<img width="678" alt="pl_prepare_session" src="https://user-images.githubusercontent.com/73346157/113503355-529d9e00-956c-11eb-85fc-4a4f2f21d556.png">
 
 # 実装予定の機能
+- リアルタイム通信機能  
+秘密・奥義・変調・感情の情報をPL側がページを更新せずとも閲覧できる機能。
 
 # データベース設計
+![ER drawing](https://user-images.githubusercontent.com/73346157/113534694-6c8ebd80-960c-11eb-92c2-97933b62a8d5.png)
 
-# ローカルでの動作方法
-
-
-<!-- ## usersテーブル
+## usersテーブル
 
 | Column             | Type   | Options                   |
 | ------------------ | ------ | ------------------------- |
@@ -255,4 +273,20 @@ https://user-images.githubusercontent.com/73346157/113493755-45a58e00-951d-11eb-
 | user   | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :user -->
+- belongs_to :user
+
+# ローカルでの動作方法
+`% git clone https://github.com/ysys1195/shinobi_assist_31491.git`  
+`% cd shinobi_assist_31491`  
+`% bundle install`  
+`% rails db:create`  
+`% rails db:migrate`  
+`$ rails s`  
+`　→　http://localhost:3000`
+
+# 開発環境
+- フロントエンド：HTML5 / CSS / JavaScript / Jquery / Ajax
+- バックエンド：Ruby on Rails(6.0.0) / Ruby(2.6.5) /JavaScript
+- テスト：Rspec
+- データベース：MySQL(5.6.50) / Sequel Pro
+- タスク管理：GitHub / Trello
