@@ -1,20 +1,40 @@
 <%= render 'shared/header' %>
 
 <div class="outer-form-wrap">
-  <div class="user-info-wrap">
-    <div class="form-title">
-      ユーザー情報
+  <div class="upper-user-info">
+    <div class="user-info-wrap">
+      <div class="form-title">
+        ユーザー情報
+      </div><br />
+      <div class="user-info-title">ユーザー名</div>
+      <div class="user_info">
+        <%= current_user.name %>
+      </div><br>
+      <div class="user-info-title">メールアドレス</div>
+      <div class="user_info">
+        <%= current_user.email %>
+      </div>
+      <div class="change-user-btn"><%= link_to 'ユーザー情報変更', edit_user_path(current_user.id) %></div>
     </div><br />
-    <div class="user-info-title">ユーザー名</div>
-    <div class="user_info">
-      <%= current_user.name %>
-    </div><br>
-    <div class="user-info-title">メールアドレス</div>
-    <div class="user_info">
-      <%= current_user.email %>
+
+    <div class="user-room-wrap">
+      <div class="form-title">
+        ルーム情報
+      </div>
+      <div class="form-contents">
+        <% user_rooms = Room.where(user_id: current_user.id) %>
+        ルーム名をクリックすると入室できます。<br /><br /><br />
+        <% user_rooms.each do |room| %>
+          <div class="room-link">
+            <%= link_to room.room_name, room_path(token: room.token) %>
+            <%# <div class="enter_room_btn">入室</div> %>
+          </div>
+        <% end %>
+      </div>
+      <br />
     </div>
-    <div class="change-user-btn"><%= link_to 'ユーザー情報変更', edit_user_path(current_user.id) %></div>
   </div><br />
+
   <div class="form-wrap">
     <div class="form-title">
       セッション履歴
