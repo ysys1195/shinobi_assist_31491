@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, only: [:show, :edit, :update]
+
   def show
     @session_logs = SessionLog.where(user_id: current_user.id)
   end

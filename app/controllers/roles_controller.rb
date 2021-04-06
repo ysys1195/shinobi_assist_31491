@@ -1,4 +1,6 @@
 class RolesController < ApplicationController
+  before_action :authenticate_user!, only: :create
+
   def create
     @enter_room = EnterRoom.new(enter_room_params)
     if @enter_room.valid?

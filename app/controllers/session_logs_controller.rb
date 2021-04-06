@@ -1,4 +1,5 @@
 class SessionLogsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def new
     @room = Room.find_by(token: params[:room_token])

@@ -1,4 +1,6 @@
 class ConditionsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :destroy]
+
   def create
     @condition = Condition.new(condition_params)
     respond_to do |format|

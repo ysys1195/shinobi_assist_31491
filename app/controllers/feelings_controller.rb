@@ -1,4 +1,6 @@
 class FeelingsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :destroy]
+
   def create
     @feeling = Feeling.new(feeling_params)
     respond_to do |format|

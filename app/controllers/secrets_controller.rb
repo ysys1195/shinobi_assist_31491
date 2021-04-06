@@ -1,4 +1,6 @@
 class SecretsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :update]
+
   def create
     @add_secret = Secret.new(secret_params)
     respond_to do |format|

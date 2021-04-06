@@ -1,4 +1,5 @@
 class LastResortsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :update]
   before_action :find_room, only: [:create, :update]
 
   def create
