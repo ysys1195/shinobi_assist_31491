@@ -145,9 +145,13 @@ GMの負担が大きすぎるとセッションの進行が滞ったりPLの行�
 PC番号・招待コード・パスワードの項目を入力してクリック。  
 <img width="678" alt="pl_prepare_session" src="https://user-images.githubusercontent.com/73346157/113503355-529d9e00-956c-11eb-85fc-4a4f2f21d556.png">
 
+- マイページからのルーム入室機能  
+自分で作成したセッションルームから入室したいルーム名をクリック。
+![Animated GIF-downsized (1)](https://media.giphy.com/media/iMAssKGVT4cWGUaBQm/giphy.gif)
+
 # 実装予定の機能
 - リアルタイム通信機能  
-秘密・奥義・変調・感情の情報をPL側がページを更新せずとも閲覧できる機能。
+秘密・奥義・変調・感情の情報をPL側がページを更新せずとも閲覧できる機能。  
 
 # データベース設計
 ![ER drawing](https://user-images.githubusercontent.com/73346157/113534694-6c8ebd80-960c-11eb-92c2-97933b62a8d5.png)
