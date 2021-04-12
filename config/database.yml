@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: shinobi_assist_31491_production
-  username: shinobi_assist_31491
-  password: <%= ENV['SHINOBI_ASSIST_31491_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock

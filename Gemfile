@@ -60,3 +60,8 @@ gem 'devise'
 gem 'pry-rails'
 gem 'active_hash'
 gem 'rails-i18n'
+
+# Unicornをインストールする
+group :production do
+  gem 'unicorn', '5.4.1'
+end
