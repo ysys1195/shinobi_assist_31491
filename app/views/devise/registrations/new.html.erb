@@ -13,22 +13,22 @@
         <%= render "devise/shared/error_messages", resource: resource %><br />
 
         <div class="field">
-          <label>ユーザー名</label><br />
+          <label for="user_name">ユーザー名</label><br />
           <%= f.text_field :name, maxlength: "40", placeholder: "ユーザー名を入力", class: "text_box" %>
         </div>
 
         <div class="field">
-          <label>メールアドレス</label><br />
+          <label for="user_email">メールアドレス</label><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレスを入力", class: "text_box" %>
         </div>
 
         <div class="field">
-          <label>パスワード</label>(半角英数混合の6文字以上)<br />
+          <label for="user_password">パスワード</label>(半角英数混合の6文字以上)<br />
           <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワードを入力", class: "text_box" %>
         </div>
 
         <div class="field">
-          <label>パスワード確認</label><br />
+          <label for="user_password_confirmation">パスワード確認</label><br />
           <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワードをもう一度入力", class: "text_box" %>
         </div>
 
