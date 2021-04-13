@@ -15,12 +15,12 @@
         <% end %><br />
 
         <div class="field">
-          <%= f.label "メールアドレス" %><br />
+          <label for="user_email">メールアドレス</label><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレスを入力", class: "text_box" %>
         </div>
 
         <div class="field">
-          <%= f.label "パスワード" %><br />
+          <label for="user_password">パスワード</label><br />
           <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワードを入力", class: "text_box" %>
         </div>
 
