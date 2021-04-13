@@ -175,9 +175,10 @@ PC番号・招待コード・パスワードの項目を入力してクリック
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
 | room_name       | string     | null: false                    |
-| player_number   | string     | null: false                    |
+| player_number   | integer    | null: false                    |
 | password_digest | string     | null: false                    |
 | user            | references | null: false, foreign_key: true |
+| token           | string     | null: false                    |
 
 ### Association
 - belongs_to :user

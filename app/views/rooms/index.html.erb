@@ -18,25 +18,25 @@
         部屋作成
       </div>
       <div>
-        <%= form_with model: @room, local: true do |f| %>
+        <%= form_with model: @room, id: 'create-session-room', local: true do |f| %>
 
           <%= render 'shared/errors_messages', model: f.object %>
 
           <div class="form-contents">
             <div class="field">
-              <label>部屋名</label><span class="required-items"> 必須</span><br />
+              <label for="room_room_name">部屋名</label><span class="required-items"> 必須</span><br />
               <%= f.text_field :room_name, placeholder: "部屋名を入力", class: "text_box" %>
             </div>
             <div class="field">
-              <label>PC人数</label>(半角で2〜８まで入力可能)<span class="required-items"> 必須</span><br />
+              <label for="room_player_number">PC人数</label>(半角で2〜８まで入力可能)<span class="required-items"> 必須</span><br />
               <%= f.text_field :player_number, placeholder: "PCの人数を入力", class: "text_box" %>
             </div>
             <div class="field">
-              <label>パスワード</label> (４文字以上)<span class="required-items"> 必須</span><br />
+              <label for="room_password">パスワード</label> (４文字以上)<span class="required-items"> 必須</span><br />
               <%= f.text_field :password, placeholder: "パスワードを入力", class: "text_box" %>
             </div>
             <div class="field">
-              <label>パスワード確認</label> (４文字以上)<span class="required-items"> 必須</span><br />
+              <label for="room_password_confirmation">パスワード確認</label> (４文字以上)<span class="required-items"> 必須</span><br />
               <%= f.text_field :password_confirmation, placeholder: "パスワードを再度入力", class: "text_box" %>
             </div><br /><br />
             <div>
