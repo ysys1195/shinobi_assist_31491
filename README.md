@@ -6,7 +6,8 @@
 セッション中に情報が錯綜したり、セッション中のGMの負担があまりにも大きすぎたりしたこと、またキャラクター同士の関係性を記録したいということから、本アプリを作成しました。
 
 # URL
-https://shinobi-assist-31491.herokuapp.com/
+Heroku: https://shinobi-assist-31491.herokuapp.com/
+AWS: http://52.197.33.157/
 
 ### テスト用アカウント
 - GM用アカウント
@@ -294,5 +295,5 @@ PC番号・招待コード・パスワードの項目を入力してクリック
 - バックエンド：Ruby on Rails(6.0.3.6) / Ruby(2.6.5) /JavaScript
 - テスト：Rspec
 - データベース：MySQL(5.6.50) / Sequel Pro
-- インフラ：Heroku
+- インフラ：Heroku, AWS
 - タスク管理：GitHub / Trello
