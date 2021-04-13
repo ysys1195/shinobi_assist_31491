@@ -32,11 +32,11 @@
         <%= render 'shared/errors_messages', model: f.object %>
 
         <div class="field">
-          <label>表題</label><span class="required-items"> 必須</span><br />
+          <label for="session_log_title">表題</label><span class="required-items"> 必須</span><br />
           <%= f.text_field :title, placeholder: "表題を入力", value: @room.room_name, class: "text_box" %>
         </div>
         <div class="field">
-          <label>セッション内容</label><span class="required-items"> 必須</span><br />
+          <label for="session_log_log">セッション内容</label><span class="required-items"> 必須</span><br />
           <%= f.text_area :log, placeholder: "セッション内容を入力", value: text, class: "long_text_box3" %>
         </div><br />
         <%= f.hidden_field :room_id, value: @room.id %>
