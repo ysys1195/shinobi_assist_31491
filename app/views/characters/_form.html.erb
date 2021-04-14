@@ -23,15 +23,15 @@
           </div>
         <% end %>
         <div class="field">
-          <%= f.label "キャラクター名" %><span class="required-items"> 必須</span><br />
+          <label for="accn-<%=num%>">キャラクター名</label><span class="required-items"> 必須</span><br />
           <%= f.text_field :character_name, placeholder: "キャラクター名を入力", class: "character_box", id: "accn-#{num}" %>
         </div>
         <div class="field">
-          <%= f.label "秘密" %><span class="required-items"> 必須</span><br />
+          <label for="acs-<%=num%>">秘密</label><span class="required-items"> 必須</span><br />
           <%= f.text_area :secret, placeholder: "秘密を入力", class: "long_text_box", id: "acs-#{num}" %>
         </div>
         <div class="field">
-          <%= f.label "奥義" %><span class="required-items"> 必須</span><br />
+          <label for="aclr-<%=num%>">奥義</label><span class="required-items"> 必須</span><br />
           <%= f.text_area :last_resort, placeholder: "奥義を入力", class: "long_text_box2", id: "aclr-#{num}" %>
         </div>
         <%= f.hidden_field :pc_number, value: num, id: "acpn-#{num}" %>

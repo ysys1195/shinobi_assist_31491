@@ -15,7 +15,7 @@
           </div>
         <% end %>
         <div class="field">
-          <%= f.label "キャラクター名" %><br />
+          <label for="ecn-<%=num%>">キャラクター名</label><br />
           <%= f.text_field :character_name, value: selected_char.character_name, class: "character_box", id: "ecn-#{num}" %>
         </div>
         <%= f.hidden_field :pc_number, value: num, id: "ecnpn-#{num}" %>
