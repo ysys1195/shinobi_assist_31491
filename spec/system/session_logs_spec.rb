@@ -28,6 +28,14 @@ RSpec.describe "SessionLogs", type: :system do
       expect(current_path).to eq "/rooms/session_logs/#{@gm_room.token}/new"
       # ページ内にセッションルームの部屋名があることを確認する
       expect(page).to have_field '表題', with: @gm_room.room_name
+      # 履歴作成ボタンがあることを確認する
+      expect(page).to have_button('履歴作成')
+      # 送信するとSessionLogモデルのカウントが１上がることを確認する
+      expect{
+        find('input[name="commit"]').click
+      }.to change { SessionLog.count }.by(1)
+      # マイページに遷移していることを確認する
+      expect(current_path).to eq user_path(@gm_room.user)
     end
     it 'ログインしたユーザーでもroleが200以外だとセッション履歴を作成できない' do
       # ログインする
