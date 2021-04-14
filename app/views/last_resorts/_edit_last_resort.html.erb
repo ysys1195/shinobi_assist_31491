@@ -15,7 +15,7 @@
           </div>
         <% end %>
         <div class="field">
-          <%= f.label "奥義" %><span class="required-items"> 必須</span><br />
+          <label for="elrltb-<%=num%>-<%=lr.last_resort_n%>">奥義</label><span class="required-items"> 必須</span><br />
           <%= f.text_area :last_resort, placeholder: "奥義を入力", value: lr.last_resort, class: "long_text_box", id: "elrltb-#{num}-#{lr.last_resort_n}" %>
         </div>
         <%= f.hidden_field :character_id, value: selected_char.id, id: "elrci-#{num}-#{lr.last_resort_n}" %>
