@@ -25,8 +25,11 @@ class CharactersController < ApplicationController
         format.html { redirect_to room_path(token: @room.token) }
         format.js { render 'shared/errors' }
       end
-      format.html { redirect_to room_path(token: @room.token) }
-      format.js { render 'characters/char_name.js.erb' }
+
+      ActionCable.server.broadcast 'change_name_channel', character: @char
+
+      # format.html { redirect_to room_path(token: @room.token) }
+      # format.js { render 'characters/char_name.js.erb' }
     end
   end
 
