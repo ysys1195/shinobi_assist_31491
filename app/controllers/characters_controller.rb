@@ -17,20 +17,16 @@ class CharactersController < ApplicationController
 
   def update
     @char = Character.find(params[:id])
-    respond_to do |format|
       unless @char.update(character_params)
         flash[:error] = @char.errors.full_messages
         flash[:num] = @char.pc_number.to_i
         flash[:error_msg] = 'キャラクター名を変更できませんでした。再度入力をお願いします。'
-        format.html { redirect_to room_path(token: @room.token) }
-        format.js { render 'shared/errors' }
+        render 'shared/errors'
+      else
+        flash[:error] = nil
+        flash[:error_msg] = nil
+        ActionCable.server.broadcast 'change_name_channel', character: @char
       end
-
-      ActionCable.server.broadcast 'change_name_channel', character: @char
-
-      # format.html { redirect_to room_path(token: @room.token) }
-      # format.js { render 'characters/char_name.js.erb' }
-    end
   end
 
   private
