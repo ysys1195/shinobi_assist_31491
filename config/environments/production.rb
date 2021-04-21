@@ -110,7 +110,13 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
+  # Herokuデプロイ用の設定
   ActionCable.server.config.disable_request_forgery_protection = true
   config.action_cable.url = "wss://shinobi-assist-31491.herokuapp.com/cable" 
   config.action_cable.allowed_request_origins = ['https://shinobi-assist-31491.herokuapp.com', 'http://shinobi-assist-31491.herokuapp.com']
+
+  # AWSデプロイ用の設定
+  ActionCable.server.config.disable_request_forgery_protection = true
+  config.action_cable.url = "ws://http://52.197.33.157/cable" 
+  config.action_cable.allowed_request_origins = ['http://http://52.197.33.157']
 end
