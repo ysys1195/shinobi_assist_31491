@@ -6,7 +6,7 @@
 セッション中に情報が錯綜したり、セッション中のGMの負担があまりにも大きすぎたりしたこと、またキャラクター同士の関係性を記録したいということから、本アプリを作成しました。
 
 # URL
-Heroku: https://shinobi-assist-31491.herokuapp.com/
+Heroku: https://shinobi-assist-31491.herokuapp.com/  
 AWS: http://52.197.33.157/
 
 ### テスト用アカウント
