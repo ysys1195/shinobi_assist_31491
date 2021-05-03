@@ -1,3 +1,14 @@
+# 開発環境
+- フロントエンド：HTML5 / CSS / JavaScript / Jquery / Ajax
+- バックエンド：Ruby on Rails(6.0.3.6) / Ruby(2.6.5) /JavaScript
+- テスト：Rspec
+- データベース：MySQL(5.6.50) / Sequel Pro
+- インフラ：Heroku, AWS
+- タスク管理：GitHub / Trello
+
+# データベース設計
+![ER drawing](https://user-images.githubusercontent.com/73346157/113534694-6c8ebd80-960c-11eb-92c2-97933b62a8d5.png)
+
 # アプリケーション名
 ![title](https://user-images.githubusercontent.com/73346157/113313813-9616c300-9346-11eb-84c5-1a17864bf741.png)
 
@@ -159,9 +170,6 @@ PC番号・招待コード・パスワードの項目を入力してクリック
 - リアルタイム通信機能  
 秘密・奥義・変調・感情の情報をPL側がページを更新せずとも閲覧できる機能。  
 
-# データベース設計
-![ER drawing](https://user-images.githubusercontent.com/73346157/113534694-6c8ebd80-960c-11eb-92c2-97933b62a8d5.png)
-
 ## usersテーブル
 
 | Column             | Type   | Options                   |
@@ -295,10 +303,3 @@ PC番号・招待コード・パスワードの項目を入力してクリック
 `$ rails s`  
 `　→　http://localhost:3000`
 
-# 開発環境
-- フロントエンド：HTML5 / CSS / JavaScript / Jquery / Ajax
-- バックエンド：Ruby on Rails(6.0.3.6) / Ruby(2.6.5) /JavaScript
-- テスト：Rspec
-- データベース：MySQL(5.6.50) / Sequel Pro
-- インフラ：Heroku, AWS
-- タスク管理：GitHub / Trello
