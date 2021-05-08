@@ -12,6 +12,8 @@
   <% error = @condition %>
 <% elsif @feeling %>
   <% error = @feeling %>
+<% elsif @room_name %>
+  <% error = @room_name %>
 <% end %>
 
 $('.js-message-errors').replaceWith(

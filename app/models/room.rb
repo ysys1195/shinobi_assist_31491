@@ -7,7 +7,7 @@ class Room < ApplicationRecord
     validates :room_name
     validates :player_number, numericality: { greater_than_or_equal_to: 2, less_than_or_equal_to: 8 }
   end
-  validates :password, length: { minimum: 4 }
+  # validates :password, length: { minimum: 4 }
   belongs_to :user
   has_many :characters, dependent: :destroy
   has_many :roles, dependent: :destroy

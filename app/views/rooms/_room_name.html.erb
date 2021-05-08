@@ -18,6 +18,7 @@
           <label for="">部屋名</label><span class="required-items"> 必須</span><br />
           <%= f.text_field :room_name, placeholder: "部屋名を入力", value: room.room_name, class: "character_box" %>
         </div>
+        <%= f.hidden_field :password, value: "hogefuga" %>
       </div>
       <button class="add-btn">
         <%= f.submit "編集" %>

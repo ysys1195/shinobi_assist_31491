@@ -43,6 +43,14 @@ class RoomsController < ApplicationController
   def update
     @room_name = Room.find_by(token: params[:token])
     # respond_to do |format|
+      if @room_name.update(edit_room_name)
+        render 'rooms/edit_room_name'
+        # format.js { render 'rooms/edit_room_name' }
+      else
+        flash[:error] = @room_name.errors.full_messages
+        render 'shared/errors'
+        # format.js { render 'shared/errors' }
+      end
     # end
   end
 
@@ -59,5 +67,9 @@ class RoomsController < ApplicationController
 
   def find_room
     @room = Room.find_by(token: params[:token])
+  end
+
+  def edit_room_name
+    params.require(:room).permit(:room_name).merge(player_number: @room_name.player_number, user_id: current_user.id)
   end
 end
