@@ -1,6 +1,6 @@
 const charForm = $(() => {
   // PC情報入力ボタン / PC情報編集ボタン/ 感情と変調の追加ボタン のクリック時
-  $('.input_char_info, .character_name, .add-charinfo-btn, .edit-charinfo-btn').each(function() {
+  $('.input_char_info, .character_name, .add-charinfo-btn, .edit-charinfo-btn, .room_name_btn').each(function() {
     $(this).on('click', function() {
       const target = $(this).data('target');
       const modal = document.getElementById(target);

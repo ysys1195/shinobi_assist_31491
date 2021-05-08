@@ -40,6 +40,12 @@ class RoomsController < ApplicationController
     @open_last_resorts = OpenLastResort.where(last_resort_id: @last_resorts.ids)
   end
 
+  def update
+    @room_name = Room.find_by(token: params[:token])
+    # respond_to do |format|
+    # end
+  end
+
   def destroy
     @room.destroy
     redirect_to root_path

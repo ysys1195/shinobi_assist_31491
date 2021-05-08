@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   root to: 'rooms#index'
   resources :users, only: [:show, :edit, :update]
   resources :roles, only: [:create]
-  resources :rooms, only: [:create, :show, :destroy], param: :token do
+  resources :rooms, only: [:create, :show, :update, :destroy], param: :token do
     resources :characters, only: [:create, :update]
     resources :secrets, only: [:create, :update]
     resources :open_secrets, only: [:update]

@@ -1,0 +1,27 @@
+<div class="wrap-char-form" id="edit-room-name">
+  <div class="form-background"></div>
+  <div class="condition-feeling-form">
+    <% @room_name = room %>
+    <%= form_with model: @room_name, url: room_path(token: room.token), method: :patch do |f| %>
+      <div class="form-title">
+        部屋名の編集
+      </div>
+      <div class="form-contents">
+        <% if flash[:error] %>
+          <div class="error-msg">
+            <ul>
+              <li><%= "部屋名を入力してください。" %></li>
+            </ul>
+          </div>
+        <% end %>
+        <div class="field">
+          <label for="">部屋名</label><span class="required-items"> 必須</span><br />
+          <%= f.text_field :room_name, placeholder: "部屋名を入力", value: room.room_name, class: "character_box" %>
+        </div>
+      </div>
+      <button class="add-btn">
+        <%= f.submit "編集" %>
+      </button>
+    <% end %>
+  </div>
+</div>
