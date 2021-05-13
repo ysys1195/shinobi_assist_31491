@@ -4,7 +4,7 @@
   </div>
   <div class="feeling_bubble", id="feeling-info<%= num %>">
     <div class="char-lower-display">
-      <button class="add-charinfo-btn", data-target="add-feeling<%= num %>">
+      <button class="add-charinfo-btn modal_form", data-target="add-feeling<%= num %>">
         追加/削除
       </button>
       <%= render "feelings/feeling_form", num: num, token: @room.token, selected_char: selected_char %>

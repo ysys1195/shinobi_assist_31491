@@ -7,7 +7,7 @@
 
     <%# 秘密編集モーダル表示 %>
     <% if @role == 200 %>
-      <button class="edit-charinfo-btn", data-target="edit-secret<%= num %>-<%= s.secret_n %>">編集</button>
+      <button class="edit-charinfo-btn modal_form", data-target="edit-secret<%= num %>-<%= s.secret_n %>">編集</button>
       <%= render "secrets/edit_secret", num: num, token: @room.token, selected_char: selected_char, s: s %>
     <% end %>
     <%# 秘密編集モーダル表示 %>

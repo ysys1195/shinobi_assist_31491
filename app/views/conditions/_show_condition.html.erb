@@ -4,7 +4,7 @@
   </div>
   <div class="condition_bubble", id="condition-info<%= num %>">
     <div class="char-lower-display">
-      <button class="add-charinfo-btn", data-target="add-condition<%= num %>">
+      <button class="add-charinfo-btn modal_form", data-target="add-condition<%= num %>">
         追加/削除
       </button>
       <%= render "conditions/condition_form", num: num, token: @room.token, selected_char: selected_char %>

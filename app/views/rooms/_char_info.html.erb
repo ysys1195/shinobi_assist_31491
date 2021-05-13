@@ -12,7 +12,7 @@
     
     <div class="lower_status_frame">
       <% if @role == 200 %>
-        <button class="input_char_info", data-target="form-bg<%= num %>">
+        <button class="input_char_info modal_form", data-target="form-bg<%= num %>">
           キャラクター情報を入力
         </button>
         <%= render "characters/form", num: num, token: @room.token %>

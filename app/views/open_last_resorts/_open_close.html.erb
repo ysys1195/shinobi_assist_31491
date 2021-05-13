@@ -7,7 +7,7 @@
 
     <%# 奥義編集モーダル表示 %>
     <% if @role == 200 %>
-      <button class="edit-charinfo-btn", data-target="edit-last-resort<%=num%>-<%=lr.last_resort_n%>">編集</button>
+      <button class="edit-charinfo-btn modal_form", data-target="edit-last-resort<%=num%>-<%=lr.last_resort_n%>">編集</button>
       <%= render 'last_resorts/edit_last_resort', num: num, token: @room.token, selected_char: selected_char, lr: lr %>
     <% end %>
   </div>
