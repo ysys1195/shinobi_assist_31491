@@ -3,17 +3,17 @@
 <header>
   <div class="main-left-2header">
     <%= link_to image_tag("title.png", class: "app-title"), root_path %>
-    <% if @room%>
       <div class="room-name">部屋名<br />
         <button data-target="edit-room-name", class="room_name_btn modal_form"><%= @room.room_name %></button>
-        <%= render "rooms/room_name", room: @room %>
+        <% if @role == 200 %>
+          <%= render "rooms/room_name", room: @room %>
+        <% end %>
       </div>
-    <% end %>
   </div>
 
   <div class="main-right-header">
     <ul class="nav">
-      <% if user_signed_in? && @role == 200 %>
+      <% if @role == 200 %>
         <div class="create_playlog">
           <li><%= link_to '履歴作成', "/rooms/session_logs/#{params[:token]}/new" %></li>
         </div>
