@@ -158,7 +158,7 @@
   padding: 10px 5px;
   font-size: 17px;
   color: white;
-  white-space: normal;
+  white-space: pre-line;
   overflow-y: scroll;
   overflow-x: hidden;
 }
